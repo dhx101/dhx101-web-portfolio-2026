@@ -65,3 +65,9 @@ web sin dar ningún error: una regla dentro de `@media` promovida a global dejó
 menú de escritorio oculto, y una propiedad declarada dos veces en la misma regla
 invirtió el ganador de la cascada al extraer una de las dos a una clase. Ninguna
 comprobación estática los detectó; el navegador los detectó los dos.
+
+Las copias necesitan también los `.js` de `assets/js/` al lado, y los `src`
+reescritos a relativos: parte del render depende de que ese JS corra (el
+conmutador de idioma, por ejemplo, colorea la opción activa). El comparador
+ignora `script`, `style` y `link` al recorrer el DOM, así que mover un script de
+inline a externo no desplaza los índices del árbol.

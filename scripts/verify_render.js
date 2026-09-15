@@ -33,7 +33,11 @@ async function snapshot(page, file, [w, h]) {
       const cs = getComputedStyle(el), o = {};
       for (const prop of PROPS) o[prop] = cs.getPropertyValue(prop);
       out[p] = o;
-      [...el.children].forEach((c, i) => walk(c, `${p}/${c.tagName.toLowerCase()}[${i}]`));
+      // Se ignoran los elementos que no pintan nada: así mover un <script> de
+      // inline a externo no desplaza los índices de todo el árbol.
+      const NO_PINTAN = new Set(['SCRIPT','STYLE','LINK','NOSCRIPT','TEMPLATE','META','TITLE']);
+      [...el.children].filter(c => !NO_PINTAN.has(c.tagName))
+        .forEach((c, i) => walk(c, `${p}/${c.tagName.toLowerCase()}[${i}]`));
     };
     walk(document.body, 'body');
     return out;
