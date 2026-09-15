@@ -27,7 +27,8 @@ PAGE_STYLE = """
 .blog-list-item{padding:32px;display:flex;flex-direction:column;gap:8px}
 .blog-list-item .blog-date{font-family:"JetBrains Mono";font-size:0.85em;color:var(--bricks-color-dhx001)}
 .blog-list-item img{width:100%;max-height:260px;object-fit:cover;border-radius:8px;margin-bottom:8px}
-.blog-post{max-width:760px;display:flex;flex-direction:column;gap:24px}
+.blog-post{display:flex;flex-direction:column;gap:24px}
+.back-link{display:inline-flex;align-items:center;gap:6px;width:max-content;padding-left:20px;padding-right:20px}
 .blog-post-header{display:flex;flex-direction:column;gap:12px;margin-bottom:16px}
 .blog-post-header h1{line-height:1.25}
 .blog-post-header .blog-date{font-family:"JetBrains Mono";font-size:0.85em;color:var(--bricks-color-dhx001)}
