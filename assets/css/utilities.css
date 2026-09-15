@@ -1,0 +1,27 @@
+/* Utilidades atómicas de layout, extraídas de las reglas por ID de Bricks.
+   Una propiedad por clase: el valor computado es idéntico al anterior.
+   Las declaraciones en conflicto con reglas de especificidad >10 se dejaron
+   deliberadamente en su regla original. */
+.absolute{position:absolute}
+.flex{display:flex}
+.flex-col{flex-direction:column}
+.flex-row{flex-direction:row}
+.font-bold{font-weight:700}
+.gap-12{column-gap:12px;row-gap:12px}
+.gap-16{column-gap:16px;row-gap:16px}
+.gap-24{column-gap:24px;row-gap:24px}
+.gap-8{column-gap:8px;row-gap:8px}
+.grid{display:grid}
+.h-full{height:100%}
+.hidden{display:none}
+.items-center{align-items:center}
+.items-end{align-items:flex-end}
+.items-initial{align-items:initial}
+.justify-between{justify-content:space-between}
+.justify-end{justify-content:flex-end}
+.relative{position:relative}
+.text-accent-c{color:var(--color-accent)}
+.text-center{text-align:center}
+.text-heading{color:var(--color-heading)}
+.uppercase{text-transform:uppercase}
+.w-full{width:100%}
