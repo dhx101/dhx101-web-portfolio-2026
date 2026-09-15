@@ -116,20 +116,26 @@ def build_head(title, description, path):
     return h
 
 
+# The homepage's own section anchors. On a generated page these must become
+# "/#..." so they navigate home first; the skip-links (#brx-content,
+# #brx-footer) exist on every page and are deliberately left alone.
+HOME_ANCHORS = ("sobre-mi", "servicios", "proyectos", "stack", "contacto")
+
+
 def build_header(prefix, active):
     h = HEADER
     # cross-page anchors need "/#..." instead of "#..." so smooth-scroll JS (which
     # only targets same-page "#" links) doesn't try to intercept them
     if prefix:
-        h = re.sub(r'href="#(brxe-[a-z]+)"', r'href="/#\1"', h)
+        h = re.sub(r'href="#(' + "|".join(HOME_ANCHORS) + r')"', r'href="/#\1"', h)
     # index.html's header already carries the extra nav links (added directly);
     # only inject them here if they're missing, so re-running this script stays idempotent
     if "Más_Proyectos" in h:
         return h
     h = h.replace(
-        '<a id="brxe-hvforz" class="brxe-text-link label text-blue underline" href="%sbrxe-nmkeca" data-brx-anchor="true">Proyectos_Reales</a>'
+        '<a id="brxe-hvforz" class="brxe-text-link label text-blue underline" href="%sproyectos" data-brx-anchor="true">Proyectos_Reales</a>'
         % ("/#" if prefix else "#"),
-        '<a id="brxe-hvforz" class="brxe-text-link label text-blue underline" href="%sbrxe-nmkeca" data-brx-anchor="true">Proyectos_Reales</a>%s'
+        '<a id="brxe-hvforz" class="brxe-text-link label text-blue underline" href="%sproyectos" data-brx-anchor="true">Proyectos_Reales</a>%s'
         % ("/#" if prefix else "#", NAV_EXTRA),
     )
     return h

@@ -34,4 +34,4 @@ Es exactamente el problema que me llevó a construir el [Web Client Portal](http
 
 ### ¿Tu web lleva tiempo sin revisión?
 
-Hago auditorías de mantenimiento y dejo el sitio actualizado y monitorizado. [Contáctame](/#brxe-vzfdra).
+Hago auditorías de mantenimiento y dejo el sitio actualizado y monitorizado. [Contáctame](/#contacto).

@@ -32,4 +32,4 @@ Pregúntate: ¿lo que necesito es mostrar contenido, o resolver un proceso de ne
 
 ### ¿No tienes claro cuál te conviene?
 
-Te ayudo a decidirlo con honestidad, sin vender la opción más cara por defecto. [Contáctame](/#brxe-vzfdra) y lo vemos juntos.
+Te ayudo a decidirlo con honestidad, sin vender la opción más cara por defecto. [Contáctame](/#contacto) y lo vemos juntos.

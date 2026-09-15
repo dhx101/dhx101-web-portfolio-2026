@@ -33,4 +33,4 @@ El ORM (Prisma) hizo esta migración mucho menos dolorosa de lo que habría sido
 
 Elegir la base de datos "fácil" para desarrollar rápido en local es una decisión razonable — siempre que se sepa desde el principio que no es la misma decisión que la de producción, y se planifique el cambio antes de que el proyecto dependa de datos reales de clientes, no después.
 
-¿Estás construyendo algo que vas a desplegar en serverless y no sabes qué base de datos elegir? [Contáctame](/#brxe-vzfdra).
+¿Estás construyendo algo que vas a desplegar en serverless y no sabes qué base de datos elegir? [Contáctame](/#contacto).

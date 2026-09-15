@@ -40,4 +40,4 @@ Migrar a WordPress no tiene por qué costar posicionamiento si se planifica el t
 
 ### ¿Vas a migrar tu web y no quieres perder tu SEO?
 
-Planifico la migración con un mapa completo de redirecciones antes de tocar una sola URL. [Contáctame](/#brxe-vzfdra).
+Planifico la migración con un mapa completo de redirecciones antes de tocar una sola URL. [Contáctame](/#contacto).

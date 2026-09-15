@@ -38,4 +38,4 @@ El SEO local combina un perfil de Google Business Profile completo, reseñas act
 
 ### ¿Tu negocio no aparece en el mapa de Google?
 
-Reviso y optimizo tu perfil de Google Business Profile como parte de cualquier estrategia de SEO local. [Contáctame](/#brxe-vzfdra).
+Reviso y optimizo tu perfil de Google Business Profile como parte de cualquier estrategia de SEO local. [Contáctame](/#contacto).

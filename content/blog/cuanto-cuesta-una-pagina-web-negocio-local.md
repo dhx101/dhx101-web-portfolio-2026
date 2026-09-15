@@ -41,4 +41,4 @@ El precio de una web depende de la plataforma, si necesita vender online y cuán
 
 ### ¿Quieres un presupuesto real para tu negocio?
 
-Te digo claramente qué necesitas y qué no, sin inflar el presupuesto con extras que no vas a usar. [Contáctame](/#brxe-vzfdra) y hablamos de tu proyecto.
+Te digo claramente qué necesitas y qué no, sin inflar el presupuesto con extras que no vas a usar. [Contáctame](/#contacto) y hablamos de tu proyecto.

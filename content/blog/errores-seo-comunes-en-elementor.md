@@ -38,4 +38,4 @@ La mayoría de estos errores se detectan con una auditoría manual de 30-60 minu
 
 ### ¿Tu web de Elementor tiene alguno de estos problemas?
 
-Audito webs de Elementor con frecuencia y corrijo estos errores sin tocar el diseño que ya te gusta. [Contáctame](/#brxe-vzfdra).
+Audito webs de Elementor con frecuencia y corrijo estos errores sin tocar el diseño que ya te gusta. [Contáctame](/#contacto).

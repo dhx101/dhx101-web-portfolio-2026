@@ -40,4 +40,4 @@ Siguiendo un patrón que ya usaba el resto del proyecto (el envío de emails, po
 
 Un cliente puede pagar su factura desde el propio panel, con la confirmación gestionada de forma fiable por el servidor, sin depender de que su navegador complete correctamente la redirección de vuelta.
 
-¿Necesitas cobros online en tu propia herramienta interna? [Contáctame](/#brxe-vzfdra).
+¿Necesitas cobros online en tu propia herramienta interna? [Contáctame](/#contacto).

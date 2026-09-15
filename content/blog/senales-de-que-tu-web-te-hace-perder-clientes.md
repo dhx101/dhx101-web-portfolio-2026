@@ -42,4 +42,4 @@ No hace falta arreglarlo todo a la vez. Empieza por velocidad y móvil (afectan 
 
 ### ¿Quieres una auditoría rápida de tu web?
 
-Reviso tu sitio y te digo, sin rodeos, qué te está costando clientes ahora mismo. [Contáctame](/#brxe-vzfdra).
+Reviso tu sitio y te digo, sin rodeos, qué te está costando clientes ahora mismo. [Contáctame](/#contacto).

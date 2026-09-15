@@ -41,4 +41,4 @@ Dos decisiones concretas terminaron siendo las más importantes del proyecto:
 
 El portal está desplegado y en uso — puedes [probarlo tú mismo](https://dhx101-web-client-portal.vercel.app) con las credenciales de demostración que aparecen en la propia web. Stack: Next.js 16, TypeScript, Prisma y PostgreSQL, con Stripe para pagos, tests automatizados (Vitest + Playwright) y despliegue continuo en Vercel.
 
-Si gestionas WordPress para varios clientes y te suena el problema que describo arriba, [hablemos](/#brxe-vzfdra).
+Si gestionas WordPress para varios clientes y te suena el problema que describo arriba, [hablemos](/#contacto).

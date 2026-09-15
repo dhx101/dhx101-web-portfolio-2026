@@ -38,4 +38,4 @@ No hace falta entender de servidores para tomar una buena decisión: hace falta 
 
 ### ¿Quieres que revise tu hosting actual?
 
-Reviso configuraciones de dominio y hosting con frecuencia al conectar sitios al [Web Client Portal](https://dhx101-web-client-portal.vercel.app). [Contáctame](/#brxe-vzfdra) si algo no te cuadra.
+Reviso configuraciones de dominio y hosting con frecuencia al conectar sitios al [Web Client Portal](https://dhx101-web-client-portal.vercel.app). [Contáctame](/#contacto) si algo no te cuadra.

@@ -39,4 +39,4 @@ Si alguien te promete resultados de SEO en dos semanas, desconfía: o no es SEO 
 
 ### ¿Quieres una estrategia de SEO con plazos realistas?
 
-Te digo desde el primer día qué esperar y cuándo, sin promesas que no se pueden cumplir. [Contáctame](/#brxe-vzfdra).
+Te digo desde el primer día qué esperar y cuándo, sin promesas que no se pueden cumplir. [Contáctame](/#contacto).

@@ -52,4 +52,4 @@ Adaptar tu estrategia de contenidos para que los motores generativos te entienda
 
 ### ¿Quieres implementar GEO en tu negocio?
 
-Si quieres que tu marca aparezca en las respuestas de la IA y ganar visibilidad en este nuevo ecosistema, [contáctame](/#brxe-vzfdra) y te ayudo a diseñar una estrategia GEO adaptada a tu proyecto.
+Si quieres que tu marca aparezca en las respuestas de la IA y ganar visibilidad en este nuevo ecosistema, [contáctame](/#contacto) y te ayudo a diseñar una estrategia GEO adaptada a tu proyecto.

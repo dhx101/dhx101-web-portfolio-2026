@@ -39,4 +39,4 @@ Perder una entrada de auditoría pierde "quién lo hizo", no "qué pasó" — la
 
 Un registro de auditoría no necesita ser complejo para ser útil. Lo que sí necesita es una decisión clara sobre su nivel de garantía: en la mayoría de aplicaciones internas, best-effort y desacoplado de la transacción real es la opción correcta.
 
-¿Tu panel interno necesita trazabilidad de quién hace qué? [Contáctame](/#brxe-vzfdra).
+¿Tu panel interno necesita trazabilidad de quién hace qué? [Contáctame](/#contacto).

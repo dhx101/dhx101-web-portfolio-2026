@@ -46,4 +46,4 @@ Los Core Web Vitals no son un checkbox técnico aislado: miden literalmente si t
 
 ### ¿Quieres saber cómo están tus Core Web Vitals?
 
-Los reviso y priorizo qué corregir primero según el impacto real en tu posicionamiento. [Contáctame](/#brxe-vzfdra).
+Los reviso y priorizo qué corregir primero según el impacto real en tu posicionamiento. [Contáctame](/#contacto).

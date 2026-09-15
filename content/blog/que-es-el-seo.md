@@ -81,4 +81,4 @@ El SEO sigue siendo una de las estrategias más rentables para crecer en interne
 
 ### ¿Quieres mejorar el SEO de tu página web?
 
-Si quieres atraer más tráfico, ganar visibilidad y potenciar tu negocio online, [contáctame](/#brxe-vzfdra) y te ayudo a crear una estrategia SEO completa y adaptada a tu proyecto.
+Si quieres atraer más tráfico, ganar visibilidad y potenciar tu negocio online, [contáctame](/#contacto) y te ayudo a crear una estrategia SEO completa y adaptada a tu proyecto.

@@ -37,4 +37,4 @@ No hay una respuesta universal — depende de cuánto control quieras sobre tu p
 
 ### ¿Dudas entre las dos para tu negocio?
 
-Te ayudo a decidir según cómo vendes de verdad, no según cuál "se lleva más". [Contáctame](/#brxe-vzfdra) y lo hablamos.
+Te ayudo a decidir según cómo vendes de verdad, no según cuál "se lleva más". [Contáctame](/#contacto) y lo hablamos.

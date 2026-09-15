@@ -38,4 +38,4 @@ Si tu web lleva tiempo activa, Google Search Console te muestra gratis qué bús
 
 ### ¿Quieres un keyword research hecho para tu negocio?
 
-Investigo qué busca realmente tu cliente potencial antes de escribir una sola palabra de contenido. [Contáctame](/#brxe-vzfdra).
+Investigo qué busca realmente tu cliente potencial antes de escribir una sola palabra de contenido. [Contáctame](/#contacto).

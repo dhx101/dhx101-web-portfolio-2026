@@ -70,4 +70,4 @@ A través de link building, menciones, redes sociales y presencia en directorios
 
 ### ¿Quieres reforzar la autoridad de tu web?
 
-Trabajo el SEO Off-Page de forma coherente con tu estrategia On-Page, no como acciones sueltas. [Contáctame](/#brxe-vzfdra) y vemos por dónde empezar.
+Trabajo el SEO Off-Page de forma coherente con tu estrategia On-Page, no como acciones sueltas. [Contáctame](/#contacto) y vemos por dónde empezar.

@@ -38,4 +38,4 @@ Para el volumen de este proyecto, montar infraestructura de colas externa era so
 
 Si el proveedor de email cae durante una hora, ningún aviso se pierde: simplemente se entrega en cuanto el proveedor vuelve a responder, de forma transparente para el usuario.
 
-¿Te interesa cómo aplicar este mismo patrón a tu propio sistema? [Contáctame](/#brxe-vzfdra).
+¿Te interesa cómo aplicar este mismo patrón a tu propio sistema? [Contáctame](/#contacto).

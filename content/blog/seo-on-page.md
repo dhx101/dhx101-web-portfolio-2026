@@ -76,4 +76,4 @@ Ya no se trata solo de keywords, sino de crear experiencias útiles, claras y r�
 
 ### ¿Tu web necesita una revisión de SEO On-Page?
 
-Reviso tu sitio, identifico qué está frenando tu posicionamiento y te ayudo a corregirlo. [Contáctame](/#brxe-vzfdra) y lo hablamos.
+Reviso tu sitio, identifico qué está frenando tu posicionamiento y te ayudo a corregirlo. [Contáctame](/#contacto) y lo hablamos.

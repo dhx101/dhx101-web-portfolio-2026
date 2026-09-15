@@ -62,4 +62,4 @@ Sin embargo, no debe considerarse una estrategia aislada: el SEM funciona mejor 
 
 ### ¿Quieres lanzar una campaña de SEM que no queme presupuesto?
 
-Diseño campañas de Google Ads con landing pages optimizadas de verdad, no solo el anuncio. [Contáctame](/#brxe-vzfdra) y hablamos de tu caso.
+Diseño campañas de Google Ads con landing pages optimizadas de verdad, no solo el anuncio. [Contáctame](/#contacto) y hablamos de tu caso.
