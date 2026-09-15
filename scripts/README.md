@@ -39,3 +39,29 @@ Corre los dos después de cualquier cambio en los JSON, en `content/blog/`, o en
 - Cada script solo añade el CSS que de verdad es específico de sus páginas — lo que ya vive en el `<head>` de `index.html` (por ejemplo los estilos de `.study-card`/`.job-card`, usados también en el preview de la home) no se repite.
 - Los valores de texto que vienen de los JSON/Markdown se escapan con `html.escape()` antes de insertarse — solo los fragmentos ya construidos como HTML (badges, enlaces) no se tocan.
 - Un campo obligatorio que falte en un JSON o en el frontmatter de un post da un error explícito (qué archivo, qué campo), no un `KeyError`/`ValueError` críptico.
+
+## Verificar que un cambio de CSS no rompe nada
+
+`verify_render.js` abre dos copias del sitio en Chromium y compara los estilos
+computados de **todos** los elementos, en tres anchos (1440, 768, 390). Falla si
+hay una sola diferencia.
+
+```bash
+npm install playwright && npx playwright install chromium
+
+# copiar el estado actual antes de tocar nada
+mkdir -p /tmp/antes && cp index.html assets/css/*.css /tmp/antes/
+# ... hacer el cambio ...
+mkdir -p /tmp/despues && cp index.html assets/css/*.css /tmp/despues/
+
+node scripts/verify_render.js /tmp/antes /tmp/despues
+```
+
+Las rutas absolutas (`/assets/css/...`) no resuelven con `file://`, así que las
+copias necesitan los CSS al lado del HTML y los `href` reescritos a relativos.
+
+**Por qué existe.** Durante el refactor de 2026, dos cambios de CSS rompieron la
+web sin dar ningún error: una regla dentro de `@media` promovida a global dejó el
+menú de escritorio oculto, y una propiedad declarada dos veces en la misma regla
+invirtió el ganador de la cascada al extraer una de las dos a una clase. Ninguna
+comprobación estática los detectó; el navegador los detectó los dos.
