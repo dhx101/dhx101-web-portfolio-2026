@@ -1,4 +1,5 @@
 /* /proyectos/, /estudios/, /experiencia/ */
+@layer components {
 .page-hero{display:flex;flex-direction:column;gap:16px;max-width:760px;margin-bottom:40px}
 .page-hero .back-link{display:inline-flex;align-items:center;gap:6px;width:max-content}
 .proyectos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
@@ -11,3 +12,4 @@
 .project-card-stack{display:flex;flex-wrap:wrap;gap:8px}
 .project-card-body>a,.project-card-body>p:last-child{margin-top:auto}
 .estudios-list,.experiencia-list{display:flex;flex-direction:column;gap:24px}
+}

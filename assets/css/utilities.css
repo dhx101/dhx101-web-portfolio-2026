@@ -1,6 +1,7 @@
 /* Utilidades atómicas de layout, extraídas de las reglas por ID de Bricks.
    Solo de reglas a nivel raíz y solo cuando ninguna otra regla declara esa
    propiedad sobre el mismo elemento: así el ganador de la cascada no cambia. */
+@layer utilities {
 .absolute{position:absolute}
 .flex{display:flex}
 .flex-col{flex-direction:column}
@@ -18,3 +19,4 @@
 .text-heading{color:var(--color-heading)}
 .uppercase{text-transform:uppercase}
 .w-full{width:100%}
+}

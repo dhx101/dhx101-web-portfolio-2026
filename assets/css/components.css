@@ -1,4 +1,5 @@
 /* Tarjetas de proyecto, estudio y experiencia */
+@layer components {
 .home-preview-list{display:flex;flex-direction:column;gap:24px}
 .study-card,.job-card{display:grid;grid-template-columns:260px 1fr;gap:32px;padding:32px}
 @media (max-width:767px){.study-card,.job-card{grid-template-columns:1fr}}
@@ -203,4 +204,5 @@
   font-size: 13px;
   min-height: 20px;
   margin-top: 0;
+}
 }
