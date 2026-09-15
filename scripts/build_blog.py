@@ -22,23 +22,7 @@ SITEMAP_PATH = os.path.join(ROOT, "page-sitemap.xml")
 # in this site which stay relative.
 from _site import SITE_URL as BASE_URL  # una sola definición del dominio
 
-PAGE_STYLE = """
-.blog-list{display:flex;flex-direction:column;gap:24px}
-.blog-list-item{padding:32px;display:flex;flex-direction:column;gap:8px}
-.blog-list-item .blog-date{font-family:"JetBrains Mono";font-size:0.85em;color:var(--color-accent)}
-.blog-list-item img{width:100%;max-height:260px;object-fit:cover;border-radius:8px;margin-bottom:8px}
-.blog-post{display:flex;flex-direction:column;gap:24px}
-.back-link{display:inline-flex;align-items:center;gap:6px;width:max-content;padding-left:20px;padding-right:20px}
-.blog-post-header{display:flex;flex-direction:column;gap:12px;margin-bottom:16px}
-.blog-post-header h1{line-height:1.25}
-.blog-post-header .blog-date{font-family:"JetBrains Mono";font-size:0.85em;color:var(--color-accent)}
-.blog-post-header img{width:100%;max-height:420px;object-fit:cover;border-radius:8px}
-.blog-post-body{display:flex;flex-direction:column;gap:16px;color:var(--color-text);line-height:1.7}
-.blog-post-body h2{color:var(--color-heading);margin-top:12px}
-.blog-post-body h3{color:var(--color-heading)}
-.blog-post-body a{color:var(--color-accent)}
-.blog-post-body ul,.blog-post-body ol{padding-left:1.4em;display:flex;flex-direction:column;gap:8px}
-"""
+PAGE_STYLESHEET = '<link rel="stylesheet" href="/assets/css/blog.css">'
 
 
 def parse_post(path):
@@ -172,7 +156,7 @@ def main():
         f.write(page_shell(
             "Blog | David Huang Xie — Desarrollador Web Full-Stack",
             "Notas sobre desarrollo web, WordPress, Bricks Builder, automatización con IA y los proyectos en los que trabajo.",
-            "/blog/", "blog", blog_main, PAGE_STYLE,
+            "/blog/", "blog", blog_main, extra_head=PAGE_STYLESHEET,
         ))
 
     for post in posts:
@@ -201,8 +185,8 @@ def main():
             f.write(page_shell(
                 f"{post['title']} | Blog de David Huang Xie",
                 post["description"],
-                f"/blog/{post['slug']}/", "blog", post_main, PAGE_STYLE,
-                extra_head=json_ld_article(post) + image_meta_tags(post),
+                f"/blog/{post['slug']}/", "blog", post_main,
+                extra_head=PAGE_STYLESHEET + json_ld_article(post) + image_meta_tags(post),
             ))
 
     update_sitemap(posts)

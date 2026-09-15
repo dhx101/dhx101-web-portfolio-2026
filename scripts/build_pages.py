@@ -10,23 +10,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from _site import ROOT, page_shell  # noqa: E402
 
-# Rules already present in index.html's own <head> (added there for its
-# hardcoded homepage preview cards) are NOT repeated here — only what's
-# actually specific to these generated pages.
-PAGE_STYLE = """
-.page-hero{display:flex;flex-direction:column;gap:16px;max-width:760px;margin-bottom:40px}
-.page-hero .back-link{display:inline-flex;align-items:center;gap:6px;width:max-content}
-.proyectos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-@media (max-width:1024px){.proyectos-grid{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:767px){.proyectos-grid{grid-template-columns:1fr}}
-.project-card{display:flex;flex-direction:column}
-.project-card-image{aspect-ratio:4/3;overflow:hidden;position:relative}
-.project-card-image img{width:100%;height:100%;object-fit:cover;display:block}
-.project-card-body{padding:24px;display:flex;flex-direction:column;gap:12px;flex-grow:1}
-.project-card-stack{display:flex;flex-wrap:wrap;gap:8px}
-.project-card-body>a,.project-card-body>p:last-child{margin-top:auto}
-.estudios-list,.experiencia-list{display:flex;flex-direction:column;gap:24px}
-"""
+PAGE_STYLESHEET = '<link rel="stylesheet" href="/assets/css/pages.css">'
 
 os.makedirs(os.path.join(ROOT, "proyectos"), exist_ok=True)
 os.makedirs(os.path.join(ROOT, "estudios"), exist_ok=True)
@@ -94,7 +78,7 @@ with open(os.path.join(ROOT, "proyectos", "index.html"), "w", encoding="utf-8") 
     f.write(page_shell(
         "Proyectos | David Huang Xie — Desarrollador Web Full-Stack",
         "Proyectos web reales en los que he trabajado: WordPress, Elementor, Woocommerce, React y más. Explora los sitios y aplicaciones que he desarrollado para clientes y proyectos propios.",
-        "/proyectos/", "proyectos", proyectos_main, PAGE_STYLE,
+        "/proyectos/", "proyectos", proyectos_main, extra_head=PAGE_STYLESHEET,
     ))
 
 # ----------------------------------------------------------------- ESTUDIOS
@@ -136,7 +120,7 @@ with open(os.path.join(ROOT, "estudios", "index.html"), "w", encoding="utf-8") a
     f.write(page_shell(
         "Estudios | David Huang Xie — Desarrollador Web Full-Stack",
         "Trayectoria académica de David Huang Xie: Bootcamp de Desarrollo Web Full-Stack, Diseño UX, Marketing e Investigación de Mercados y Erasmus+ en Portugal.",
-        "/estudios/", "estudios", estudios_main, PAGE_STYLE,
+        "/estudios/", "estudios", estudios_main, extra_head=PAGE_STYLESHEET,
     ))
 
 # -------------------------------------------------------------- EXPERIENCIA
@@ -231,7 +215,7 @@ with open(os.path.join(ROOT, "experiencia", "index.html"), "w", encoding="utf-8"
     f.write(page_shell(
         "Experiencia | David Huang Xie — Desarrollador Web Full-Stack",
         "Trayectoria profesional de David Huang Xie: Verko, Ángulo Tres, Almoraima Soluciones y La Buhardilla del Marketing. Desarrollo web, automatización con IA y SEO técnico.",
-        "/experiencia/", "experiencia", experiencia_main, PAGE_STYLE,
+        "/experiencia/", "experiencia", experiencia_main, extra_head=PAGE_STYLESHEET,
     ))
 
 print("Built /proyectos/, /estudios/, /experiencia/")
