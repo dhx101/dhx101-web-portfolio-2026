@@ -12,7 +12,7 @@ pip install -r scripts/requirements.txt
 
 - **Proyecto** → añade una entrada a `assets/data/projects.json` (campos: `name`, `img`, `alt`, `stack`, `miniDescription`, `link`) y una imagen en `assets/projects/`.
 - **Estudio** → `assets/data/studies.json`.
-- **Trabajo** → `assets/data/workplace.json` (el puesto actual en Ángulo Tres está hardcodeado en `build_pages.py`, no en el JSON, porque no tiene enlace público).
+- **Trabajo** → `assets/data/workplace.json` (los puestos de Verko y Ángulo Tres están hardcodeados en `build_pages.py`, no en el JSON, porque no tienen enlace público).
 - **Post del blog** → un archivo nuevo en `content/blog/tu-slug.md`, con este frontmatter:
   ```
   ---

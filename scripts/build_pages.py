@@ -142,17 +142,35 @@ with open(os.path.join(ROOT, "estudios", "index.html"), "w", encoding="utf-8") a
 # -------------------------------------------------------------- EXPERIENCIA
 workplace = load_json("workplace.json")
 
+verko = {
+    "position": "Desarrollador WordPress",
+    "company": "Grupo Verko",
+    "time": "Septiembre 2026 - Actualidad",
+    "img": "experiencia/Verko.webp",
+    "miniDescription": (
+        "Agencia de marketing en la que trabajo actualmente. Desarrollo los sitios web de los clientes de la "
+        "agencia con WordPress y Bricks Builder, dentro de un equipo con procesos y estándares ya establecidos, "
+        "y participo en el desarrollo de plugins propios a medida."
+    ),
+    "funciones": [
+        "Desarrollo y maquetación web con WordPress y Bricks Builder",
+        "Desarrollo de plugins a medida",
+        "SEO técnico on-page y Core Web Vitals",
+    ],
+    "link": "https://grupoverko.com/",
+}
+
 angulotres = {
     "position": "Diseñador y Desarrollador Web",
     "company": "Ángulo Tres",
-    "time": "2024 - Actualidad",
+    "time": "Enero 2026 - Agosto 2026",
     "img": "experiencia/AnguloTres.webp",
     "miniDescription": (
-        "Agencia en la que trabajo actualmente. Mi puesto de contrato es Diseñador Web, pero en la práctica cubro "
-        "todo el ciclo de vida de los proyectos digitales de la agencia: diseño, desarrollo con WordPress y Bricks "
-        "Builder, automatización de procesos internos y de clientes con n8n y agentes de IA, SEO técnico e "
-        "infraestructura on-premise. Por confidencialidad con los clientes de la agencia no puedo enlazar los "
-        "proyectos concretos en los que trabajo aquí."
+        "Único perfil técnico de la agencia. Mi puesto de contrato era Diseñador Web, pero en la práctica cubrí "
+        "todo el ciclo de vida de los proyectos digitales: diseño, desarrollo con WordPress y Bricks Builder, "
+        "automatización de procesos internos y de clientes con n8n y agentes de IA, SEO técnico e infraestructura "
+        "on-premise, que monté y mantuve yo. Por confidencialidad con los clientes de la agencia no puedo enlazar "
+        "los proyectos concretos en los que trabajé."
     ),
     "funciones": [
         "Desarrollo y maquetación web con WordPress y Bricks Builder",
@@ -163,7 +181,7 @@ angulotres = {
     "link": None,
 }
 
-jobs = [angulotres] + workplace
+jobs = [verko, angulotres] + workplace
 
 job_cards = []
 for i, j in enumerate(jobs):
@@ -201,7 +219,7 @@ experiencia_main = f"""<section class="brxe-section section"><div class="brxe-co
 <div class="page-hero">
 <p class="brxe-text-basic label text-blue">// WORK_LOG</p>
 <h1 class="brxe-heading text-white">Experiencia</h1>
-<p class="brxe-text-basic">Mi trayectoria profesional, desde mis prácticas universitarias hasta mi puesto actual en Ángulo Tres, donde cubro desarrollo web, automatización con IA, SEO técnico e infraestructura.</p>
+<p class="brxe-text-basic">Mi trayectoria profesional, desde mis prácticas universitarias hasta mi puesto actual en Verko. Desarrollo web con WordPress, automatización con n8n e IA, SEO técnico e infraestructura.</p>
 <a class="brxe-button btn-secondary grow-hover bricks-button back-link" href="/">&larr; Volver al inicio</a>
 </div>
 <div class="experiencia-list">
@@ -212,7 +230,7 @@ experiencia_main = f"""<section class="brxe-section section"><div class="brxe-co
 with open(os.path.join(ROOT, "experiencia", "index.html"), "w", encoding="utf-8") as f:
     f.write(page_shell(
         "Experiencia | David Huang Xie — Desarrollador Web Full-Stack",
-        "Trayectoria profesional de David Huang Xie: Ángulo Tres, Almoraima Soluciones y La Buhardilla del Marketing. Desarrollo web, automatización con IA y SEO técnico.",
+        "Trayectoria profesional de David Huang Xie: Verko, Ángulo Tres, Almoraima Soluciones y La Buhardilla del Marketing. Desarrollo web, automatización con IA y SEO técnico.",
         "/experiencia/", "experiencia", experiencia_main, PAGE_STYLE,
     ))
 
