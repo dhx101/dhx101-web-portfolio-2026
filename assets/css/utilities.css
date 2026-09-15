@@ -1,0 +1,20 @@
+/* Utilidades atómicas de layout, extraídas de las reglas por ID de Bricks.
+   Solo de reglas a nivel raíz y solo cuando ninguna otra regla declara esa
+   propiedad sobre el mismo elemento: así el ganador de la cascada no cambia. */
+.absolute{position:absolute}
+.flex{display:flex}
+.flex-col{flex-direction:column}
+.flex-row{flex-direction:row}
+.font-bold{font-weight:700}
+.gap-12{column-gap:12px;row-gap:12px}
+.gap-24{column-gap:24px;row-gap:24px}
+.gap-8{column-gap:8px;row-gap:8px}
+.h-full{height:100%}
+.items-center{align-items:center}
+.justify-between{justify-content:space-between}
+.justify-end{justify-content:flex-end}
+.relative{position:relative}
+.text-center{text-align:center}
+.text-heading{color:var(--color-heading)}
+.uppercase{text-transform:uppercase}
+.w-full{width:100%}
