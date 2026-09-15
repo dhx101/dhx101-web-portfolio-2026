@@ -157,8 +157,8 @@ def page_shell(title, description, path, active, main_html, extra_style="", extr
 {main_html}
 </main>
 {FOOTER_SIMPLE}
-<script id="bricksforge-gsap-js" src="/wp-content/plugins/bricksforge/assets/vendor/gsap.min.js"></script>
-<script id="bricksforge-scrolltrigger-js" src="/wp-content/plugins/bricksforge/assets/vendor/ScrollTrigger.min.js"></script>
-<script id="bricksforge-splittext-js" src="/wp-content/plugins/bricksforge/assets/vendor/SplitText.min.js"></script>
+<script id="bricksforge-gsap-js" src="/assets/vendor/gsap.min.js"></script>
+<script id="bricksforge-scrolltrigger-js" src="/assets/vendor/scroll-trigger.min.js"></script>
+<script id="bricksforge-splittext-js" src="/assets/vendor/split-text.min.js"></script>
 <script id="dhx-animations-js" src="/assets/js/animations.js"></script>
 </body></html>"""
