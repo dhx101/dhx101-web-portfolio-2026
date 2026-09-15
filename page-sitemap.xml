@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="/main-sitemap.xsl"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
-		<loc>/</loc>
+		<loc>https://davidhuangxie.com/</loc>
 		<lastmod>2026-07-08T17:54:06+00:00</lastmod>
 		<image:image>
 			<image:loc>/wp-content/uploads/2026/07/WhatsApp-Image-2026-07-08-at-19.09.05.jpg</image:loc>
@@ -14,107 +14,107 @@
 		</image:image>
 	</url>
 	<url>
-		<loc>/proyectos/</loc>
+		<loc>https://davidhuangxie.com/proyectos/</loc>
 		<lastmod>2026-07-09T00:00:00+00:00</lastmod>
 	</url>
 	<url>
-		<loc>/estudios/</loc>
+		<loc>https://davidhuangxie.com/estudios/</loc>
 		<lastmod>2026-07-09T00:00:00+00:00</lastmod>
 	</url>
 	<url>
-		<loc>/experiencia/</loc>
+		<loc>https://davidhuangxie.com/experiencia/</loc>
 		<lastmod>2026-07-09T00:00:00+00:00</lastmod>
 	</url>
 	<url>
-		<loc>/blog/</loc>
+		<loc>https://davidhuangxie.com/blog/</loc>
 		<lastmod>2026-07-24T00:00:00+00:00</lastmod>
 	</url>
 	<url>
-		<loc>/blog/portal-de-clientes-para-agencia-wordpress/</loc>
+		<loc>https://davidhuangxie.com/blog/portal-de-clientes-para-agencia-wordpress/</loc>
 		<lastmod>2026-07-24T00:00:00+00:00</lastmod>
 	</url>
 	<url>
-		<loc>/blog/que-es-el-geo/</loc>
+		<loc>https://davidhuangxie.com/blog/que-es-el-geo/</loc>
 		<lastmod>2026-07-23T00:00:00+00:00</lastmod>
 	</url>
 	<url>
-		<loc>/blog/que-es-el-sem/</loc>
+		<loc>https://davidhuangxie.com/blog/que-es-el-sem/</loc>
 		<lastmod>2026-07-21T00:00:00+00:00</lastmod>
 	</url>
 	<url>
-		<loc>/blog/seo-off-page/</loc>
+		<loc>https://davidhuangxie.com/blog/seo-off-page/</loc>
 		<lastmod>2026-07-17T00:00:00+00:00</lastmod>
 	</url>
 	<url>
-		<loc>/blog/seo-on-page/</loc>
+		<loc>https://davidhuangxie.com/blog/seo-on-page/</loc>
 		<lastmod>2026-07-14T00:00:00+00:00</lastmod>
 	</url>
 	<url>
-		<loc>/blog/que-es-el-seo/</loc>
+		<loc>https://davidhuangxie.com/blog/que-es-el-seo/</loc>
 		<lastmod>2026-07-10T00:00:00+00:00</lastmod>
 	</url>
 	<url>
-		<loc>/blog/de-sqlite-a-postgres-por-que-migre-mi-base-de-datos/</loc>
+		<loc>https://davidhuangxie.com/blog/de-sqlite-a-postgres-por-que-migre-mi-base-de-datos/</loc>
 		<lastmod>2026-07-09T00:00:00+00:00</lastmod>
 	</url>
 	<url>
-		<loc>/blog/que-es-un-registro-de-auditoria/</loc>
+		<loc>https://davidhuangxie.com/blog/que-es-un-registro-de-auditoria/</loc>
 		<lastmod>2026-07-06T00:00:00+00:00</lastmod>
 	</url>
 	<url>
-		<loc>/blog/cobrar-facturas-online-con-stripe-checkout/</loc>
+		<loc>https://davidhuangxie.com/blog/cobrar-facturas-online-con-stripe-checkout/</loc>
 		<lastmod>2026-07-03T00:00:00+00:00</lastmod>
 	</url>
 	<url>
-		<loc>/blog/cola-de-emails-con-reintentos-en-nextjs/</loc>
+		<loc>https://davidhuangxie.com/blog/cola-de-emails-con-reintentos-en-nextjs/</loc>
 		<lastmod>2026-06-29T00:00:00+00:00</lastmod>
 	</url>
 	<url>
-		<loc>/blog/errores-seo-comunes-en-elementor/</loc>
+		<loc>https://davidhuangxie.com/blog/errores-seo-comunes-en-elementor/</loc>
 		<lastmod>2026-06-24T00:00:00+00:00</lastmod>
 	</url>
 	<url>
-		<loc>/blog/como-hacer-keyword-research-basico/</loc>
+		<loc>https://davidhuangxie.com/blog/como-hacer-keyword-research-basico/</loc>
 		<lastmod>2026-06-19T00:00:00+00:00</lastmod>
 	</url>
 	<url>
-		<loc>/blog/seo-local-como-aparecer-en-el-mapa-de-google/</loc>
+		<loc>https://davidhuangxie.com/blog/seo-local-como-aparecer-en-el-mapa-de-google/</loc>
 		<lastmod>2026-06-15T00:00:00+00:00</lastmod>
 	</url>
 	<url>
-		<loc>/blog/core-web-vitals-que-son/</loc>
+		<loc>https://davidhuangxie.com/blog/core-web-vitals-que-son/</loc>
 		<lastmod>2026-06-10T00:00:00+00:00</lastmod>
 	</url>
 	<url>
-		<loc>/blog/mantenimiento-web-por-que-es-necesario/</loc>
+		<loc>https://davidhuangxie.com/blog/mantenimiento-web-por-que-es-necesario/</loc>
 		<lastmod>2026-06-05T00:00:00+00:00</lastmod>
 	</url>
 	<url>
-		<loc>/blog/como-migrar-tu-web-a-wordpress-sin-perder-seo/</loc>
+		<loc>https://davidhuangxie.com/blog/como-migrar-tu-web-a-wordpress-sin-perder-seo/</loc>
 		<lastmod>2026-06-01T00:00:00+00:00</lastmod>
 	</url>
 	<url>
-		<loc>/blog/senales-de-que-tu-web-te-hace-perder-clientes/</loc>
+		<loc>https://davidhuangxie.com/blog/senales-de-que-tu-web-te-hace-perder-clientes/</loc>
 		<lastmod>2026-05-27T00:00:00+00:00</lastmod>
 	</url>
 	<url>
-		<loc>/blog/cuanto-tarda-en-verse-resultados-seo/</loc>
+		<loc>https://davidhuangxie.com/blog/cuanto-tarda-en-verse-resultados-seo/</loc>
 		<lastmod>2026-05-22T00:00:00+00:00</lastmod>
 	</url>
 	<url>
-		<loc>/blog/woocommerce-vs-shopify/</loc>
+		<loc>https://davidhuangxie.com/blog/woocommerce-vs-shopify/</loc>
 		<lastmod>2026-05-18T00:00:00+00:00</lastmod>
 	</url>
 	<url>
-		<loc>/blog/como-elegir-hosting-y-dominio/</loc>
+		<loc>https://davidhuangxie.com/blog/como-elegir-hosting-y-dominio/</loc>
 		<lastmod>2026-05-13T00:00:00+00:00</lastmod>
 	</url>
 	<url>
-		<loc>/blog/wordpress-elementor-vs-codigo-a-medida/</loc>
+		<loc>https://davidhuangxie.com/blog/wordpress-elementor-vs-codigo-a-medida/</loc>
 		<lastmod>2026-05-08T00:00:00+00:00</lastmod>
 	</url>
 	<url>
-		<loc>/blog/cuanto-cuesta-una-pagina-web-negocio-local/</loc>
+		<loc>https://davidhuangxie.com/blog/cuanto-cuesta-una-pagina-web-negocio-local/</loc>
 		<lastmod>2026-05-04T00:00:00+00:00</lastmod>
 	</url>
 </urlset>

@@ -20,7 +20,7 @@ SITEMAP_PATH = os.path.join(ROOT, "page-sitemap.xml")
 # og:image/twitter:image need an absolute URL to resolve for external crawlers
 # (Facebook/LinkedIn/Twitter preview bots), unlike canonical links elsewhere
 # in this site which stay relative.
-BASE_URL = "https://davidhuangxie.com"
+from _site import SITE_URL as BASE_URL  # una sola definición del dominio
 
 PAGE_STYLE = """
 .blog-list{display:flex;flex-direction:column;gap:24px}
@@ -118,12 +118,12 @@ def update_sitemap(posts):
 
     # Remove any previously-generated /blog/ entries so re-running this script
     # doesn't accumulate duplicates as posts are added, renamed or removed.
-    sitemap = re.sub(r"\t<url>\n\t\t<loc>/blog/[^<]*</loc>\n\t\t<lastmod>[^<]*</lastmod>\n\t</url>\n", "", sitemap)
+    sitemap = re.sub(r"\t<url>\n\t\t<loc>" + re.escape(BASE_URL) + r"/blog/[^<]*</loc>\n\t\t<lastmod>[^<]*</lastmod>\n\t</url>\n", "", sitemap)
 
-    entries = [f"\t<url>\n\t\t<loc>/blog/</loc>\n\t\t<lastmod>{posts[0]['date'].isoformat()}T00:00:00+00:00</lastmod>\n\t</url>\n"] if posts else []
+    entries = [f"\t<url>\n\t\t<loc>{BASE_URL}/blog/</loc>\n\t\t<lastmod>{posts[0]['date'].isoformat()}T00:00:00+00:00</lastmod>\n\t</url>\n"] if posts else []
     for post in posts:
         entries.append(
-            f"\t<url>\n\t\t<loc>/blog/{post['slug']}/</loc>\n\t\t<lastmod>{post['date'].isoformat()}T00:00:00+00:00</lastmod>\n\t</url>\n"
+            f"\t<url>\n\t\t<loc>{BASE_URL}/blog/{post['slug']}/</loc>\n\t\t<lastmod>{post['date'].isoformat()}T00:00:00+00:00</lastmod>\n\t</url>\n"
         )
 
     sitemap = sitemap.replace("</urlset>", "".join(entries) + "</urlset>")

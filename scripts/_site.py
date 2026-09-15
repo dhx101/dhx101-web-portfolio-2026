@@ -4,8 +4,11 @@ second generator script can't drift into its own copy of page_shell() the way
 build_pages.py's PAGE_STYLE once duplicated CSS already present in index.html's
 own <head> — see git history for that bug."""
 import html
+import json
 import os
 import re
+
+SITE_URL = "https://davidhuangxie.com"
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 INDEX = os.path.join(ROOT, "index.html")
@@ -49,6 +52,35 @@ NAV_EXTRA = (
 )
 
 
+def abs_url(path):
+    """Canonical, og:url and sitemap <loc> must be absolute: relative values are
+    invalid in Open Graph and in the sitemap protocol, and Google drops them."""
+    if path.startswith("http"):
+        return path
+    return SITE_URL + (path if path.startswith("/") else "/" + path)
+
+
+def _localize_json_ld(head, page_url, title):
+    """index.html's JSON-LD describes the homepage. Copied verbatim into every
+    generated page it would claim each one *is* the homepage, so rewrite the
+    WebPage node (and the reference to it) to point at this page instead."""
+    m = re.search(r'(<script type="application/ld\+json"[^>]*>)(.*?)(</script>)', head, re.S)
+    if not m:
+        return head
+    try:
+        data = json.loads(m.group(2))
+    except ValueError:
+        return head
+    for node in data.get("@graph", []):
+        if node.get("@type") == "WebPage":
+            node["@id"] = page_url + "#webpage"
+            node["url"] = page_url
+            node["name"] = title
+        if isinstance(node.get("mainEntityOfPage"), dict):
+            node["mainEntityOfPage"]["@id"] = page_url + "#webpage"
+    return head[:m.start(2)] + json.dumps(data, ensure_ascii=False) + head[m.end(2):]
+
+
 def build_head(title, description, path):
     """title/description are plain text (escaped here) — never pass pre-built HTML."""
     title = html.escape(title)
@@ -60,7 +92,8 @@ def build_head(title, description, path):
         f'<meta name="description" content="{description}">',
         h, count=1,
     )
-    h = re.sub(r'<link rel="canonical" href=".*?">', f'<link rel="canonical" href="{path}">', h, count=1)
+    page_url = abs_url(path)
+    h = re.sub(r'<link rel="canonical" href=".*?">', f'<link rel="canonical" href="{page_url}">', h, count=1)
     h = re.sub(r'<meta property="og:title" content=".*?">', f'<meta property="og:title" content="{title}">', h, count=1)
     h = re.sub(
         r'<meta property="og:description" content=".*?">',
@@ -74,9 +107,12 @@ def build_head(title, description, path):
         h, count=1,
     )
     # Both og:url tags in index.html (Rank Math's + the hand-added one) get
-    # corrected — a plain .replace() with no count limit, unlike the old
-    # single-replace that left one of the two stuck at "/" on every page.
-    h = h.replace('<meta property="og:url" content="/">', f'<meta property="og:url" content="{path}">')
+    # corrected. Matched by regex rather than by the literal content="/" string:
+    # index.html's own og:url is absolute now, so a literal match would silently
+    # leave every generated page pointing at the homepage.
+    h = re.sub(r'<meta property="og:url" content="[^"]*">',
+               f'<meta property="og:url" content="{page_url}">', h)
+    h = _localize_json_ld(h, page_url, title)
     return h
 
 
