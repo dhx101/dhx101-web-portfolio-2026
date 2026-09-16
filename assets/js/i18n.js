@@ -2,8 +2,9 @@
  * Conmutador de idioma ES/EN/ZH/PT. Reemplaza el innerHTML de los elementos listados
  * en TRANSLATIONS y alterna cuál de los dos CV se enseña.
  *
- * OJO: hoy solo se carga en index.html. En las páginas generadas el selector se ve
- * pero no hace nada, porque este script vive tras el <footer> y _site.py no lo copia.
+ * Se carga en index.html y, vía page_shell() de _site.py, en todas las páginas
+ * generadas. Allí solo existen los IDs del header y el footer; el resto se salta
+ * (getElementById devuelve null), así que el contenido de esas páginas no se traduce.
  */
 (function() {
   var TRANSLATIONS = {
