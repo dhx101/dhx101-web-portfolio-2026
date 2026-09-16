@@ -8,7 +8,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from _site import ROOT, page_shell  # noqa: E402
+from _site import ARROW_ICON, ROOT, page_shell  # noqa: E402
 
 PAGE_STYLESHEET = '<link rel="stylesheet" href="/assets/css/pages.css">'
 
@@ -48,7 +48,7 @@ for i, p in enumerate(projects):
     stack_badges = "".join(f'<p class="brxe-text-basic badge-infraestructure">{esc(s)}</p>' for s in p.get("stack", []))
     if p.get("link"):
         link_html = (f'<a class="brxe-text-link label text-blue underline" href="{esc(p["link"])}" target="_blank" '
-                     f'rel="noopener noreferrer"><span class="icon"><i class="ion-ios-arrow-round-forward"></i></span>'
+                     f'rel="noopener noreferrer"><span class="icon">{ARROW_ICON}</span>'
                      f'<span class="text">Visita la web</span></a>')
     else:
         link_html = '<p class="brxe-text-basic label" style="color:var(--color-text-muted)">Proyecto interno / sin enlace público</p>'
@@ -180,7 +180,7 @@ for i, j in enumerate(jobs):
         img_html = '<div class="job-card-image placeholder"><p class="brxe-text-basic label" style="text-align:center">Trabajo actual<br>bajo NDA</p></div>'
     if j.get("link"):
         link_html = (f'<a class="brxe-text-link label text-blue underline" href="{esc(j["link"])}" target="_blank" '
-                     f'rel="noopener noreferrer"><span class="icon"><i class="ion-ios-arrow-round-forward"></i></span>'
+                     f'rel="noopener noreferrer"><span class="icon">{ARROW_ICON}</span>'
                      f'<span class="text">Visita la web</span></a>')
     else:
         link_html = ""

@@ -12,7 +12,7 @@ from datetime import date
 import markdown
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from _site import ROOT, page_shell  # noqa: E402
+from _site import ARROW_ICON, ROOT, page_shell  # noqa: E402
 
 CONTENT_DIR = os.path.join(ROOT, "content", "blog")
 BLOG_DIR = os.path.join(ROOT, "blog")
@@ -137,7 +137,7 @@ def main():
 <p class="blog-date">{post['date'].strftime('%d/%m/%Y')}</p>
 <h2 class="brxe-heading"><a class="brxe-text-link" href="/blog/{post['slug']}/">{html.escape(post['title'])}</a></h2>
 <p class="brxe-text-basic">{html.escape(post['description'])}</p>
-<a class="brxe-text-link label text-blue underline" href="/blog/{post['slug']}/"><span class="icon"><i class="ion-ios-arrow-round-forward"></i></span><span class="text">Leer más</span></a>
+<a class="brxe-text-link label text-blue underline" href="/blog/{post['slug']}/"><span class="icon">{ARROW_ICON}</span><span class="text">Leer más</span></a>
 </div>""")
 
     blog_main = f"""<section class="brxe-section section"><div class="brxe-container" style="flex-direction:column">

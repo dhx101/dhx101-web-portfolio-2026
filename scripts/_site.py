@@ -44,6 +44,14 @@ FOOTER = _extract('<footer id="brx-footer">', "</footer>", "FOOTER")
 
 FOOTER_SIMPLE = re.sub(r'<p id="brxe-dsiurf".*?</p>', "", FOOTER, count=1, flags=re.S)
 
+# Flecha de los enlaces "Visita la web" / "Leer más". Era un glifo de Ionicons,
+# cuya fuente se perdió al retirar wp-content: un SVG inline no depende de nada.
+ARROW_ICON = (
+    '<svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" '
+    'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">'
+    '<path d="M5 12h14M13 6l6 6-6 6"/></svg>'
+)
+
 NAV_EXTRA = (
     '<a class="brxe-text-link label text-blue underline" href="/proyectos/">Más_Proyectos</a>'
     '<a class="brxe-text-link label text-blue underline" href="/estudios/">Estudios</a>'
