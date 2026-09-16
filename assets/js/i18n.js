@@ -5,11 +5,19 @@
  * Se carga en index.html y, vía page_shell() de _site.py, en todas las páginas
  * generadas. Allí solo existen los IDs del header y el footer; el resto se salta
  * (getElementById devuelve null), así que el contenido de esas páginas no se traduce.
+ * Las opciones de idioma están en el submenú de la cabecera (y en el footer de la home).
  */
 (function() {
   var TRANSLATIONS = {
     en: {
       'brxe-roemkm': 'About_Me',
+      'dhx-nav-proyectos': 'Projects',
+      'dhx-nav-mas': 'More_Projects',
+      'dhx-nav-trayectoria': 'Background',
+      'dhx-nav-experiencia': 'Experience',
+      'dhx-nav-estudios': 'Education',
+      'dhx-nav-stack': 'Stack',
+      'dhx-nav-blog': 'Blog',
       'brxe-ldwmxs': 'Services',
       'brxe-hvforz': 'Real_Projects',
       'brxe-uklerk': 'Hire_Me',
@@ -56,6 +64,13 @@
     },
     zh: {
       'brxe-roemkm': '关于_我',
+      'dhx-nav-proyectos': '项目',
+      'dhx-nav-mas': '更多_项目',
+      'dhx-nav-trayectoria': '经历',
+      'dhx-nav-experiencia': '工作经历',
+      'dhx-nav-estudios': '教育背景',
+      'dhx-nav-stack': '技术栈',
+      'dhx-nav-blog': '博客',
       'brxe-ldwmxs': '服务',
       'brxe-hvforz': '真实_项目',
       'brxe-uklerk': '雇用_我',
@@ -102,6 +117,13 @@
     },
     pt: {
       'brxe-roemkm': 'Sobre_Mim',
+      'dhx-nav-proyectos': 'Projetos',
+      'dhx-nav-mas': 'Mais_Projetos',
+      'dhx-nav-trayectoria': 'Percurso',
+      'dhx-nav-experiencia': 'Experiência',
+      'dhx-nav-estudios': 'Formação',
+      'dhx-nav-stack': 'Stack',
+      'dhx-nav-blog': 'Blog',
       'brxe-ldwmxs': 'Serviços',
       'brxe-hvforz': 'Projetos_Reais',
       'brxe-uklerk': 'Contrate_Me',
@@ -185,6 +207,9 @@
     var linkEn = document.querySelector('a[href*="cv-david-huang-xie-en.pdf"]');
     if (linkEs) { linkEs.style.display = (lang === 'es') ? '' : 'none'; }
     if (linkEn) { linkEn.style.display = (lang === 'es') ? 'none' : ''; }
+
+    var current = document.querySelectorAll('.dhx-lang-current');
+    for (var c = 0; c < current.length; c++) { current[c].textContent = lang.toUpperCase(); }
 
     document.documentElement.lang = lang;
     window.DHX_LANG = lang;

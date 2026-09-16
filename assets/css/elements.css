@@ -3,9 +3,6 @@
    `utilities`, porque un ID (100) le ganaba a todo. Objetivo: vaciarla poco a
    poco moviendo declaraciones a components/ y utilities/. */
 @layer elements {
-.header-block{display: flex; row-gap: 12px}
-.header-container{flex-direction: row; align-items: center}
-.header-section{justify-content: center; align-items: center; padding-top: 12px; padding-bottom: 12px}
 .header-icon{font-size: 36px; background-color: hsla(184, 100%, 50%, 0.1); color: var(--color-accent); aspect-ratio: 1; width: 60px; height: 60px; justify-content: center; border-radius: 100px; position: fixed; bottom: 24px; z-index: 1; cursor: pointer; left: 24px}
 .is-hidden{display: none}
 .hero-label span::before{content: ''; display: inline-block; width: 8px; height: 8px; border-radius: 100%; background-color: var(--color-success); box-shadow: 0 0 6px 2px rgba(0, 230, 57, 0.6), 0 0 12px 4px rgba(0, 230, 57, 0.3); margin-right: 8px; vertical-align: middle;}
@@ -156,11 +153,5 @@
   .projects-block-6, .projects-block-8{width: auto; flex: 1 1 auto; min-width: 8px}
   .projects-block-5{padding-left: 8px; padding-right: 8px; column-gap: 4px; row-gap: 4px}
   .text-group span[style*="font-size"], .text-group span[style*="font-size"], .text-group span[style*="font-size"]{font-size: 1.5em !important}
-  .header-section{padding-top: 56px}
-  .header-container{flex-wrap: wrap}
-  .header-block{display: none; width: 100%; order: 3; flex-direction: column; align-items: flex-start; row-gap: 16px; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--color-border)}
-  .header-label{display: none; order: 4; width: 100%; justify-content: center; margin-top: 12px}
-  #brx-header.dhx-menu-open .header-block, #brx-header.dhx-menu-open .header-label{display: flex}
-  #brx-header.dhx-menu-open .header-block a{width: 100%}
 }
 }

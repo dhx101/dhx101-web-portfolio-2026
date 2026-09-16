@@ -36,10 +36,9 @@ def _extract(start_marker, end_marker, label):
 
 
 HEAD = _extract("<head>", "</head>", "HEAD")
-# Starts at the language-switcher div (not <header id="brx-header"> itself) so
-# the switcher and the two skip-links right before the header aren't dropped
-# from every generated page.
-HEADER = _extract('<div id="dhx-lang-switcher"', "</header>", "HEADER")
+# Starts at the first skip-link (not <header id="brx-header"> itself) so the two
+# skip-links right before the header aren't dropped from every generated page.
+HEADER = _extract('<a class="skip-link" href="#brx-content">', "</header>", "HEADER")
 FOOTER = _extract('<footer id="brx-footer">', "</footer>", "FOOTER")
 
 FOOTER_SIMPLE = re.sub(r'<p id="brxe-dsiurf".*?</p>', "", FOOTER, count=1, flags=re.S)
@@ -51,14 +50,6 @@ ARROW_ICON = (
     'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">'
     '<path d="M5 12h14M13 6l6 6-6 6"/></svg>'
 )
-
-NAV_EXTRA = (
-    '<a class="brxe-text-link label text-blue underline" href="/proyectos/">Más_Proyectos</a>'
-    '<a class="brxe-text-link label text-blue underline" href="/estudios/">Estudios</a>'
-    '<a class="brxe-text-link label text-blue underline" href="/experiencia/">Experiencia</a>'
-    '<a class="brxe-text-link label text-blue underline" href="/blog/">Blog</a>'
-)
-
 
 def abs_url(path):
     """Canonical, og:url and sitemap <loc> must be absolute: relative values are
@@ -136,16 +127,6 @@ def build_header(prefix, active):
     # only targets same-page "#" links) doesn't try to intercept them
     if prefix:
         h = re.sub(r'href="#(' + "|".join(HOME_ANCHORS) + r')"', r'href="/#\1"', h)
-    # index.html's header already carries the extra nav links (added directly);
-    # only inject them here if they're missing, so re-running this script stays idempotent
-    if "Más_Proyectos" in h:
-        return h
-    h = h.replace(
-        '<a id="brxe-hvforz" class="brxe-text-link label text-blue underline" href="%sproyectos" data-brx-anchor="true">Proyectos_Reales</a>'
-        % ("/#" if prefix else "#"),
-        '<a id="brxe-hvforz" class="brxe-text-link label text-blue underline" href="%sproyectos" data-brx-anchor="true">Proyectos_Reales</a>%s'
-        % ("/#" if prefix else "#", NAV_EXTRA),
-    )
     return h
 
 
