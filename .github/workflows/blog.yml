@@ -1,0 +1,74 @@
+# Publica los posts del blog sin tener que generar el HTML en local.
+#
+# - En una Pull Request que toca content/ o assets/blog/ (las que abre n8n con
+#   un borrador, o las de revisión de posts), regenera las páginas y sube el
+#   HTML a la misma rama. Al aprobar y fusionar la PR, GitHub Pages publica
+#   todo de una vez.
+# - En main comprueba que el HTML publicado coincide con lo que generan los
+#   scripts, para detectar un merge sin regenerar.
+name: Blog
+
+on:
+  pull_request:
+    paths:
+      - "content/**"
+      - "assets/blog/**"
+      - "scripts/**"
+      - "index.html"
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: blog-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-pr:
+    if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: pip install -r scripts/requirements.txt
+      - name: Generar páginas
+        run: |
+          python scripts/build_pages.py
+          python scripts/build_blog.py
+      - name: Subir el HTML generado a la PR
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "El HTML ya estaba al día."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Regenerate pages for ${{ github.head_ref }}"
+          git push
+
+  check-main:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: pip install -r scripts/requirements.txt
+      - name: El HTML publicado coincide con los scripts
+        run: |
+          python scripts/build_pages.py
+          python scripts/build_blog.py
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "::error::El HTML de main no coincide con lo que generan los scripts. Ejecuta build_pages.py y build_blog.py y sube el resultado."
+            git status --short
+            git diff --stat
+            exit 1
+          fi

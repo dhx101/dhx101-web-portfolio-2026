@@ -52,6 +52,15 @@ def parse_post(path):
     except ValueError:
         raise SystemExit(f"{path}: 'date' debe tener formato AAAA-MM-DD, no {frontmatter['date']!r}.")
 
+    updated = None
+    if "updated" in frontmatter:
+        try:
+            updated = date.fromisoformat(frontmatter["updated"])
+        except ValueError:
+            raise SystemExit(f"{path}: 'updated' debe tener formato AAAA-MM-DD, no {frontmatter['updated']!r}.")
+        if updated < post_date:
+            raise SystemExit(f"{path}: 'updated' ({updated}) no puede ser anterior a 'date' ({post_date}).")
+
     if ("image" in frontmatter) != ("image_alt" in frontmatter):
         raise SystemExit(f"{path}: 'image' e 'image_alt' deben ir juntos (falta uno de los dos).")
 
@@ -63,10 +72,19 @@ def parse_post(path):
         "title": frontmatter["title"],
         "description": frontmatter["description"],
         "date": post_date,
+        # Fecha de la última revisión de contenido; si no hay, cuenta la de publicación.
+        "updated": updated or post_date,
         "body_html": body_html,
         "image": frontmatter.get("image"),
         "image_alt": frontmatter.get("image_alt"),
     }
+
+
+def post_dates(post):
+    published = post["date"].strftime("%d/%m/%Y")
+    if post["updated"] == post["date"]:
+        return published
+    return f"{published} · Actualizado {post['updated'].strftime('%d/%m/%Y')}"
 
 
 def image_meta_tags(post):
@@ -86,6 +104,7 @@ def json_ld_article(post):
         "headline": post["title"],
         "description": post["description"],
         "datePublished": post["date"].isoformat(),
+        "dateModified": post["updated"].isoformat(),
         "author": {"@type": "Person", "name": "David Huang Xie"},
     }
     if post["image"]:
@@ -105,10 +124,12 @@ def update_sitemap(posts):
     # doesn't accumulate duplicates as posts are added, renamed or removed.
     sitemap = re.sub(r"\t<url>\n\t\t<loc>" + re.escape(BASE_URL) + r"/blog/[^<]*</loc>\n\t\t<lastmod>[^<]*</lastmod>\n\t</url>\n", "", sitemap)
 
-    entries = [f"\t<url>\n\t\t<loc>{BASE_URL}/blog/</loc>\n\t\t<lastmod>{posts[0]['date'].isoformat()}T00:00:00+00:00</lastmod>\n\t</url>\n"] if posts else []
+    # El listado cambia cuando se publica o se actualiza cualquier post.
+    last_change = max((post["updated"] for post in posts), default=None)
+    entries = [f"\t<url>\n\t\t<loc>{BASE_URL}/blog/</loc>\n\t\t<lastmod>{last_change.isoformat()}T00:00:00+00:00</lastmod>\n\t</url>\n"] if posts else []
     for post in posts:
         entries.append(
-            f"\t<url>\n\t\t<loc>{BASE_URL}/blog/{post['slug']}/</loc>\n\t\t<lastmod>{post['date'].isoformat()}T00:00:00+00:00</lastmod>\n\t</url>\n"
+            f"\t<url>\n\t\t<loc>{BASE_URL}/blog/{post['slug']}/</loc>\n\t\t<lastmod>{post['updated'].isoformat()}T00:00:00+00:00</lastmod>\n\t</url>\n"
         )
 
     sitemap = sitemap.replace("</urlset>", "".join(entries) + "</urlset>")
@@ -177,7 +198,7 @@ def main():
 <a class="brxe-button btn-secondary grow-hover bricks-button back-link" href="/blog/">&larr; Volver al blog</a>
 <div class="blog-post-header">
 {hero_html}
-<p class="blog-date">{post['date'].strftime('%d/%m/%Y')}</p>
+<p class="blog-date">{post_dates(post)}</p>
 <h1 class="brxe-heading text-white">{html.escape(post['title'])}</h1>
 </div>
 <div class="blog-post-body">
