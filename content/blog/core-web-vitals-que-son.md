@@ -2,7 +2,7 @@
 title: Core Web Vitals — qué son y cómo afectan a tu posicionamiento
 description: Qué son los Core Web Vitals de Google (LCP, INP, CLS), por qué son parte del SEO técnico y cómo mejorarlos en una web WordPress paso a paso.
 date: 2026-06-10
-updated: 2026-09-17
+updated: 2026-09-16
 image: /assets/blog/core-web-vitals-que-son.webp
 image_alt: Métricas de velocidad y rendimiento web en pantalla
 ---
