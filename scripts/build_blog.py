@@ -112,6 +112,11 @@ def update_sitemap(posts):
         )
 
     sitemap = sitemap.replace("</urlset>", "".join(entries) + "</urlset>")
+    # Google rechaza el sitemap entero si una sola <loc> o <image:loc> es relativa
+    # (pasó con las imágenes heredadas del export de Rank Math).
+    relative = [u for u in re.findall(r"<(?:image:)?loc>([^<]*)</", sitemap) if not u.startswith(BASE_URL + "/")]
+    if relative:
+        raise SystemExit(f"{SITEMAP_PATH}: URLs no absolutas en el sitemap: {relative}")
     with open(SITEMAP_PATH, "w", encoding="utf-8") as f:
         f.write(sitemap)
 
