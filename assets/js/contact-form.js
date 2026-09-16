@@ -28,6 +28,7 @@ window.addEventListener('load', function() {
     };
 
     if (!nombreVal || !emailVal || !mensajeVal) {
+      track('formulario-incompleto');
       showStatus('error', msg.required);
       return;
     }
@@ -43,14 +44,17 @@ window.addEventListener('load', function() {
     .then(function(res) {
       console.log('status respuesta:', res.status);
       if (res.ok) {
+        track('formulario-enviado');
         showStatus('success', msg.sent);
         form.reset();
       } else {
+        track('formulario-error', { tipo: 'envio', estado: res.status });
         showStatus('error', msg.sendError);
       }
     })
     .catch(function(err) {
       console.log('error fetch:', err);
+      track('formulario-error', { tipo: 'conexion' });
       showStatus('error', msg.connError);
     })
     .finally(function() {
@@ -58,6 +62,10 @@ window.addEventListener('load', function() {
       if (btn)     { btn.disabled = false; }
     });
   });
+
+  function track(name, data) {
+    if (window.dhxTrack) { window.dhxTrack(name, data); }
+  }
 
   function showStatus(type, msg) {
     if (!status) { return; }
