@@ -51,7 +51,7 @@ for i, p in enumerate(projects):
                      f'rel="noopener noreferrer"><span class="icon"><i class="ion-ios-arrow-round-forward"></i></span>'
                      f'<span class="text">Visita la web</span></a>')
     else:
-        link_html = '<p class="brxe-text-basic label" style="color:var(--color-muted)">Proyecto interno / sin enlace público</p>'
+        link_html = '<p class="brxe-text-basic label" style="color:var(--color-text-muted)">Proyecto interno / sin enlace público</p>'
     cards.append(f"""<div class="brxe-block terminal grow-hover project-card">
 <div class="project-card-image background-glow"><img src="/assets/projects/{esc(img)}" alt="{esc(alt)}" loading="lazy"></div>
 <div class="project-card-body">
