@@ -25,7 +25,13 @@ const VIEWPORTS = [[1440, 900], [768, 1024], [390, 844]];
 
 async function snapshot(page, file, [w, h]) {
   await page.setViewportSize({ width: w, height: h });
-  await page.goto('file://' + path.resolve(file));
+  await page.goto('file://' + path.resolve(file), { waitUntil: 'networkidle' });
+  // Las imágenes lazy sin width/height cambian la altura de su contenedor según
+  // si Chromium llegó a cargarlas: se fuerzan todas y se espera a que terminen.
+  await page.evaluate(() => Promise.all([...document.images].map(img => {
+    img.loading = 'eager';
+    return img.complete ? null : new Promise(r => { img.onload = img.onerror = r; });
+  })));
   await page.waitForTimeout(400);           // dejar acabar las transiciones
   return page.evaluate((PROPS) => {
     const out = {};
@@ -50,7 +56,10 @@ async function snapshot(page, file, [w, h]) {
   const targets = pages.length ? pages : ['index.html'];
 
   const browser = await chromium.launch();
-  const page = await browser.newPage();
+  // Sin esto el arnés no es determinista: las animaciones de entrada de GSAP
+  // siguen a medias a los 400 ms y dos copias idénticas dan cientos de
+  // diferencias de opacity. animations.js no anima con reduced motion.
+  const page = await browser.newPage({ reducedMotion: 'reduce' });
   let total = 0;
 
   for (const file of targets) {
