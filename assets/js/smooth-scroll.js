@@ -13,7 +13,6 @@ document.querySelectorAll('a[href^="#"]').forEach(function(link) {
   });
 });
 document.querySelector('#brxe-rviltc').addEventListener('click', function() {
-  console.log("scroll")
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 var dhxMenuToggle = document.querySelector('#dhx-menu-toggle');

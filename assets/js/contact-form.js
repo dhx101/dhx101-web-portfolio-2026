@@ -7,18 +7,14 @@ window.addEventListener('load', function() {
   var btnText = document.querySelector('#dhx-btn-text');
   var status  = document.querySelector('#dhx-status');
 
-  if (!form) { console.log('form no encontrado'); return; }
-  console.log('form OK');
+  if (!form) { return; }
 
   form.addEventListener('submit', function(e) {
     e.preventDefault();
-    console.log('submit disparado');
 
     var nombreVal  = document.querySelector('#dhx-nombre').value.trim();
     var emailVal   = document.querySelector('#dhx-email').value.trim();
     var mensajeVal = document.querySelector('#dhx-mensaje').value.trim();
-
-    console.log('valores:', nombreVal, emailVal, mensajeVal);
 
     var msg = (window.DHX_MESSAGES && window.DHX_MESSAGES[window.DHX_LANG]) || {
       required: '> Error: campos obligatorios vacios.',
@@ -42,7 +38,6 @@ window.addEventListener('load', function() {
       body: JSON.stringify({ nombre: nombreVal, email: emailVal, mensaje: mensajeVal })
     })
     .then(function(res) {
-      console.log('status respuesta:', res.status);
       if (res.ok) {
         track('formulario-enviado');
         showStatus('success', msg.sent);
@@ -52,8 +47,7 @@ window.addEventListener('load', function() {
         showStatus('error', msg.sendError);
       }
     })
-    .catch(function(err) {
-      console.log('error fetch:', err);
+    .catch(function() {
       track('formulario-error', { tipo: 'conexion' });
       showStatus('error', msg.connError);
     })
