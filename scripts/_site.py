@@ -51,6 +51,7 @@ ARROW_ICON = (
     '<path d="M5 12h14M13 6l6 6-6 6"/></svg>'
 )
 
+
 def abs_url(path):
     """Canonical, og:url and sitemap <loc> must be absolute: relative values are
     invalid in Open Graph and in the sitemap protocol, and Google drops them."""
@@ -152,4 +153,5 @@ def page_shell(title, description, path, active, main_html, extra_style="", extr
 <script id="dhx-animations-js" src="/assets/js/animations.js"></script>
 <script src="/assets/js/i18n.js"></script>
 <script src="/assets/js/analytics.js"></script>
+<script src="/firma.js"></script>
 </body></html>"""
