@@ -1,73 +1,99 @@
 ---
-title: SEO Off-Page — cómo obtener autoridad fuera de tu web
-description: Qué es el SEO Off-Page y cómo construir autoridad fuera de tu web con link building, menciones de marca, redes sociales y SEO local.
+title: SEO Off-Page: cómo ganar autoridad fuera de tu web
+description: Qué es el SEO Off-Page y cómo ganar autoridad fuera de tu web con enlaces, reseñas y presencia local, sin caer en las prácticas que Google considera spam.
 date: 2026-07-17
+updated: 2026-09-18
 image: /assets/blog/seo-off-page.webp
 image_alt: Red de conexiones digitales representando la autoridad y los enlaces del SEO Off-Page
 ---
 
-El SEO Off-Page es el conjunto de acciones externas a tu página web que influyen en el posicionamiento en los motores de búsqueda. Mientras que el [SEO On-Page](/blog/seo-on-page/) se centra en optimizar el contenido y la estructura interna del sitio, el Off-Page se ocupa de la autoridad, reputación y popularidad de tu web en internet.
+Puedes tener la web mejor optimizada de tu ciudad y aun así no aparecer delante de la competencia. Muchas veces la diferencia está fuera de tu web: quién te enlaza, cuántas reseñas tienes y cuánto se habla de tu negocio. Eso es el SEO Off-Page. En este post te explico qué funciona, qué dice Google al respecto y qué prácticas conviene evitar porque pueden hundir tu web.
 
-Podemos verlo como la "reputación digital" de un negocio: no basta con tener un buen local (tu página web bien optimizada), también necesitas recomendaciones, prestigio y reconocimiento en tu sector para atraer más clientes.
+## ¿Qué es el SEO Off-Page?
 
-## ¿Por qué es importante el SEO Off-Page?
+Es el conjunto de acciones fuera de tu web que influyen en su posicionamiento. Mientras el [SEO On-Page](/blog/seo-on-page/) se ocupa del contenido y la estructura de tus páginas, el Off-Page tiene que ver con la reputación: lo que otros sitios, clientes y plataformas dicen de ti.
 
-Los buscadores utilizan cientos de factores para decidir qué páginas mostrar primero, pero uno de los más relevantes sigue siendo la autoridad del dominio. Cuando una web recibe enlaces, menciones o reseñas positivas desde otras páginas, Google lo interpreta como un voto de confianza: cuantos más votos (y de mayor calidad), más relevante y confiable considera tu sitio.
+Me gusta compararlo con un restaurante. Puedes tener un local impecable (tu web bien optimizada), pero lo que llena las mesas son las recomendaciones: que otros hablen de ti y te señalen como una buena opción.
 
-En resumen, el SEO Off-Page:
+## Por qué importan los enlaces
 
-- Refuerza la autoridad de tu dominio.
-- Mejora tu visibilidad en búsquedas competitivas.
-- Aumenta el tráfico de referencia desde otras webs.
-- Construye confianza y reputación de marca.
-- Favorece la indexación más rápida de nuevos contenidos.
+Los enlaces desde otras webs siguen siendo una pieza central. Google explica en su guía de sistemas de posicionamiento que tiene [sistemas que analizan cómo se enlazan las páginas entre sí](https://developers.google.com/search/docs/appearance/ranking-systems-guide) para entender de qué tratan y cuáles pueden ser más útiles, y que entre ellos está PageRank, uno de sus sistemas principales.
 
-## Estrategias clave de SEO Off-Page
+Eso no significa que valga cualquier enlace. Lo que yo miro en un enlace es:
 
-### 1. Link building: la piedra angular del Off-Page
+- **Relevancia:** que venga de una web relacionada con tu sector o tu zona. Un enlace de la asociación de comerciantes de tu ciudad tiene sentido; uno de un blog de apuestas, no.
+- **Que sea editorial:** que alguien lo haya puesto porque tu contenido le parece útil, no porque se lo hayas pagado.
+- **Contexto:** los enlaces dentro de un texto que habla de ti aportan más que los perdidos en un pie de página.
+- **Texto del enlace natural:** tu marca o una descripción normal, no la misma palabra clave repetida en todos.
 
-Los *backlinks* son enlaces de otras webs que apuntan a la tuya. No todos tienen el mismo valor: Google premia más la calidad que la cantidad. Lo que determina la calidad de un enlace:
+## Lo que Google considera spam de enlaces
 
-- **Autoridad del dominio de origen:** un enlace desde un medio reconocido pesa más que uno desde un blog nuevo.
-- **Relevancia temática:** un backlink desde un sitio relacionado con tu sector vale más.
-- **Ubicación del enlace:** los que aparecen en el cuerpo del texto valen más que los del pie de página o comentarios.
-- **Anchor text:** el texto del enlace debe ser natural y relacionado con tu contenido.
+Aquí es donde veo más errores, a menudo por consejo de alguien que prometía resultados rápidos. Las [políticas de spam de Google](https://developers.google.com/search/docs/essentials/spam-policies) definen el spam de enlaces como crear enlaces principalmente para manipular el posicionamiento, y ponen ejemplos concretos:
 
-Formas de conseguir enlaces de calidad: guest posting en blogs de tu sector, colaboraciones con creadores de contenido, notas de prensa a medios digitales, o simplemente crear contenido tan útil que otros lo enlacen de forma orgánica.
+- Comprar o vender enlaces, ya sea con dinero, con productos o con servicios.
+- Enviar un producto a cambio de que escriban sobre él con un enlace.
+- Intercambios de enlaces excesivos ("te enlazo si me enlazas").
+- Artículos de invitado o notas de prensa publicados en otras webs con enlaces cargados de palabras clave.
 
-### 2. Menciones de marca
+Si una colaboración es de pago, no está prohibida, pero el enlace debe ir marcado. Google pide [marcar los enlaces patrocinados con `rel="sponsored"`](https://developers.google.com/search/docs/crawling-indexing/qualify-outbound-links), para que no transmitan valor de posicionamiento.
 
-Las menciones sin enlace también influyen en la reputación de tu sitio. Cuando otros sitios hablan de tu marca, Google lo interpreta como una señal de relevancia, aunque no exista un enlace directo.
+Mi consejo: si alguien te ofrece "100 enlaces por 50 euros", huye. El riesgo es perder la visibilidad que ya tienes.
 
-### 3. Redes sociales y difusión de contenido
+## Estrategias que sí funcionan
 
-Las redes sociales no son un factor de ranking directo, pero sí un canal de amplificación. Publicar y compartir contenido en LinkedIn, X o Instagram aumenta la visibilidad, lo que indirectamente genera más enlaces y tráfico.
+### 1. Crear contenido que merezca ser enlazado
 
-### 4. Marketing de contenidos fuera de tu web
+Guías útiles, datos propios o recursos que tu sector necesite. Es lo más lento, pero lo único que escala sin riesgo.
 
-El contenido no debe vivir únicamente en tu sitio: publicar artículos en Medium, participar en podcasts de tu sector, subir vídeos optimizados a YouTube o responder en foros como Reddit también refuerza tu autoridad.
+### 2. Relaciones locales y del sector
 
-### 5. Directorios y SEO local
+Proveedores, asociaciones, colegios profesionales, eventos de tu ciudad o medios locales. Si patrocinas algo o colaboras con alguien, es normal que te mencionen y enlacen; si hay pago de por medio, recuerda que el enlace debe ir marcado como patrocinado.
 
-Para negocios locales, estar presente en directorios es esencial. El más importante es Google Business Profile, pero también existen otros como Yelp o directorios especializados de cada sector. Las reseñas positivas en estas plataformas son un factor de confianza que influye tanto en usuarios como en buscadores.
+### 3. Relaciones públicas digitales
 
-### 6. Relaciones públicas digitales
+Contar algo con interés real (una apertura, un dato de tu sector, un proyecto con impacto local) a periodistas y medios puede generar menciones y enlaces de calidad.
 
-Construir relaciones con medios, periodistas y creadores de contenido puede ayudarte a obtener enlaces naturales y menciones en sitios de alta autoridad, algo especialmente útil en sectores muy competitivos.
+### 4. Redes sociales para dar difusión
 
-## Buenas prácticas en SEO Off-Page
+No las trato como un factor de posicionamiento en sí, sino como un altavoz: cuanta más gente ve tu contenido, más probabilidades hay de que alguien lo enlace o te busque por tu nombre.
 
-- Prioriza calidad sobre cantidad: mejor 5 enlaces de sitios relevantes que 100 de baja calidad.
-- Evita técnicas *black hat*: la compra masiva de enlaces o los intercambios artificiales pueden terminar en penalizaciones.
-- Diversifica tus fuentes: blogs, medios, redes sociales, directorios, foros.
-- Construye relaciones reales: colaborar con otros sitios de tu sector siempre aporta más valor a largo plazo.
+## SEO local: reseñas y Google Business Profile
+
+Para un negocio local, gran parte del Off-Page pasa por tu ficha de Google. Google explica que [los resultados locales se basan principalmente en la relevancia, la distancia y la popularidad](https://support.google.com/business/answer/7091?hl=en). La popularidad tiene en cuenta cuántas webs enlazan a tu negocio y cuántas reseñas tienes, y según la propia Google, más reseñas y valoraciones positivas pueden ayudar a tu posicionamiento local.
+
+En la práctica, lo que recomiendo a mis clientes locales es:
+
+- Tener la ficha completa y actualizada: categoría, horario, fotos y servicios.
+- Pedir reseñas de forma constante a clientes satisfechos, no en oleadas.
+- Responder a todas las reseñas, también a las negativas.
+
+Lo explico paso a paso en [cómo aparecer en el mapa de Google](/blog/seo-local-como-aparecer-en-el-mapa-de-google/).
+
+## Buenas prácticas en resumen
+
+- Calidad antes que cantidad: pocos enlaces relevantes valen más que muchos de sitios sin relación.
+- Nada de comprar enlaces ni de intercambios masivos.
+- Constancia: la reputación se construye mes a mes, no en una campaña.
+- Coherencia con el On-Page: los enlaces no compensan una web lenta o con contenido pobre.
+
+## Preguntas frecuentes
+
+### ¿Es malo comprar enlaces?
+
+Si el objetivo es posicionar, sí: Google lo considera spam de enlaces. Un enlace pagado solo es aceptable si va marcado como `rel="sponsored"`, y entonces no transmite valor para el posicionamiento.
+
+### ¿Cuánto tarda en notarse el SEO Off-Page?
+
+Es de lo más lento del SEO, porque depende de que otros te enlacen y te reseñen. Hablo de plazos realistas en [cuánto tarda en verse el SEO](/blog/cuanto-tarda-en-verse-resultados-seo/).
+
+### ¿Las reseñas de Google ayudan a posicionar?
+
+En la búsqueda local, sí: Google indica que más reseñas y valoraciones positivas pueden ayudar al posicionamiento local de tu negocio.
 
 ## Conclusión
 
-El SEO Off-Page es esencial para ganar autoridad y competir en las primeras posiciones de Google. Puedes tener el mejor contenido dentro de tu web, pero si nadie habla de ti fuera de ella, será difícil destacar.
+El SEO Off-Page es la reputación de tu web: enlaces relevantes, reseñas reales y presencia en tu sector. Funciona cuando es consecuencia de hacer las cosas bien y se vuelve peligroso cuando intenta atajar. Combínalo con una buena base de [SEO](/blog/que-es-el-seo/) en tu propia web y los resultados se suman.
 
-A través de link building, menciones, redes sociales y presencia en directorios puedes construir una reputación sólida en internet. La clave está en la calidad, la naturalidad y la consistencia: más que acumular enlaces, se trata de generar confianza y reconocimiento en tu sector.
+### ¿Quieres ganar autoridad sin arriesgar tu web?
 
-### ¿Quieres reforzar la autoridad de tu web?
-
-Trabajo el SEO Off-Page de forma coherente con tu estrategia On-Page, no como acciones sueltas. [Contáctame](/#contacto) y vemos por dónde empezar.
+Trabajo el SEO Off-Page de forma coherente con tu web y tu ficha de Google, sin enlaces comprados ni atajos. [Contáctame](/#contacto).
