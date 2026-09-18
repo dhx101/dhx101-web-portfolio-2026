@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Infraestructura y automatización de una agencia",
+    "context": "Ángulo Tres · enero–agosto 2026",
+    "reto": "Era el único perfil técnico de la agencia: las webs de los clientes, las herramientas internas y los servidores dependían de mí.",
+    "hice": [
+      "Optimicé el rendimiento de las webs de clientes midiendo Core Web Vitals.",
+      "Sustituí ClickUp por Odoo y Brevo por Amazon SES.",
+      "Monté y mantuve un servidor propio con Docker: Odoo, n8n, Nextcloud y otros servicios.",
+      "Desplegué agentes de IA y automatizaciones con n8n."
+    ],
+    "resultado": [
+      "Webs hasta un 60 % más rápidas.",
+      "80 € al mes menos en herramientas."
+    ],
+    "stack": ["Docker", "Odoo", "n8n", "Nextcloud", "Amazon SES", "WordPress"]
+  },
+  {
+    "name": "Makisu Sushi Petrer",
+    "context": "Cliente · restaurante en Petrer",
+    "reto": "Un buffet libre de cocina asiática que necesitaba una web propia con la que la gente de la zona lo encontrara en Google.",
+    "hice": [
+      "Diseño y desarrollo con WordPress y Bricks.",
+      "SEO para las búsquedas de la zona.",
+      "Las fotos de los platos, hechas por mí.",
+      "Medición de los clics en «Llamar» con analítica propia y sin cookies (Umami)."
+    ],
+    "resultado": [],
+    "stack": ["WordPress", "Bricks", "Umami"],
+    "link": "https://makisusushipetrer.es/"
+  },
+  {
+    "name": "Blog con investigación automatizada",
+    "context": "Proyecto propio",
+    "status": "En desarrollo",
+    "reto": "Publicar con regularidad sin sacrificar la veracidad. En mis pruebas, un modelo de IA con búsqueda web inventó 4 de 8 enlaces supuestamente oficiales de WordPress.",
+    "hice": [
+      "Búsqueda con un SearXNG propio, limitada a documentación oficial.",
+      "Redacción con un modelo de lenguaje local, en mi propia GPU, a partir de las fuentes descargadas.",
+      "Un validador que aplica la guía editorial y exige que cada enlace sea una fuente real.",
+      "El borrador llega como pull request: lo reviso yo, GitHub Actions genera el HTML y se publica al aprobarlo."
+    ],
+    "resultado": [
+      "El validador ya frena enlaces inventados: en pruebas, un modelo se inventó el dominio blog.davidhuangxie.com y el borrador no pasó."
+    ],
+    "stack": ["n8n", "SearXNG", "LM Studio", "Python", "GitHub Actions"],
+    "link": "/blog/",
+    "linkText": "Ver el blog"
+  }
+]

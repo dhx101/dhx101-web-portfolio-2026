@@ -16,12 +16,12 @@
   {
     "name": "Makisu Sushi Petrer",
     "img": "Makisu.png",
-    "alt": "Makisu Sushi Petrer Buffet Libre",
+    "alt": "Web de Makisu Sushi Petrer, buffet libre de cocina asiática",
     "stack": [
-      "Wordpress",
-      "Elementor"
+      "WordPress",
+      "Bricks"
     ],
-    "miniDescription": "Página web para el Buffet Libre de comida Asiática en Petrer, realizada con Wordpress, Elementor, se le trabajó el SEO, las imágenes fueron tomadas por mí mismo y el diseño y desarrollo fueron realizados por mí",
+    "miniDescription": "Web del buffet libre de cocina asiática de Petrer. Diseño, desarrollo con WordPress y Bricks y SEO; las fotos de los platos también las hice yo.",
     "link": "https://makisusushipetrer.es/"
   },
   {
@@ -29,11 +29,11 @@
     "img": "MontseCoronado.png",
     "alt": "E-commerce de Montse Coronado",
     "stack": [
-      "Wordpress",
+      "WordPress",
       "Elementor",
-      "Woocomerce"
+      "WooCommerce"
     ],
-    "miniDescription": "Página web y comercio electrónico para la Psicóloga Montse Coronado, realizada con Wordpress, Elementor y la parte del comercio electrínico fue realizada con Woocomerce donde cuenta con varios productos y una pasarela de pago con una TPVV de un banco.",
+    "miniDescription": "Web y tienda online de la psicóloga Montse Coronado, con WordPress y Elementor. La tienda funciona con WooCommerce: varios productos y pago con tarjeta mediante la TPV virtual de su banco.",
     "link": "https://montsecoronado.com/"
   },
   {
@@ -41,11 +41,11 @@
     "img": "FisioAndYoga.png",
     "alt": "E-commerce de Fisio & Yoga",
     "stack": [
-      "Wordpress",
+      "WordPress",
       "Elementor",
-      "Woocomerce"
+      "WooCommerce"
     ],
-    "miniDescription": "Página web y comercio electrónico para la fisioterapeuta Gemma, realizada con Wordpress, Elementor y la parte del comercio electrínico fue realizada con Woocomerce donde cuenta con varios productos y una pasarela de pago con una TPVV de un banco.",
+    "miniDescription": "Web y tienda online de Gemma, fisioterapeuta, con WordPress y Elementor. La tienda funciona con WooCommerce: varios productos y pago con tarjeta mediante la TPV virtual de su banco.",
     "link": "https://www.fisioandyogamalaga.com/"
   },
   {
@@ -56,20 +56,21 @@
       "HTML",
       "SCSS",
       "React",
-      "Typescript"
+      "TypeScript"
     ],
-    "miniDescription": "Web para mi mismo, donde he utilizado diferentes tecnologías como HTML, React, SCSS para crear una web donde mostrar mis proyectos en los que he trabajado y los conocimientos que tengo. El diseño simple es mio y la web ha sido maquetada a código.",
-    "link": "https://dhx101.github.io/portfolio/"
+    "miniDescription": "Mi primer portfolio, con diseño propio y maquetado a código con React, TypeScript y SCSS para mostrar mis proyectos y conocimientos.",
+    "link": "https://dhx101.github.io/portfolio/",
+    "practica": true
   },
   {
     "name": "Almoraima Soluciones",
     "img": "Almoraima.png",
     "alt": "Agencia de Marketing Digital Almoraima Soluciones",
     "stack": [
-      "Wordpress",
+      "WordPress",
       "Elementor"
     ],
-    "miniDescription": "Web para la Agencia de Marketing Digital Almoraima Soluciones, el diseño y la maquetación fuera realizada por mi, a su vez se realizaron trabajos de SEO onm Page, se utilaron Wordpress y Elementor para la maquetación de la web.",
+    "miniDescription": "Web de la agencia de marketing digital Almoraima Soluciones. Diseño y maquetación propios con WordPress y Elementor, además del SEO on-page.",
     "link": "https://www.almoraimasoluciones.es/"
   },
   {
@@ -81,18 +82,19 @@
       "JS",
       "SCSS"
     ],
-    "miniDescription": "Aplicación de Pokedex, donde te muestran los pokemon de las diferentes generaciones, donde puedes ordenar por tipos. La apliación fue creada con HTML, Javascript y SCSS con una metodología BEM, los pokemons provienen de una API de PokeApi.co donde realizamos un fetch de los contenidos necesarios para despues crearlos en nuestro DOM.",
-    "link": "https://dhx101.github.io/pokedex/"
+    "miniDescription": "Pokédex con los Pokémon de varias generaciones, que se pueden ordenar por tipo. Los datos llegan de PokeAPI con fetch y se pintan en el DOM; HTML, JavaScript y SCSS con metodología BEM.",
+    "link": "https://dhx101.github.io/pokedex/",
+    "practica": true
   },
   {
     "name": "Arion Arquitectura",
     "img": "Arion.png",
     "alt": "Arion Arquitectura técnica",
     "stack": [
-      "Wordpress",
+      "WordPress",
       "Elementor"
     ],
-    "miniDescription": "Web para la agencia de Arquitectura técnica Arión Arquitectura, querian un rediseño de su web antigua, el diseño de esta nueva web ha sido realizado por mi y para el maquetado de la web se ha usado Wordpress y Elementor.",
+    "miniDescription": "Rediseño de la web de Arión Arquitectura, estudio de arquitectura técnica. Diseño propio y maquetación con WordPress y Elementor.",
     "link": null
   },
   {
@@ -104,30 +106,32 @@
       "JS",
       "CSS"
     ],
-    "miniDescription": "Juego Piedra papel tijeras creado con Javascript, toda la lógica se encuentra en el JS, se ha utilziado HTMly un CSS básico, te permite ver cuantas veces has ganado en un Scoreboard",
-    "link": "https://dhx101.github.io/piedra-papel-tijera/"
+    "miniDescription": "Juego de piedra, papel o tijera con un marcador de partidas ganadas. Toda la lógica está en JavaScript, con HTML y CSS básicos.",
+    "link": "https://dhx101.github.io/piedra-papel-tijera/",
+    "practica": true
   },
   {
     "name": "TeleSketch",
     "img": "Telesketch.png",
-    "alt": "Pizzara Mágica TeleSketch",
+    "alt": "Pizarra mágica TeleSketch",
     "stack": [
       "HTML",
       "JS",
       "CSS"
     ],
-    "miniDescription": "Apliación de TeleSketch, es una pizarra donde puedes pintar haciendo Click y arrastrando, puedes elegir varios colores y cambiar el tamaño del Linenzo, se ha creado usando HTML, Javascript y CSS. Los diferentes grids se generan con JS dandoles un evento, el cual cuando ahcemos click permite pintar y al levantar el click deja de pintar.",
-    "link": "https://dhx101.github.io/Telesketch/"
+    "miniDescription": "Pizarra para dibujar haciendo clic y arrastrando, con varios colores y tamaño de lienzo ajustable. La cuadrícula se genera con JavaScript y cada celda responde a los eventos del ratón.",
+    "link": "https://dhx101.github.io/Telesketch/",
+    "practica": true
   },
   {
     "name": "Polaris Landing Page",
     "img": "Polaris.png",
     "alt": "Polaris",
     "stack": [
-      "Wordpress",
+      "WordPress",
       "Elementor"
     ],
-    "miniDescription": "Landing Page para Polaris Formula querian una web para posicionar su producto en el mercado Portugués, el diseño y maquetado fueron hechas por mi, el maquetado de la web fue hecha con Wordpress y Elementor.",
+    "miniDescription": "Landing page de Polaris Formula para posicionar su producto en el mercado portugués. Diseño y maquetación propios con WordPress y Elementor.",
     "link": null
   },
   {
@@ -135,10 +139,10 @@
     "img": "Ortoinnova.png",
     "alt": "Ortoinnova centro Ortopédico",
     "stack": [
-      "Wordpress",
+      "WordPress",
       "Elementor"
     ],
-    "miniDescription": "Centro ortopédico de Málaga que necesitaban una nueva web ya que la antigua la perdieron, el diseño y maqueteda fue hecho por mi mediante Wordpress y Elementor.",
+    "miniDescription": "Centro ortopédico de Málaga que había perdido su web anterior. La rehíce con diseño y maquetación propios en WordPress y Elementor.",
     "link": "https://www.ortoinnova.com/"
   },
   {
@@ -146,10 +150,10 @@
     "img": "Fairloc.png",
     "alt": "Fairloc",
     "stack": [
-      "Wordpress",
+      "WordPress",
       "Elementor"
     ],
-    "miniDescription": "Agencia de traducción quienes necesitaban una web donde mostrar la información de la empresa, diseñada y maquetada por mi en Wordpress y Elementor",
+    "miniDescription": "Web corporativa de Fairloc, agencia de traducción. Diseño y maquetación propios con WordPress y Elementor.",
     "link": "https://fairloc.com/"
   },
   {
@@ -157,22 +161,22 @@
     "img": "CMR.png",
     "alt": "Comercial Malagueña del Rótulo",
     "stack": [
-      "Wordpress",
+      "WordPress",
       "Elementor"
     ],
-    "miniDescription": "Comercial Malagueña especializada en la venta de Rótulos Luminosos y materiales de alta calidad, diseñada y maquetada por mi en Wordpress Y Elementor",
+    "miniDescription": "Web de Comercial Malagueña del Rótulo, especializada en rótulos luminosos y materiales. Diseño y maquetación propios con WordPress y Elementor.",
     "link": "https://cmrotulos.com/"
   },
   {
     "name": "Maria Rey Estetica",
     "img": "Mariareyestetica.png",
-    "alt": "Maria Rey Estetica Centro Cosmética",
+    "alt": "Tienda online del centro de estética Maria Rey",
     "stack": [
-      "Wordpress",
+      "WordPress",
       "Elementor",
-      "Woocomerce"
+      "WooCommerce"
     ],
-    "miniDescription": "Centro estética de Marbella, la cliente queria una web donde pudiese vender sus productos, se diseñó y maquetó por mi la web utilizando Wordpress junto a Elementor, la tienda se creó utilizando Woocomerce.",
+    "miniDescription": "Centro de estética de Marbella que quería vender sus productos online. Diseñé y maqueté la web con WordPress y Elementor, y monté la tienda con WooCommerce.",
     "link": "https://www.mariareyestetica.com/"
   },
   {
@@ -180,10 +184,10 @@
     "img": "Ruabella.png",
     "alt": "Ruabella Consulting",
     "stack": [
-      "Wordpress",
+      "WordPress",
       "Elementor"
     ],
-    "miniDescription": "Agencia de promociones inmobiliarias de Málaga, diseñada y maquetada por mi mediante Wordpress y Elementor.",
+    "miniDescription": "Web de Ruabella, agencia de promociones inmobiliarias de Málaga. Diseño y maquetación propios con WordPress y Elementor.",
     "link": "https://ruabella.com/"
   },
   {
@@ -191,10 +195,10 @@
     "img": "TotalLogistic.png",
     "alt": "Web Total Logistic Group",
     "stack": [
-      "Wordpress",
+      "WordPress",
       "Elementor"
     ],
-    "miniDescription": "Empresa de Logística quienes necesitaban maquetar una web antigua que perdieron, el diseño era antiguo y  maquetada por mi usando Wordpress y Elementor",
+    "miniDescription": "Empresa de logística que había perdido su web. La recuperé partiendo del diseño antiguo y la maqueté con WordPress y Elementor.",
     "link": "https://www.totalproject.site/"
   },
   {
@@ -202,10 +206,10 @@
     "img": "Disesa.png",
     "alt": "Disesa Costa del Sol",
     "stack": [
-      "Wordpress",
+      "WordPress",
       "Elementor"
     ],
-    "miniDescription": "Mini Site para la empresa Distribuciones disesa, diseño y maquetado por mi, utilizando Wordpress y Elementor.",
+    "miniDescription": "Minisite para Distribuciones Disesa. Diseño y maquetación propios con WordPress y Elementor.",
     "link": "https://www.disesa.es/"
   },
   {
@@ -213,10 +217,10 @@
     "img": "Oversattningsbyra.png",
     "alt": "Landing Page Oversattningsbyra",
     "stack": [
-      "Wordpress",
+      "WordPress",
       "Elementor"
     ],
-    "miniDescription": "Landing Page para un agencia de traducción Nordica quienes necesitaban maquetar una Landing Page para la clienta, diseño del cliente maquetado por mi en Wordpress y Elementor",
+    "miniDescription": "Landing page para una agencia de traducción nórdica. Maqueté con WordPress y Elementor el diseño que aportó el cliente.",
     "link": "https://www.oversattningsbyra.io/"
   },
   {
@@ -224,21 +228,21 @@
     "img": "AlhaurinTorreSalud.png",
     "alt": "Web Alhaurín Torre Salud, Clínica especializada en Alhaurín de la Torre",
     "stack": [
-      "Wordpress",
+      "WordPress",
       "WPBakery"
     ],
-    "miniDescription": "Web para Clínica especializada en Alhaurín de la Torre, se trata de una web la cual fue diseñada por una diseñadora y maquetada en Wordpress con WP Bakery.",
+    "miniDescription": "Web de una clínica especializada en Alhaurín de la Torre. El diseño es de una diseñadora; yo la maqueté con WordPress y WPBakery.",
     "link": "https://alhaurintorresalud.es/"
   },
   {
     "name": "Jurado Abogados",
     "img": "JuradoAbogados.png",
-    "alt": "Web Jurados Abogados, despacho de abogados en Málaga",
+    "alt": "Web de Jurado Abogados, despacho de abogados en Torre del Mar",
     "stack": [
-      "Wordpress",
+      "WordPress",
       "Elementor"
     ],
-    "miniDescription": "Web para un despacho de abogados situado en Torre del Mar Málaga, se trata de una web la cual fue diseñada por mi y maquetada en Wordpress con Elementor.",
+    "miniDescription": "Web de un despacho de abogados de Torre del Mar (Málaga). Diseño y maquetación propios con WordPress y Elementor.",
     "link": "https://www.juradoabogadosweb.com/"
   },
   {
@@ -246,10 +250,10 @@
     "img": "PsicologiaLevy.png",
     "alt": "Web Centro de Psicología Levy",
     "stack": [
-      "Wordpress",
+      "WordPress",
       "Elementor"
     ],
-    "miniDescription": "Centro de Psicología en Málaga centro, necesitaban una web, diseño realizado por una diseñadora maquetado por mi mediante Wordpress y Elementor",
+    "miniDescription": "Centro de psicología en el centro de Málaga. El diseño es de una diseñadora; yo lo maqueté con WordPress y Elementor.",
     "link": "https://psicologialevy.com/"
   }
 ]

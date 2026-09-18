@@ -11,5 +11,26 @@
 .project-card-body{padding:24px;display:flex;flex-direction:column;gap:12px;flex-grow:1}
 .project-card-stack{display:flex;flex-wrap:wrap;gap:8px}
 .project-card-body>a,.project-card-body>p:last-child{margin-top:auto}
+/* Las tarjetas son h3 bajo el h2 de su sección; conservan el tamaño que tenían como h2
+   (bricks-frontend.css: h2 2.1em, h3 1.8em). */
+.project-card-body h3,.case-card h3{font-size:2.1em}
+.proyectos-section-title{display:flex;flex-direction:column;gap:8px;margin:56px 0 24px;align-self:stretch}
+.page-hero+.proyectos-section-title{margin-top:0}
+/* El contenedor centra a sus hijos y .brxe-block alinea al inicio: sin stretch, la rejilla
+   y las columnas se encogen al ancho de su contenido. */
+.casos-grid{display:grid;grid-template-columns:1fr;gap:24px;align-self:stretch}
+.case-card{display:flex;flex-direction:column;gap:16px;padding:32px}
+@media (max-width:767px){.case-card{padding:24px}}
+.case-card-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.case-card-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-self:stretch}
+/* Si un caso aún no tiene "Resultado", "Qué hice" ocupa todo el ancho. */
+.case-card-block:only-child{grid-column:1/-1}
+@media (max-width:767px){.case-card-cols{grid-template-columns:1fr}}
+.case-card-block{display:flex;flex-direction:column;gap:8px}
+.case-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.case-list li{position:relative;padding-left:20px}
+.case-list li::before{content:"\203A";position:absolute;left:0;color:var(--color-accent);font-family:"JetBrains Mono"}
+.case-result li{color:var(--color-heading);font-weight:600}
+.case-card>a{width:max-content}
 .estudios-list,.experiencia-list{display:flex;flex-direction:column;gap:24px}
 }

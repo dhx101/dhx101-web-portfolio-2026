@@ -37,47 +37,103 @@ def esc(value):
 
 # ---------------------------------------------------------------- PROYECTOS
 projects = load_json("projects.json")
+case_studies = load_json("case-studies.json")
 
-cards = []
-for i, p in enumerate(projects):
+
+def visit_link(url, text="Visita la web"):
+    # Los enlaces externos abren pestaña nueva; los internos (/blog/) no.
+    external = url.startswith("http")
+    target = ' target="_blank" rel="noopener noreferrer"' if external else ""
+    return (f'<a class="brxe-text-link label text-blue underline" href="{esc(url)}"{target}>'
+            f'<span class="icon">{ARROW_ICON}</span><span class="text">{esc(text)}</span></a>')
+
+
+def stack_html(items):
+    return "".join(f'<p class="brxe-text-basic badge-infraestructure">{esc(s)}</p>' for s in items)
+
+
+def project_card(i, p):
     img = require(p, "img", i, "projects.json")
     alt = require(p, "alt", i, "projects.json")
     name = require(p, "name", i, "projects.json")
     mini_description = require(p, "miniDescription", i, "projects.json")
-
-    stack_badges = "".join(f'<p class="brxe-text-basic badge-infraestructure">{esc(s)}</p>' for s in p.get("stack", []))
     if p.get("link"):
-        link_html = (f'<a class="brxe-text-link label text-blue underline" href="{esc(p["link"])}" target="_blank" '
-                     f'rel="noopener noreferrer"><span class="icon">{ARROW_ICON}</span>'
-                     f'<span class="text">Visita la web</span></a>')
+        link_html = visit_link(p["link"])
     else:
         link_html = '<p class="brxe-text-basic label" style="color:var(--color-text-muted)">Proyecto interno / sin enlace público</p>'
-    cards.append(f"""<div class="brxe-block terminal grow-hover project-card">
+    return f"""<div class="brxe-block terminal grow-hover project-card">
 <div class="project-card-image background-glow"><img src="/assets/projects/{esc(img)}" alt="{esc(alt)}" loading="lazy"></div>
 <div class="project-card-body">
-<h2 class="brxe-heading">{esc(name)}</h2>
-<div class="project-card-stack">{stack_badges}</div>
+<h3 class="brxe-heading">{esc(name)}</h3>
+<div class="project-card-stack">{stack_html(p.get("stack", []))}</div>
 <p class="brxe-text-basic">{esc(mini_description)}</p>
 {link_html}
 </div>
-</div>""")
+</div>"""
+
+
+def case_list(title, items, extra_class=""):
+    if not items:
+        return ""
+    lis = "".join(f"<li>{esc(x)}</li>" for x in items)
+    return (f'<div class="case-card-block"><p class="brxe-text-basic label text-blue">{esc(title)}</p>'
+            f'<ul class="case-list{extra_class}">{lis}</ul></div>')
+
+
+def case_card(i, c):
+    name = require(c, "name", i, "case-studies.json")
+    context = require(c, "context", i, "case-studies.json")
+    reto = require(c, "reto", i, "case-studies.json")
+    hice = require(c, "hice", i, "case-studies.json")
+    status = f'<p class="brxe-text-basic badge-primary">{esc(c["status"])}</p>' if c.get("status") else ""
+    link_html = visit_link(c["link"], c.get("linkText", "Visita la web")) if c.get("link") else ""
+    return f"""<article class="brxe-block terminal case-card">
+<div class="case-card-head"><p class="brxe-text-basic label">{esc(context)}</p>{status}</div>
+<h3 class="brxe-heading text-white">{esc(name)}</h3>
+<p class="brxe-text-basic">{esc(reto)}</p>
+<div class="case-card-cols">
+{case_list("Qué hice", hice)}
+{case_list("Resultado", c.get("resultado", []), " case-result")}
+</div>
+<div class="project-card-stack">{stack_html(c.get("stack", []))}</div>
+{link_html}
+</article>"""
+
+
+def section_title(label, title):
+    return (f'<div class="proyectos-section-title"><p class="brxe-text-basic label text-blue">{esc(label)}</p>'
+            f'<h2 class="brxe-heading text-white">{esc(title)}</h2></div>')
+
+
+client_cards = [project_card(i, p) for i, p in enumerate(projects) if not p.get("practica")]
+practice_cards = [project_card(i, p) for i, p in enumerate(projects) if p.get("practica")]
+case_cards = [case_card(i, c) for i, c in enumerate(case_studies)]
 
 proyectos_main = f"""<section class="brxe-section section"><div class="brxe-container" style="flex-direction:column">
 <div class="page-hero">
 <p class="brxe-text-basic label text-blue">// ALL_DEPLOYMENTS</p>
 <h1 class="brxe-heading text-white">Proyectos</h1>
-<p class="brxe-text-basic">Estos son los proyectos web reales en los que he trabajado a lo largo de mi carrera, tanto para clientes como personales: WordPress, Elementor, Woocommerce, React y más. Cada uno incluye el stack utilizado y, cuando está disponible, un enlace para visitarlo.</p>
+<p class="brxe-text-basic">Primero, tres casos contados de principio a fin: qué problema había, qué hice y qué resultado dio. Después, las webs que he hecho para clientes y, al final, las prácticas con las que aprendí.</p>
 <a class="brxe-button btn-secondary grow-hover bricks-button back-link" href="/">&larr; Volver al inicio</a>
 </div>
+{section_title("// CASE_STUDIES", "Casos de estudio")}
+<div class="casos-grid">
+{''.join(case_cards)}
+</div>
+{section_title("// CLIENT_DEPLOYMENTS", "Webs para clientes")}
 <div class="proyectos-grid">
-{''.join(cards)}
+{''.join(client_cards)}
+</div>
+{section_title("// TRAINING", "Prácticas de formación")}
+<div class="proyectos-grid">
+{''.join(practice_cards)}
 </div>
 </div></section>"""
 
 with open(os.path.join(ROOT, "proyectos", "index.html"), "w", encoding="utf-8") as f:
     f.write(page_shell(
         "Proyectos | David Huang Xie — Desarrollador Web Full-Stack",
-        "Proyectos web reales en los que he trabajado: WordPress, Elementor, Woocommerce, React y más. Explora los sitios y aplicaciones que he desarrollado para clientes y proyectos propios.",
+        "Casos de estudio y webs reales: automatización con n8n e IA, infraestructura propia y webs WordPress y WooCommerce para negocios: qué hice y qué resultado dio.",
         "/proyectos/", "proyectos", proyectos_main, extra_head=PAGE_STYLESHEET,
     ))
 
