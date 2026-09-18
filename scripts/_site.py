@@ -4,7 +4,6 @@ second generator script can't drift into its own copy of page_shell() the way
 build_pages.py's PAGE_STYLE once duplicated CSS already present in index.html's
 own <head> — see git history for that bug."""
 import html
-import json
 import os
 import re
 
@@ -60,25 +59,20 @@ def abs_url(path):
     return SITE_URL + (path if path.startswith("/") else "/" + path)
 
 
-def _localize_json_ld(head, page_url, title):
-    """index.html's JSON-LD describes the homepage. Copied verbatim into every
-    generated page it would claim each one *is* the homepage, so rewrite the
-    WebPage node (and the reference to it) to point at this page instead."""
-    m = re.search(r'(<script type="application/ld\+json"[^>]*>)(.*?)(</script>)', head, re.S)
-    if not m:
-        return head
-    try:
-        data = json.loads(m.group(2))
-    except ValueError:
-        return head
-    for node in data.get("@graph", []):
-        if node.get("@type") == "WebPage":
-            node["@id"] = page_url + "#webpage"
-            node["url"] = page_url
-            node["name"] = title
-        if isinstance(node.get("mainEntityOfPage"), dict):
-            node["mainEntityOfPage"]["@id"] = page_url + "#webpage"
-    return head[:m.start(2)] + json.dumps(data, ensure_ascii=False) + head[m.end(2):]
+def _strip_home_only_metadata(head):
+    """index.html's Rank Math JSON-LD and og:updated_time describe the homepage:
+    its dates, and a Person as the page's main entity. Rewriting the @id per page
+    (as this once did) still left every post with the homepage's dateModified next
+    to its own Article JSON-LD, so generated pages drop both instead. Posts get
+    their dates from build_blog.py's Article JSON-LD."""
+    head, n = re.subn(r'<script type="application/ld\+json" class="rank-math-schema">.*?</script>\n?',
+                      "", head, count=1, flags=re.S)
+    if not n:
+        raise SystemExit(
+            "index.html structure changed: could not find its rank-math-schema JSON-LD. "
+            "Update _strip_home_only_metadata() in scripts/_site.py to match."
+        )
+    return re.sub(r'<meta property="og:updated_time" content="[^"]*">\n?', "", head, count=1)
 
 
 def build_head(title, description, path):
@@ -112,7 +106,7 @@ def build_head(title, description, path):
     # leave every generated page pointing at the homepage.
     h = re.sub(r'<meta property="og:url" content="[^"]*">',
                f'<meta property="og:url" content="{page_url}">', h)
-    h = _localize_json_ld(h, page_url, title)
+    h = _strip_home_only_metadata(h)
     return h
 
 
