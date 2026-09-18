@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Search Engine Optimization by Rank Math - https://rankmath.com/ -->
-<title>Qué es un registro de auditoría y por qué toda herramienta interna debería tener uno | Blog de David Huang Xie</title>
-<meta name="description" content="Qué es un registro de auditoría (audit log), por qué debe ser best-effort y no transaccional, y cómo lo implementé en un panel de administración interno.">
+<title>Qué es un registro de auditoría y por qué lo necesitas | Blog de David Huang Xie</title>
+<meta name="description" content="Qué es un registro de auditoría, qué debe guardar según OWASP, por qué conviene que no bloquee la acción real y cómo lo implementé en un panel interno.">
 <meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
 <link rel="canonical" href="https://davidhuangxie.com/blog/que-es-un-registro-de-auditoria/">
 <link rel="icon" href="/assets/icons/favicon.ico" sizes="any">
@@ -15,13 +15,13 @@
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
 <meta property="og:locale" content="es_ES">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Qué es un registro de auditoría y por qué toda herramienta interna debería tener uno | Blog de David Huang Xie">
-<meta property="og:description" content="Qué es un registro de auditoría (audit log), por qué debe ser best-effort y no transaccional, y cómo lo implementé en un panel de administración interno.">
+<meta property="og:title" content="Qué es un registro de auditoría y por qué lo necesitas | Blog de David Huang Xie">
+<meta property="og:description" content="Qué es un registro de auditoría, qué debe guardar según OWASP, por qué conviene que no bloquee la acción real y cómo lo implementé en un panel interno.">
 <meta property="og:url" content="https://davidhuangxie.com/blog/que-es-un-registro-de-auditoria/">
 <meta property="og:site_name" content="Portfolio David Huang Xie">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Qué es un registro de auditoría y por qué toda herramienta interna debería tener uno | Blog de David Huang Xie">
-<meta name="twitter:description" content="Qué es un registro de auditoría (audit log), por qué debe ser best-effort y no transaccional, y cómo lo implementé en un panel de administración interno.">
+<meta name="twitter:title" content="Qué es un registro de auditoría y por qué lo necesitas | Blog de David Huang Xie">
+<meta name="twitter:description" content="Qué es un registro de auditoría, qué debe guardar según OWASP, por qué conviene que no bloquee la acción real y cómo lo implementé en un panel interno.">
 <meta name="twitter:label1" content="Written by">
 <meta name="twitter:data1" content="admin">
 <meta name="twitter:label2" content="Time to read">
@@ -65,7 +65,7 @@
 <link rel="stylesheet" href="/assets/css/utilities.css">
 <link rel="stylesheet" href="/assets/css/elements.css">
 <script defer src="https://stats.davidhuangxie.com/stats.js" data-website-id="3b516eb5-dda7-4768-96a0-eb3864f11f58" data-domains="davidhuangxie.com"></script>
-<link rel="stylesheet" href="/assets/css/blog.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Qué es un registro de auditoría y por qué toda herramienta interna debería tener uno", "description": "Qué es un registro de auditoría (audit log), por qué debe ser best-effort y no transaccional, y cómo lo implementé en un panel de administración interno.", "datePublished": "2026-07-06", "dateModified": "2026-07-06", "author": {"@type": "Person", "name": "David Huang Xie"}, "image": "https://davidhuangxie.com/assets/blog/que-es-un-registro-de-auditoria.webp"}</script><meta property="og:image" content="https://davidhuangxie.com/assets/blog/que-es-un-registro-de-auditoria.webp"><meta name="twitter:image" content="https://davidhuangxie.com/assets/blog/que-es-un-registro-de-auditoria.webp">
+<link rel="stylesheet" href="/assets/css/blog.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Qué es un registro de auditoría y por qué lo necesitas", "description": "Qué es un registro de auditoría, qué debe guardar según OWASP, por qué conviene que no bloquee la acción real y cómo lo implementé en un panel interno.", "datePublished": "2026-07-06", "dateModified": "2026-09-18", "author": {"@type": "Person", "name": "David Huang Xie"}, "image": "https://davidhuangxie.com/assets/blog/que-es-un-registro-de-auditoria.webp"}</script><meta property="og:image" content="https://davidhuangxie.com/assets/blog/que-es-un-registro-de-auditoria.webp"><meta name="twitter:image" content="https://davidhuangxie.com/assets/blog/que-es-un-registro-de-auditoria.webp">
 </head>
 <body class="page-template-default page wp-theme-bricks brx-body">
 <a class="skip-link" href="#brx-content">Skip to main content</a>
@@ -78,32 +78,54 @@
 <a class="brxe-button btn-secondary grow-hover bricks-button back-link" href="/blog/">&larr; Volver al blog</a>
 <div class="blog-post-header">
 <img src="/assets/blog/que-es-un-registro-de-auditoria.webp" alt="Documentos y registros representando un log de auditoría" loading="lazy">
-<p class="blog-date">06/07/2026</p>
-<h1 class="brxe-heading text-white">Qué es un registro de auditoría y por qué toda herramienta interna debería tener uno</h1>
+<p class="blog-date">06/07/2026 · Actualizado 18/09/2026</p>
+<h1 class="brxe-heading text-white">Qué es un registro de auditoría y por qué lo necesitas</h1>
 </div>
 <div class="blog-post-body">
-<p>"¿Quién marcó esta factura como pagada?" es la típica pregunta que, sin un registro de auditoría, no tiene respuesta clara en un panel con varios administradores. Así lo resolví en el <a href="https://dhx101-web-client-portal.vercel.app">Web Client Portal</a>.</p>
+<p>"¿Quién marcó esta factura como pagada?" Es la típica pregunta que, en un panel con varios administradores, no tiene respuesta si nadie la ha previsto. Un registro de auditoría la responde en segundos. En este post te explico qué es, qué debería guardar según la guía de OWASP, la decisión de diseño que más importa y cómo lo implementé en el <a href="https://dhx101-web-client-portal.vercel.app">Web Client Portal</a>.</p>
 <h2>Qué es un registro de auditoría</h2>
-<p>Un audit log es una tabla que registra, para cada acción administrativa relevante, quién la hizo, qué hizo, sobre qué elemento y cuándo. No es un sistema de logs de errores (eso es otra cosa) — es un historial legible de decisiones humanas dentro de la aplicación: crear una factura, cambiar su estado, dar de baja el acceso de un cliente.</p>
-<h2>La decisión de diseño más importante: best-effort, no transaccional</h2>
-<p>El primer instinto al implementar esto sería escribir la entrada de auditoría dentro de la misma transacción que la acción real, para "garantizar" que nunca se pierde un registro. Es exactamente el error a evitar.</p>
-<p>Si escribir la entrada de auditoría formara parte de la transacción de negocio, un problema pasajero en esa escritura (una tabla bloqueada, una conexión lenta) revertiría también la acción real — por ejemplo, dejar sin efecto que una factura se marcó como pagada, solo porque su registro de auditoría no pudo escribirse a tiempo. Eso es mucho peor que simplemente no tener el registro.</p>
-<p>Por eso, el registro de auditoría se escribe <strong>después</strong> de que la acción real ya tuvo éxito, envuelto en su propio <code>try/catch</code>, sin poder revertir nada:</p>
-<pre><code>await db.invoice.update({ status: 'PAID' })
-// la factura ya está pagada en este punto, pase lo que pase después
-await logAudit({ action: 'invoice.status_changed', ... }).catch(logError)
-</code></pre>
-<p>Perder una entrada de auditoría pierde "quién lo hizo", no "qué pasó" — la factura sigue correctamente marcada como pagada de todas formas.</p>
-<h2>Qué guardar en cada entrada</h2>
+<p>Es un historial de las acciones relevantes que hacen las personas dentro de una aplicación: quién hizo qué, sobre qué elemento y cuándo. Por ejemplo, crear una factura, cambiar su estado, dar de alta o de baja el acceso de un cliente, o cambiar la conexión de un sitio.</p>
+<p>No hay que confundirlo con los registros de errores. Estos cuentan qué ha fallado en el sistema; el de auditoría cuenta qué han decidido las personas. Uno sirve para depurar y el otro para responder preguntas de negocio, resolver dudas con un cliente o detectar un uso indebido.</p>
+<h2>Qué debería guardar</h2>
+<p>La guía de registros de <a href="https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html">OWASP</a>, la fundación de referencia en seguridad de aplicaciones web, resume lo esencial: cada evento debe registrar <strong>cuándo, dónde, quién y qué</strong>. En el portal, cada entrada guarda:</p>
 <ul>
-<li><strong>Quién:</strong> el id del actor, más un snapshot de su nombre (por si esa cuenta se elimina después, el registro sigue siendo legible).</li>
-<li><strong>Qué:</strong> una acción concreta (<code>invoice.status_changed</code>, <code>client_access.deleted</code>), no un texto libre.</li>
-<li><strong>Sobre qué:</strong> tipo y id del elemento afectado.</li>
-<li><strong>Detalle opcional:</strong> por ejemplo, el estado anterior y el nuevo — nunca datos sensibles como una clave de API, aunque la acción sea "actualizar clave de API".</li>
+<li><strong>Quién:</strong> el identificador del usuario que hizo la acción y una copia de su nombre en ese momento.</li>
+<li><strong>Qué:</strong> una acción concreta con un nombre fijo, como <code>invoice.status_changed</code> o <code>client_access.deleted</code>, no un texto libre.</li>
+<li><strong>Sobre qué:</strong> el tipo de elemento (factura, ticket, sitio o usuario) y su identificador.</li>
+<li><strong>Detalle:</strong> cuando aporta algo, por ejemplo el estado anterior y el nuevo (<code>PENDING -&gt; PAID</code>).</li>
+<li><strong>Cuándo:</strong> la fecha y hora, que la base de datos pone automáticamente.</li>
 </ul>
+<h3>Lo que nunca debe guardar</h3>
+<p>OWASP también enumera lo que no debería acabar en un registro: tokens de acceso, identificadores de sesión, contraseñas o datos personales sensibles. En el portal, cuando se cambia la conexión con el WordPress de un cliente, se registra que se cambió, pero nunca la clave nueva.</p>
+<h2>La decisión de diseño más importante: que no bloquee la acción real</h2>
+<p>El primer instinto al implementarlo es escribir la entrada de auditoría dentro de la misma transacción que la acción, para "garantizar" que nunca se pierde un registro. Es justo lo que decidí no hacer.</p>
+<p>Si la auditoría formara parte de la transacción, un problema pasajero al escribirla (una conexión lenta, un fallo puntual) desharía también la acción real. Por ejemplo, una factura que se acaba de marcar como pagada volvería a pendiente solo porque su registro no pudo escribirse. Eso es mucho peor que perder una línea del historial.</p>
+<p>Por eso, en el portal la entrada se escribe <strong>después</strong> de que la acción ha tenido éxito, y cualquier error al escribirla se captura sin propagarse:</p>
+<pre><code class="language-ts">await db.invoice.update({ where: { id }, data: { status } })
+// la factura ya está actualizada, pase lo que pase después
+await logAudit({ actorId, action: 'invoice.status_changed', targetType: 'Invoice', targetId: id, detail: `${previous.status} -&gt; ${status}` })
+</code></pre>
+<p>La propia función de auditoría envuelve la escritura en un <code>try/catch</code>: si falla, lo anota en los registros de errores y sigue. Perder una entrada pierde "quién lo hizo", no "qué pasó": la factura sigue correctamente pagada.</p>
+<p>Es un compromiso consciente. En una aplicación financiera o regulada, donde la trazabilidad es una obligación, lo correcto sería lo contrario. En una herramienta interna de una agencia, que la acción nunca falle por culpa del historial es más importante.</p>
+<h2>Detalles que marcan la diferencia</h2>
+<ul>
+<li><strong>Una copia del nombre del autor.</strong> Si luego se elimina esa cuenta, el registro sigue diciendo quién fue. El enlace al usuario se vacía, pero el nombre se conserva.</li>
+<li><strong>Acciones como texto, no como lista cerrada.</strong> Añadir un tipo de acción nuevo no obliga a cambiar la estructura de la base de datos.</li>
+<li><strong>Índices pensados para consultar:</strong> por elemento y por fecha, que son las dos preguntas habituales ("qué le ha pasado a esta factura" y "qué ha pasado esta semana").</li>
+<li><strong>Acceso restringido.</strong> OWASP recomienda limitar quién puede leer los registros. En el portal, la página de auditoría solo la ven los administradores, con paginación.</li>
+<li><strong>Pruebas:</strong> que se guarden actor, acción, elemento y detalle, que un fallo al escribir nunca lance un error, y que el nombre del autor se conserve aunque se borre su cuenta.</li>
+</ul>
+<h2>Preguntas frecuentes</h2>
+<h3>¿No basta con los registros del servidor?</h3>
+<p>No. Los del servidor cuentan peticiones técnicas, no decisiones de negocio, y suelen borrarse al cabo de poco tiempo. El de auditoría vive en la base de datos y se puede consultar desde la propia aplicación.</p>
+<h3>¿Cuánto tiempo hay que guardarlo?</h3>
+<p>Depende de tus obligaciones y de si guarda datos personales. Lo sensato es decidirlo desde el principio en lugar de guardarlo todo para siempre.</p>
+<h3>¿Tiene sentido en una aplicación pequeña?</h3>
+<p>Sí. Con dos administradores ya aparecen preguntas de "quién cambió esto". Añadirlo al principio cuesta poco.</p>
 <h2>Conclusión</h2>
-<p>Un registro de auditoría no necesita ser complejo para ser útil. Lo que sí necesita es una decisión clara sobre su nivel de garantía: en la mayoría de aplicaciones internas, best-effort y desacoplado de la transacción real es la opción correcta.</p>
-<p>¿Tu panel interno necesita trazabilidad de quién hace qué? <a href="/#contacto">Contáctame</a>.</p>
+<p>Un registro de auditoría no necesita ser complejo para ser útil: cuándo, quién, qué y sobre qué, sin datos sensibles y con acceso restringido. La decisión clave es su nivel de garantía. En la mayoría de herramientas internas, escribirlo después de la acción y sin poder deshacerla es lo correcto. Es la misma filosofía que sigo con <a href="/blog/cola-de-emails-con-reintentos-en-nextjs/">la cola de emails</a> y con <a href="/blog/cobrar-facturas-online-con-stripe-checkout/">los pagos con Stripe</a>; tienes el conjunto en <a href="/blog/portal-de-clientes-para-agencia-wordpress/">el portal de clientes</a>.</p>
+<h3>¿Tu panel interno necesita saber quién hace qué?</h3>
+<p>Diseño registros de auditoría útiles, seguros y que no ponen en riesgo tus operaciones. <a href="/#contacto">Contáctame</a>.</p>
 </div>
 </div>
 </div></section>
