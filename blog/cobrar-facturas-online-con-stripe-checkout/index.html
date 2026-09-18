@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Search Engine Optimization by Rank Math - https://rankmath.com/ -->
-<title>Cómo cobrar facturas online con Stripe Checkout en un panel interno | Blog de David Huang Xie</title>
-<meta name="description" content="Cómo integré Stripe Checkout en un panel interno para que los clientes paguen facturas online, con verificación de firma de webhook e idempotencia real.">
+<title>Cobrar facturas online con Stripe Checkout | Blog de David Huang Xie</title>
+<meta name="description" content="Cómo integré Stripe Checkout en un panel interno para que los clientes paguen sus facturas online, con verificación de firma del webhook e idempotencia real.">
 <meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
 <link rel="canonical" href="https://davidhuangxie.com/blog/cobrar-facturas-online-con-stripe-checkout/">
 <link rel="icon" href="/assets/icons/favicon.ico" sizes="any">
@@ -15,13 +15,13 @@
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
 <meta property="og:locale" content="es_ES">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Cómo cobrar facturas online con Stripe Checkout en un panel interno | Blog de David Huang Xie">
-<meta property="og:description" content="Cómo integré Stripe Checkout en un panel interno para que los clientes paguen facturas online, con verificación de firma de webhook e idempotencia real.">
+<meta property="og:title" content="Cobrar facturas online con Stripe Checkout | Blog de David Huang Xie">
+<meta property="og:description" content="Cómo integré Stripe Checkout en un panel interno para que los clientes paguen sus facturas online, con verificación de firma del webhook e idempotencia real.">
 <meta property="og:url" content="https://davidhuangxie.com/blog/cobrar-facturas-online-con-stripe-checkout/">
 <meta property="og:site_name" content="Portfolio David Huang Xie">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Cómo cobrar facturas online con Stripe Checkout en un panel interno | Blog de David Huang Xie">
-<meta name="twitter:description" content="Cómo integré Stripe Checkout en un panel interno para que los clientes paguen facturas online, con verificación de firma de webhook e idempotencia real.">
+<meta name="twitter:title" content="Cobrar facturas online con Stripe Checkout | Blog de David Huang Xie">
+<meta name="twitter:description" content="Cómo integré Stripe Checkout en un panel interno para que los clientes paguen sus facturas online, con verificación de firma del webhook e idempotencia real.">
 <meta name="twitter:label1" content="Written by">
 <meta name="twitter:data1" content="admin">
 <meta name="twitter:label2" content="Time to read">
@@ -65,7 +65,7 @@
 <link rel="stylesheet" href="/assets/css/utilities.css">
 <link rel="stylesheet" href="/assets/css/elements.css">
 <script defer src="https://stats.davidhuangxie.com/stats.js" data-website-id="3b516eb5-dda7-4768-96a0-eb3864f11f58" data-domains="davidhuangxie.com"></script>
-<link rel="stylesheet" href="/assets/css/blog.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Cómo cobrar facturas online con Stripe Checkout en un panel interno", "description": "Cómo integré Stripe Checkout en un panel interno para que los clientes paguen facturas online, con verificación de firma de webhook e idempotencia real.", "datePublished": "2026-07-03", "dateModified": "2026-07-03", "author": {"@type": "Person", "name": "David Huang Xie"}, "image": "https://davidhuangxie.com/assets/blog/cobrar-facturas-online-con-stripe-checkout.webp"}</script><meta property="og:image" content="https://davidhuangxie.com/assets/blog/cobrar-facturas-online-con-stripe-checkout.webp"><meta name="twitter:image" content="https://davidhuangxie.com/assets/blog/cobrar-facturas-online-con-stripe-checkout.webp">
+<link rel="stylesheet" href="/assets/css/blog.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Cobrar facturas online con Stripe Checkout", "description": "Cómo integré Stripe Checkout en un panel interno para que los clientes paguen sus facturas online, con verificación de firma del webhook e idempotencia real.", "datePublished": "2026-07-03", "dateModified": "2026-09-18", "author": {"@type": "Person", "name": "David Huang Xie"}, "image": "https://davidhuangxie.com/assets/blog/cobrar-facturas-online-con-stripe-checkout.webp"}</script><meta property="og:image" content="https://davidhuangxie.com/assets/blog/cobrar-facturas-online-con-stripe-checkout.webp"><meta name="twitter:image" content="https://davidhuangxie.com/assets/blog/cobrar-facturas-online-con-stripe-checkout.webp">
 </head>
 <body class="page-template-default page wp-theme-bricks brx-body">
 <a class="skip-link" href="#brx-content">Skip to main content</a>
@@ -78,30 +78,57 @@
 <a class="brxe-button btn-secondary grow-hover bricks-button back-link" href="/blog/">&larr; Volver al blog</a>
 <div class="blog-post-header">
 <img src="/assets/blog/cobrar-facturas-online-con-stripe-checkout.webp" alt="Pago online con tarjeta representando un cobro con Stripe Checkout" loading="lazy">
-<p class="blog-date">03/07/2026</p>
-<h1 class="brxe-heading text-white">Cómo cobrar facturas online con Stripe Checkout en un panel interno</h1>
+<p class="blog-date">03/07/2026 · Actualizado 18/09/2026</p>
+<h1 class="brxe-heading text-white">Cobrar facturas online con Stripe Checkout</h1>
 </div>
 <div class="blog-post-body">
-<p>Añadir "pagar online" a un panel de facturación suena simple hasta que se piensa en todos los casos límite: ¿qué pasa si el navegador se cierra justo después de pagar? ¿Y si el webhook de confirmación llega dos veces? Esto es cómo integré Stripe Checkout en el <a href="https://dhx101-web-client-portal.vercel.app">Web Client Portal</a> resolviendo esos casos desde el diseño, no como parches después.</p>
-<h2>La regla de oro: el navegador nunca es la fuente de verdad</h2>
-<p>Es tentador marcar una factura como pagada en cuanto Stripe redirige de vuelta al usuario tras el pago. Es también incorrecto: esa redirección puede no llegar a ejecutarse (el usuario cierra la pestaña, pierde conexión) aunque el pago sí se haya completado del lado de Stripe.</p>
-<p>La única fuente de verdad es el <strong>webhook</strong> que Stripe envía a un endpoint del servidor cuando el evento <code>checkout.session.completed</code> ocurre de verdad — de forma completamente independiente de lo que haga el navegador del cliente.</p>
-<h2>Verificación de firma: no confiar en cualquier POST</h2>
-<p>El endpoint de webhook no puede simplemente aceptar cualquier petición que diga "este pago se completó". Stripe firma cada evento con una clave secreta, y el servidor debe verificar esa firma antes de procesar nada:</p>
-<pre><code>const event = stripe.webhooks.constructEvent(
-  rawBody,
-  signatureHeader,
-  webhookSecret
-)
+<p>Añadir un botón de "pagar online" a un panel de facturación parece sencillo hasta que piensas en los casos límite: ¿qué pasa si el cliente cierra el navegador justo después de pagar? ¿Y si la confirmación de Stripe llega dos veces? En este post te cuento cómo integré Stripe Checkout en el <a href="https://dhx101-web-client-portal.vercel.app">Web Client Portal</a> resolviendo esos casos desde el diseño, qué dice la documentación de Stripe y cómo lo pruebo.</p>
+<h2>Cómo funciona el flujo</h2>
+<ol>
+<li>El cliente pulsa "Pagar ahora" en una factura pendiente.</li>
+<li>El servidor crea una sesión de Stripe Checkout en modo pago y guarda en ella el identificador de la factura.</li>
+<li>El cliente paga en la página de Stripe, que se encarga de la tarjeta y de la autenticación bancaria.</li>
+<li>Stripe devuelve al cliente al panel y, por separado, avisa al servidor mediante un webhook.</li>
+<li>Solo ese aviso marca la factura como pagada.</li>
+</ol>
+<p>El paso 5 es el importante, y es donde se equivoca mucha gente.</p>
+<h2>La regla de oro: el navegador no es la fuente de verdad</h2>
+<p>Es tentador marcar la factura como pagada cuando Stripe devuelve al cliente al panel. Pero esa vuelta solo demuestra que el navegador volvió, no que el pago se completó. Y al revés: el cliente puede pagar y cerrar la pestaña antes de volver.</p>
+<p>La propia Stripe lo dice en su guía de <a href="https://docs.stripe.com/checkout/fulfillment">gestión de pedidos con Checkout</a>: no puedes fiarte solo de la página de vuelta, porque no está garantizado que el cliente la visite, y los webhooks son necesarios para asegurarte de procesar todos los pagos.</p>
+<p>Por eso, la única fuente de verdad en el portal es el webhook <code>checkout.session.completed</code>, que Stripe envía a un endpoint del servidor, pase lo que pase en el navegador. La vuelta del cliente al panel no cambia nada: el estado de la factura solo cambia cuando llega el webhook.</p>
+<h2>Verificación de firma: no aceptar cualquier petición</h2>
+<p>El endpoint del webhook no puede aceptar cualquier petición que diga "este pago se completó". Stripe firma cada evento con un secreto, y su documentación sobre <a href="https://docs.stripe.com/webhooks">webhooks</a> insiste en verificar esa firma para confirmar que el evento no lo ha enviado ni modificado un tercero. En el portal se hace con la librería oficial, sobre el cuerpo de la petición sin procesar:</p>
+<pre><code class="language-ts">const event = stripe.webhooks.constructEvent(body, signature, webhookSecret)
 </code></pre>
-<p>Sin esta verificación, cualquiera que conozca la URL del endpoint podría simular pagos falsos.</p>
-<h2>Idempotencia: Stripe puede reenviar el mismo evento</h2>
-<p>Stripe no garantiza entrega única de cada webhook — puede reenviarlo si no recibe una respuesta rápida. El endpoint necesita ser idempotente: si el mismo <code>checkout.session.completed</code> llega dos veces, la segunda vez no debe volver a procesar el pago ni duplicar ningún efecto. En este caso, comprobar si la factura ya está marcada como <code>PAID</code> antes de aplicar el cambio es suficiente.</p>
-<h2>Integración opcional, sin romper nada sin configurar</h2>
-<p>Siguiendo un patrón que ya usaba el resto del proyecto (el envío de emails, por ejemplo), la integración de Stripe se activa solo si existe la variable de entorno <code>STRIPE_SECRET_KEY</code>. Sin ella, el botón "Pagar ahora" simplemente no aparece — el resto del panel funciona con normalidad. Ninguna integración externa debería ser obligatoria para que el resto de la aplicación arranque.</p>
-<h2>Resultado</h2>
-<p>Un cliente puede pagar su factura desde el propio panel, con la confirmación gestionada de forma fiable por el servidor, sin depender de que su navegador complete correctamente la redirección de vuelta.</p>
-<p>¿Necesitas cobros online en tu propia herramienta interna? <a href="/#contacto">Contáctame</a>.</p>
+<p>Si la firma no es válida, el endpoint responde con un error y no toca nada. Sin esta comprobación, cualquiera que conociera la URL podría simular pagos.</p>
+<h2>Idempotencia: el mismo evento puede llegar dos veces</h2>
+<p>Stripe avisa de que un endpoint puede recibir ocasionalmente el mismo evento más de una vez. Así que el webhook tiene que ser idempotente: procesar dos veces el mismo evento debe dar el mismo resultado que procesarlo una.</p>
+<p>En el portal, antes de actualizar, se comprueba el estado de la factura: si ya está pagada, el evento repetido no hace nada. Además, el identificador de la sesión de Checkout se guarda con restricción de unicidad en la base de datos, así que una misma sesión no puede asociarse a dos facturas.</p>
+<h2>Pagos online y pagos manuales, sin conflictos</h2>
+<p>No todos los clientes pagan con tarjeta. La agencia puede seguir marcando una factura como pagada a mano cuando cobra por transferencia o en efectivo. Los campos de Stripe en la factura son opcionales precisamente por eso: una factura pagada a mano nunca tiene sesión de Checkout, y ambos caminos terminan en el mismo estado.</p>
+<h2>Integración opcional: sin clave, sin botón</h2>
+<p>Stripe solo se activa si existe la clave secreta en las variables de entorno. Sin ella, el botón de pagar no aparece y el resto del panel funciona igual. Es el mismo criterio que sigue el envío de emails, que explico en <a href="/blog/cola-de-emails-con-reintentos-en-nextjs/">la cola de emails con reintentos</a>: ninguna integración externa debería ser obligatoria para que la aplicación arranque.</p>
+<h2>Cómo lo pruebo</h2>
+<p>El webhook tiene pruebas de integración que cubren los cuatro casos que importan:</p>
+<ul>
+<li>Rechaza una petición con firma inválida.</li>
+<li>Marca la factura como pagada con un evento firmado correctamente.</li>
+<li>No hace nada si llega de nuevo un evento de una factura ya pagada.</li>
+<li>Ignora los tipos de evento que no gestiona.</li>
+</ul>
+<h2>Lo que mejoraría</h2>
+<p>Stripe indica que los webhooks a veces llegan con retraso, y sugiere que, cuando el cliente está presente, también se pueda procesar el pedido desde la página de vuelta, con la misma lógica idempotente. Para facturas no es crítico, porque unos segundos de retraso en marcar una factura como pagada no afectan a nadie. En una tienda que entrega algo al instante, sí lo haría.</p>
+<h2>Preguntas frecuentes</h2>
+<h3>¿Por qué Stripe Checkout y no un formulario de pago propio?</h3>
+<p>Porque Stripe se encarga de los datos de la tarjeta y de la autenticación bancaria. El portal nunca toca un número de tarjeta, y eso simplifica mucho la seguridad.</p>
+<h3>¿Qué pasa si el webhook falla?</h3>
+<p>Stripe reintenta el envío automáticamente durante un máximo de tres días, con esperas cada vez más largas. Como el endpoint es idempotente, los reintentos no causan duplicados.</p>
+<h3>¿Esto sirve para una tienda WooCommerce?</h3>
+<p>La idea sí, pero en WooCommerce lo resuelven los plugins de pasarela. Lo comparo en <a href="/blog/woocommerce-vs-shopify/">WooCommerce o Shopify</a>.</p>
+<h2>Conclusión</h2>
+<p>Cobrar online de forma fiable se reduce a tres reglas: la confirmación la da el servidor mediante el webhook, la firma siempre se verifica y el procesamiento es idempotente. Con eso, un cliente puede pagar su factura desde el propio panel sin depender de que su navegador vuelva correctamente. Tienes el resto del proyecto en <a href="/blog/portal-de-clientes-para-agencia-wordpress/">el portal de clientes</a>.</p>
+<h3>¿Necesitas cobros online en tu propia herramienta?</h3>
+<p>Integro pagos con Stripe en paneles y aplicaciones, con webhooks verificados y probados. <a href="/#contacto">Contáctame</a>.</p>
 </div>
 </div>
 </div></section>
