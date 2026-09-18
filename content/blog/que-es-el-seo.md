@@ -1,84 +1,101 @@
 ---
 title: Qué es el SEO y por qué es importante para tu página web
-description: Qué es el SEO, por qué importa para tu negocio y cómo funciona: sus pilares (On-Page, Off-Page, técnico), la intención de búsqueda y su relación con la IA.
+description: Qué es el SEO, cómo decide Google qué webs mostrar y qué puedes hacer tú: sus pilares, la intención de búsqueda, cuánto tarda en notarse y qué cambia con la IA.
 date: 2026-07-10
+updated: 2026-09-18
 image: /assets/blog/que-es-el-seo.webp
 image_alt: Análisis de tráfico y posicionamiento SEO en una pantalla de ordenador
 ---
 
-Si tienes una página web o te has interesado en marketing digital, seguramente has escuchado el término SEO, que significa *Search Engine Optimization* u optimización para motores de búsqueda.
-
-Se trata de un conjunto de estrategias cuyo objetivo es llevar tu página web a los primeros resultados de Google, es decir, mejorar tu posicionamiento orgánico. En un mundo cada vez más digitalizado, donde la competencia por la atención del público es feroz, el SEO sigue siendo una de las herramientas más efectivas para atraer tráfico de calidad a tu sitio web.
+Casi todos los negocios con los que hablo tienen web, pero pocos saben si alguien la encuentra en Google. El SEO (*Search Engine Optimization*, optimización para buscadores) es precisamente eso: el trabajo de conseguir que tu web aparezca cuando tus clientes buscan lo que vendes. En este post te explico qué es, cómo decide Google qué mostrar y qué puedes hacer tú, sin trucos ni promesas.
 
 ## ¿Qué es exactamente el SEO?
 
-El SEO consiste en mejorar tu sitio web para que sea más visible en los motores de búsqueda. Aunque existen otros motores como Bing o Yahoo, Google domina más del 85% del mercado, así que nos centraremos en él.
+El SEO es el conjunto de mejoras que hacen tu web más fácil de entender y más útil, tanto para Google como para las personas que llegan a ella. No se paga por clic: se trabaja la propia web para ganar visibilidad en los resultados orgánicos, los que no son anuncios.
 
-Cuando alguien realiza una búsqueda, un algoritmo decide qué páginas mostrar basándose en factores como relevancia, autoridad, velocidad de carga y experiencia de usuario, entre otros.
+Me centro en Google porque en España es, de largo, el buscador que importa: según [los datos de StatCounter](https://gs.statcounter.com/search-engine-market-share/all/spain), en agosto de 2026 tenía el 94,8 % de la cuota de mercado de buscadores.
 
-En otras palabras, el SEO busca que tu web sea la mejor respuesta posible para las consultas de tus clientes. Por ejemplo, si alguien busca "las mejores empanadas cerca de mí", el objetivo es que tu comercio aparezca antes que la competencia.
+### Cómo decide Google qué mostrar
 
-## Beneficios del SEO para tu página web
+La documentación oficial de Google explica que [su buscador funciona en tres fases](https://developers.google.com/search/docs/fundamentals/how-search-works):
 
-- **Tráfico constante y gratuito.** Una vez que logras posicionarte, los visitantes llegan de forma constante sin necesidad de pagar por clic. Un buen artículo puede generar visitas durante meses o incluso años.
-- **Credibilidad y confianza.** Los usuarios confían más en los resultados orgánicos que en los anuncios: más del 70% de los clics se concentran en los primeros resultados orgánicos (datos de Backlinko y Digital Silk).
-- **Mejor experiencia de usuario.** Optimizar tu sitio para SEO mejora velocidad, diseño y accesibilidad, beneficiando tanto a Google como a tus visitantes.
-- **Mayor alcance a largo plazo.** A diferencia de la publicidad pagada, el SEO no requiere una inversión continua para atraer usuarios.
-- **Resultados acumulativos.** A diferencia del [SEM](/blog/que-es-el-sem/), que deja de funcionar cuando dejas de invertir, el SEO sigue generando clientes mucho después de publicar contenido bien posicionado.
+1. **Rastreo:** sus robots descubren tu web y descargan textos, imágenes y vídeos.
+2. **Indexación:** Google analiza ese contenido y lo guarda en su índice.
+3. **Publicación de resultados:** cuando alguien busca, elige las páginas más relevantes del índice teniendo en cuenta, entre otras cosas, su ubicación y su dispositivo.
+
+Si tu web falla en la primera fase, da igual lo bien escrita que esté: no aparecerá. Por eso el SEO empieza por lo técnico.
+
+Un detalle que conviene tener claro: la propia Google afirma que no acepta pagos para rastrear una web más a menudo ni para posicionarla más arriba. Si alguien te vende "posicionamiento garantizado en Google", desconfía.
+
+## Beneficios del SEO para tu negocio
+
+- **Visitas que no pagas por clic.** A diferencia del [SEM](/blog/que-es-el-sem/), que deja de traer visitas cuando dejas de invertir, una página bien posicionada sigue atrayendo tráfico durante meses.
+- **Clientes que ya están buscando.** Quien escribe "restaurante japonés en Petrer" tiene la intención de comer hoy. El SEO te pone delante justo en ese momento.
+- **Una web mejor para todos.** Casi todo lo que ayuda al SEO (velocidad, estructura clara, buena versión móvil) mejora también la experiencia de quien te visita.
+- **Resultados acumulativos.** Cada página útil que publicas suma a las anteriores.
 
 ## Los pilares del SEO
 
-**[SEO On-Page](/blog/seo-on-page/)**
+### [SEO On-Page](/blog/seo-on-page/)
 
-- Optimización de títulos y meta descripciones.
-- Uso natural de palabras clave.
-- Estructura de encabezados (H1, H2, H3).
-- Contenido original y de calidad.
-- Optimización de imágenes (peso y texto alternativo).
+Todo lo que optimizas dentro de cada página: títulos y meta descripciones, encabezados (H1, H2, H3) bien ordenados, textos que respondan de verdad a la búsqueda e imágenes ligeras con texto alternativo.
 
-**[SEO Off-Page](/blog/seo-off-page/)**
+### [SEO Off-Page](/blog/seo-off-page/)
 
-- Enlaces de calidad desde otras páginas.
-- Presencia en redes sociales.
-- Menciones en medios o blogs.
-- Gestión de reputación online.
+Lo que pasa fuera de tu web y habla de ella: enlaces desde otras páginas de calidad, menciones en medios y tu reputación online, incluidas las reseñas.
 
-**SEO Técnico**
+### SEO técnico
 
-- Velocidad de carga.
-- Adaptación a móviles.
-- Seguridad (HTTPS).
-- Sitemap XML y archivo robots.txt.
-- Estructura interna de enlaces.
+La base sobre la que se apoya todo lo demás:
 
-## Breve historia: de palabras clave a inteligencia artificial
-
-El SEO ha evolucionado mucho en los últimos veinte años:
-
-- **Años 2000:** el SEO se centraba en repetir palabras clave y conseguir enlaces sin importar la calidad.
-- **2010-2020:** Google lanza actualizaciones como Panda, Penguin y Hummingbird, priorizando contenido original y experiencia de usuario.
-- **Hoy:** el SEO se apoya en inteligencia artificial, búsquedas por voz y visuales, y algoritmos que entienden el contexto real de cada consulta.
-
-El SEO ya no se trata solo de palabras clave, sino de entender a las personas y sus necesidades.
+- **Versión móvil.** Google [usa la versión móvil de tu web para indexarla y posicionarla](https://developers.google.com/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing). Si en el móvil falta contenido que sí está en el ordenador, para Google ese contenido no existe.
+- **Velocidad.** Las [Core Web Vitals](/blog/core-web-vitals-que-son/) miden la experiencia real de carga. Google [recomienda](https://developers.google.com/search/docs/appearance/core-web-vitals) un LCP por debajo de 2,5 segundos, un INP por debajo de 200 milisegundos y un CLS por debajo de 0,1. Es de las mejoras que más he trabajado: en Ángulo Tres, la agencia en la que fui el único perfil técnico, conseguí que las webs de los clientes cargaran hasta un 60 % más rápido.
+- **HTTPS.** Google lo [usa como señal de posicionamiento desde 2014](https://developers.google.com/search/blog/2014/08/https-as-ranking-signal), aunque la describió como una señal ligera, con menos peso que tener buen contenido. Aun así, hoy no hay excusa para no tenerlo.
+- **Sitemap XML, robots.txt y enlaces internos** que ayuden a los robots a encontrar todas tus páginas.
 
 ## La intención de búsqueda: el corazón del SEO
 
-No basta con incluir palabras clave. Hay que comprender lo que el usuario realmente busca:
+No basta con repetir palabras clave: hay que entender qué quiere quien busca. Las intenciones más habituales son:
 
-- **Informativa:** aprender algo (ej. "qué es el SEO").
-- **Navegacional:** encontrar una marca específica (ej. "Netflix iniciar sesión").
-- **Transaccional:** realizar una compra (ej. "comprar zapatillas Nike online").
+- **Informativa:** aprender algo ("qué es el SEO").
+- **Navegacional:** llegar a una web concreta ("Netflix iniciar sesión").
+- **Transaccional:** comprar o contratar ("comprar zapatillas online").
+- **Local:** encontrar algo cerca ("fisioterapeuta en Alicante").
 
-## Inteligencia artificial y el SEO
+Si tu página de servicios intenta posicionar por una búsqueda informativa, o un artículo del blog por una transaccional, estás compitiendo con el tipo de página equivocado. Lo primero que reviso en una web es si cada página responde a la intención de la búsqueda que persigue.
 
-Cada vez más personas usan chatbots como ChatGPT o Gemini para buscar información. Esto ha dado lugar al [GEO (Generative Engine Optimization)](/blog/que-es-el-geo/), un tipo de optimización enfocada en estos sistemas de IA.
+## Contenido pensado para personas
 
-Los chatbots ofrecen respuestas directas y conversacionales, adaptadas al contexto y a la intención del usuario. Esto permite obtener información más precisa, pero también plantea un desafío para el SEO tradicional: el usuario puede recibir la respuesta sin visitar tu web. Por eso, cada vez tiene más sentido optimizar el contenido tanto para Google como para los motores generativos de IA.
+Google dice claramente que [sus sistemas priorizan el contenido útil y fiable creado para ayudar a las personas](https://developers.google.com/search/docs/fundamentals/creating-helpful-content), no el que se escribe para manipular los rankings. En la práctica, lo que recomiendo es escribir para tu cliente, no para el algoritmo: responde a sus dudas reales, con ejemplos de tu negocio, y deja que el SEO ordene y ayude a encontrar ese contenido.
+
+## Inteligencia artificial y SEO
+
+Cada vez más gente pregunta directamente a ChatGPT o Gemini, y Google muestra resúmenes generados con IA en sus resultados. De ahí nace el [GEO (Generative Engine Optimization)](/blog/que-es-el-geo/), la optimización para estos motores generativos.
+
+La buena noticia es que no hay que empezar de cero. Google indica que para aparecer en sus funciones de IA [valen las mismas buenas prácticas básicas de SEO](https://developers.google.com/search/docs/appearance/ai-features): que la página cumpla los requisitos técnicos, respete sus políticas y ofrezca contenido útil y fiable. Una web bien trabajada para el SEO clásico ya tiene la mitad del camino hecho.
+
+## Cuánto tarda en notarse
+
+Es la pregunta que más me hacen. Según [la guía de SEO de Google](https://developers.google.com/search/docs/fundamentals/seo-starter-guide), algunos cambios se reflejan en pocas horas y otros tardan varios meses; en general, recomiendan esperar unas semanas antes de valorar si un cambio ha funcionado. El SEO es una inversión a medio plazo: si necesitas visitas mañana, combínalo con anuncios mientras tanto.
+
+## Preguntas frecuentes
+
+### ¿Se puede pagar a Google para salir el primero?
+
+En los resultados orgánicos, no: Google afirma que no acepta pagos para posicionar una web más arriba. Lo que sí se paga son los anuncios, que es otra disciplina, el SEM.
+
+### ¿El SEO sigue sirviendo con la IA?
+
+Sí. Google aplica las mismas bases para sus funciones de IA que para la búsqueda clásica, y los asistentes de IA también necesitan fuentes claras y fiables de las que sacar sus respuestas.
+
+### ¿Puedo hacer SEO yo mismo?
+
+Una parte, sí: escribir contenido útil, cuidar los títulos y pedir reseñas a tus clientes. La parte técnica (velocidad, indexación, datos estructurados) suele necesitar a alguien que sepa medirla y corregirla.
 
 ## Conclusión
 
-El SEO sigue siendo una de las estrategias más rentables para crecer en internet. No se trata de trucos, sino de crear contenido útil, optimizar tu web y ofrecer una excelente experiencia de usuario. Si aplicas buenas prácticas, estarás construyendo un canal de visibilidad que trabaja para ti las 24 horas del día.
+El SEO no es un truco ni un pago: es hacer que tu web sea la mejor respuesta para lo que buscan tus clientes y que Google pueda entenderla. Con una base técnica sólida, contenido pensado para personas y paciencia, se convierte en un canal que trae clientes todos los días.
 
-### ¿Quieres mejorar el SEO de tu página web?
+### ¿Quieres saber qué frena a tu web en Google?
 
-Si quieres atraer más tráfico, ganar visibilidad y potenciar tu negocio online, [contáctame](/#contacto) y te ayudo a crear una estrategia SEO completa y adaptada a tu proyecto.
+Reviso la parte técnica, el contenido y la velocidad de tu web y te digo qué cambiar primero. [Contáctame](/#contacto).
