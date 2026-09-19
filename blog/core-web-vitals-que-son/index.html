@@ -65,7 +65,7 @@
 <link rel="stylesheet" href="/assets/css/utilities.css">
 <link rel="stylesheet" href="/assets/css/elements.css">
 <script defer src="https://stats.davidhuangxie.com/stats.js" data-website-id="3b516eb5-dda7-4768-96a0-eb3864f11f58" data-domains="davidhuangxie.com"></script>
-<link rel="stylesheet" href="/assets/css/blog.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Core Web Vitals: qué son y cómo afectan a tu SEO", "description": "Qué son los Core Web Vitals de Google (LCP, INP y CLS), qué valores se consideran buenos, cómo medirlos bien y cómo mejorarlos en una web WordPress.", "datePublished": "2026-06-10", "dateModified": "2026-09-18", "author": {"@type": "Person", "name": "David Huang Xie"}, "image": "https://davidhuangxie.com/assets/blog/core-web-vitals-que-son.webp"}</script><meta property="og:image" content="https://davidhuangxie.com/assets/blog/core-web-vitals-que-son.webp"><meta name="twitter:image" content="https://davidhuangxie.com/assets/blog/core-web-vitals-que-son.webp">
+<link rel="stylesheet" href="/assets/css/blog.css"><script src="/assets/js/blog-toc.js" defer></script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Core Web Vitals: qué son y cómo afectan a tu SEO", "description": "Qué son los Core Web Vitals de Google (LCP, INP y CLS), qué valores se consideran buenos, cómo medirlos bien y cómo mejorarlos en una web WordPress.", "datePublished": "2026-06-10", "dateModified": "2026-09-18", "author": {"@type": "Person", "name": "David Huang Xie"}, "image": "https://davidhuangxie.com/assets/blog/core-web-vitals-que-son.webp"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Si mejoro los Core Web Vitals subiré en Google?", "acceptedAnswer": {"@type": "Answer", "text": "No hay garantía. Google los usa, pero prioriza que el contenido sea relevante y útil. Donde más pesan es cuando varias páginas responden igual de bien a una búsqueda."}}, {"@type": "Question", "name": "¿Por qué PageSpeed me da una nota distinta cada vez?", "acceptedAnswer": {"@type": "Answer", "text": "La nota de 0 a 100 sale de la simulación de laboratorio, que varía entre pruebas. Los datos de campo, cuando existen, son más estables porque resumen semanas de visitas reales."}}, {"@type": "Question", "name": "¿Tengo que llegar a 100 en PageSpeed?", "acceptedAnswer": {"@type": "Answer", "text": "No. Lo importante es que las tres métricas estén en verde para tus usuarios reales. Una web con buenos datos de campo y una nota de 85 está mejor que una con 100 en laboratorio y datos reales en rojo."}}]}</script><meta property="og:image" content="https://davidhuangxie.com/assets/blog/core-web-vitals-que-son.webp"><meta name="twitter:image" content="https://davidhuangxie.com/assets/blog/core-web-vitals-que-son.webp">
 </head>
 <body class="page-template-default page wp-theme-bricks brx-body">
 <a class="skip-link" href="#brx-content">Skip to main content</a>
@@ -76,65 +76,86 @@
 <section class="brxe-section section"><div class="brxe-container" style="flex-direction:column">
 <div class="blog-post">
 <a class="brxe-button btn-secondary grow-hover bricks-button back-link" href="/blog/">&larr; Volver al blog</a>
-<div class="blog-post-header">
+<header class="blog-post-header">
 <img src="/assets/blog/core-web-vitals-que-son.webp" alt="Métricas de velocidad y rendimiento web en pantalla" loading="lazy">
-<p class="blog-date">10/06/2026 · Actualizado 18/09/2026</p>
+<p class="blog-date">10/06/2026 · Actualizado 18/09/2026 · 5 min de lectura</p>
 <h1 class="brxe-heading text-white">Core Web Vitals: qué son y cómo afectan a tu SEO</h1>
-</div>
+<p class="blog-post-lead">Qué son los Core Web Vitals de Google (LCP, INP y CLS), qué valores se consideran buenos, cómo medirlos bien y cómo mejorarlos en una web WordPress.</p>
+</header>
+<div class="blog-post-layout">
+<article class="blog-post-card">
+<div class="blog-post-bar"><div class="mac-controls"><span></span></div><span class="blog-post-file">~/blog/core-web-vitals-que-son.md</span></div>
+<details class="blog-toc-mobile"><summary>Índice del artículo</summary><nav aria-label="Índice del artículo"><ol><li><a href="#qué-son-los-core-web-vitals">Qué son los Core Web Vitals</a></li><li><a href="#las-tres-métricas">Las tres métricas</a></li><li><a href="#cómo-se-mide-bueno-el-percentil-75">Cómo se mide "bueno": el percentil 75</a></li><li><a href="#cómo-comprobar-los-tuyos">Cómo comprobar los tuyos</a></li><li><a href="#cómo-mejorarlos-en-wordpress">Cómo mejorarlos en WordPress</a></li><li><a href="#preguntas-frecuentes">Preguntas frecuentes</a></li><li><a href="#conclusión">Conclusión</a></li></ol></nav></details>
 <div class="blog-post-body">
 <p>Una web lenta pierde clientes antes de que lean nada: la imagen principal tarda en aparecer, el botón no responde o el texto salta justo cuando vas a pulsar. Google mide exactamente esas tres molestias con los Core Web Vitals. En este post te explico qué mide cada una, qué valores son buenos, cómo medirlas sin engañarte y qué suelo corregir primero en una web WordPress.</p>
-<h2>Qué son los Core Web Vitals</h2>
+<h2 id="qué-son-los-core-web-vitals">Qué son los Core Web Vitals</h2>
 <p>Son tres métricas que miden la experiencia real de carga, respuesta y estabilidad de una página. Forman parte del <a href="/blog/seo-on-page/">SEO On-Page</a> técnico, y Google confirma en su documentación sobre experiencia de página que <a href="https://developers.google.com/search/docs/appearance/page-experience">sus sistemas de posicionamiento las usan</a>. No son la única señal ni la más importante, pero sí de las pocas que puedes medir con números exactos.</p>
-<h2>Las tres métricas</h2>
-<h3>LCP (Largest Contentful Paint)</h3>
+<h2 id="las-tres-métricas">Las tres métricas</h2>
+<h3 id="lcp-largest-contentful-paint">LCP (Largest Contentful Paint)</h3>
 <p>Mide cuánto tarda en aparecer el elemento más grande visible al entrar en la página, que suele ser la imagen principal o un bloque de texto grande. Google considera bueno un LCP de 2,5 segundos o menos.</p>
 <p><strong>Causas típicas de un LCP lento:</strong> imágenes enormes sin comprimir, un servidor que tarda en responder o una página que carga demasiados recursos antes de mostrar el contenido principal.</p>
-<h3>INP (Interaction to Next Paint)</h3>
+<h3 id="inp-interaction-to-next-paint">INP (Interaction to Next Paint)</h3>
 <p>Mide cuánto tarda la web en reaccionar cuando tocas, haces clic o escribes. El objetivo es quedarse en 200 milisegundos o menos. INP <a href="https://web.dev/blog/inp-cwv-launch">sustituyó a la antigua métrica FID</a> como Core Web Vital en marzo de 2024; según web.dev, para resolver muchas de las carencias que tenía FID al medir la respuesta de la página.</p>
 <p><strong>Causas típicas:</strong> mucho JavaScript ejecutándose a la vez, widgets de terceros pesados o animaciones mal optimizadas.</p>
-<h3>CLS (Cumulative Layout Shift)</h3>
+<h3 id="cls-cumulative-layout-shift">CLS (Cumulative Layout Shift)</h3>
 <p>Mide cuánto se mueve el contenido mientras carga, como cuando vas a pulsar un botón y aparece una imagen encima que te hace pulsar otra cosa. El objetivo es 0,1 o menos.</p>
 <p><strong>Causas típicas:</strong> imágenes o banners sin dimensiones reservadas, anuncios que se insertan tarde o fuentes que cambian el tamaño del texto al cargar.</p>
-<h2>Cómo se mide "bueno": el percentil 75</h2>
+<h2 id="cómo-se-mide-bueno-el-percentil-75">Cómo se mide "bueno": el percentil 75</h2>
 <p>Este detalle se suele pasar por alto. Según <a href="https://web.dev/articles/vitals">web.dev</a>, la guía técnica de Google para desarrolladores, una página cumple si alcanza los tres objetivos en el percentil 75 de las visitas, por separado en móvil y en ordenador. Dicho de otra forma: no basta con que tu web vaya rápida en tu ordenador de la oficina. Tiene que ir bien para al menos tres de cada cuatro personas que la visitan, incluidas las que entran con un móvil modesto y mala cobertura.</p>
-<h2>Cómo comprobar los tuyos</h2>
+<h2 id="cómo-comprobar-los-tuyos">Cómo comprobar los tuyos</h2>
 <p>La herramienta más directa es <strong>PageSpeed Insights</strong> (pagespeed.web.dev). Pero hay que saber leerla, porque <a href="https://developers.google.com/speed/docs/insights/v5/about">da dos tipos de datos</a>:</p>
 <ul>
 <li><strong>Datos de campo:</strong> los de usuarios reales de Chrome, del informe CrUX. Son los que importan para el posicionamiento, pero solo aparecen si tu web tiene suficiente tráfico.</li>
 <li><strong>Datos de laboratorio:</strong> una simulación con Lighthouse. Sirven para encontrar el problema, pero no reflejan lo que vive tu cliente.</li>
 </ul>
 <p>Si tu web es pequeña y PageSpeed no muestra datos de campo, es normal. En ese caso, guíate por los de laboratorio y por el informe de Core Web Vitals de Search Console cuando tengas datos.</p>
-<h2>Cómo mejorarlos en WordPress</h2>
+<h2 id="cómo-mejorarlos-en-wordpress">Cómo mejorarlos en WordPress</h2>
 <p>Es de las partes de mi trabajo que más resultados da. En Ángulo Tres, la agencia en la que fui el único perfil técnico, conseguí que las webs de los clientes cargaran hasta un 60 % más rápido trabajando justo sobre estas métricas. Lo que reviso primero:</p>
-<h3>Para el LCP</h3>
+<h3 id="para-el-lcp">Para el LCP</h3>
 <ul>
 <li>Comprimir las imágenes y usar formatos modernos como WebP.</li>
 <li><strong>No aplicar carga diferida (lazy loading) a la imagen principal.</strong> Un análisis de web.dev con datos reales encontró que <a href="https://web.dev/articles/lcp-lazy-loading">las webs que usan lazy loading tienden a tener peor LCP</a>, también en WordPress, sobre todo cuando se aplica a imágenes que se ven nada más entrar.</li>
 <li>Un hosting con buen tiempo de respuesta del servidor y caché activada.</li>
 </ul>
-<h3>Para el INP</h3>
+<h3 id="para-el-inp">Para el INP</h3>
 <ul>
 <li>Quitar plugins y complementos que cargan JavaScript en todas las páginas aunque no se usen.</li>
 <li>Retrasar scripts de terceros que no son imprescindibles al cargar (chats, píxeles, mapas).</li>
 </ul>
-<h3>Para el CLS</h3>
+<h3 id="para-el-cls">Para el CLS</h3>
 <ul>
 <li>Indicar siempre el ancho y el alto de imágenes y vídeos, o reservar su espacio con CSS. Es la <a href="https://web.dev/articles/optimize-cls">primera recomendación de web.dev para evitar saltos</a>.</li>
 <li>Reservar el hueco de banners, avisos de cookies y cualquier elemento que se inserte tarde.</li>
 </ul>
 <p>Si tu web está hecha con un maquetador visual, te interesará también este repaso de <a href="/blog/errores-seo-comunes-en-elementor/">errores SEO comunes en Elementor</a>.</p>
-<h2>Preguntas frecuentes</h2>
-<h3>¿Si mejoro los Core Web Vitals subiré en Google?</h3>
-<p>No hay garantía. Google los usa, pero prioriza que el contenido sea relevante y útil. Donde más pesan es cuando varias páginas responden igual de bien a una búsqueda.</p>
-<h3>¿Por qué PageSpeed me da una nota distinta cada vez?</h3>
-<p>La nota de 0 a 100 sale de la simulación de laboratorio, que varía entre pruebas. Los datos de campo, cuando existen, son más estables porque resumen semanas de visitas reales.</p>
-<h3>¿Tengo que llegar a 100 en PageSpeed?</h3>
-<p>No. Lo importante es que las tres métricas estén en verde para tus usuarios reales. Una web con buenos datos de campo y una nota de 85 está mejor que una con 100 en laboratorio y datos reales en rojo.</p>
-<h2>Conclusión</h2>
+<section class="blog-faq" aria-labelledby="preguntas-frecuentes"><p class="blog-faq-label">// FAQ</p><h2 id="preguntas-frecuentes">Preguntas frecuentes</h2><div class="blog-faq-list"><details class="blog-faq-item"><summary><h3 id="si-mejoro-los-core-web-vitals-subiré-en-google">¿Si mejoro los Core Web Vitals subiré en Google?</h3></summary><div class="blog-faq-answer"><p>No hay garantía. Google los usa, pero prioriza que el contenido sea relevante y útil. Donde más pesan es cuando varias páginas responden igual de bien a una búsqueda.</p></div></details><details class="blog-faq-item"><summary><h3 id="por-qué-pagespeed-me-da-una-nota-distinta-cada-vez">¿Por qué PageSpeed me da una nota distinta cada vez?</h3></summary><div class="blog-faq-answer"><p>La nota de 0 a 100 sale de la simulación de laboratorio, que varía entre pruebas. Los datos de campo, cuando existen, son más estables porque resumen semanas de visitas reales.</p></div></details><details class="blog-faq-item"><summary><h3 id="tengo-que-llegar-a-100-en-pagespeed">¿Tengo que llegar a 100 en PageSpeed?</h3></summary><div class="blog-faq-answer"><p>No. Lo importante es que las tres métricas estén en verde para tus usuarios reales. Una web con buenos datos de campo y una nota de 85 está mejor que una con 100 en laboratorio y datos reales en rojo.</p></div></details></div></section><h2 id="conclusión">Conclusión</h2>
 <p>Los Core Web Vitals miden si tu web se siente rápida y estable para quien la usa: que cargue lo importante, que responda al tocar y que no se mueva. Mídelos con datos reales, corrige primero lo que más afecta a tus visitas y acompáñalo de una buena base de <a href="/blog/que-es-el-seo/">SEO</a> y de un <a href="/blog/mantenimiento-web-por-que-es-necesario/">mantenimiento web</a> que evite que la web vuelva a engordar con el tiempo.</p>
-<h3>¿Quieres saber cómo están tus Core Web Vitals?</h3>
-<p>Los mido con datos reales, te digo qué corregir primero y lo optimizo sin tocar tu diseño. <a href="/#contacto">Contáctame</a>.</p>
+<div class="blog-cta"><h3 id="quieres-saber-cómo-están-tus-core-web-vitals">¿Quieres saber cómo están tus Core Web Vitals?</h3>
+<p>Los mido con datos reales, te digo qué corregir primero y lo optimizo sin tocar tu diseño. <a class="brxe-button btn-primary bricks-button grow-hover" href="/#contacto">Contáctame</a>.</p></div>
 </div>
+</article>
+<aside class="blog-post-aside">
+<nav class="blog-toc" aria-label="Índice del artículo">
+<p class="blog-toc-label">// ÍNDICE</p>
+<ol><li><a href="#qué-son-los-core-web-vitals">Qué son los Core Web Vitals</a></li><li><a href="#las-tres-métricas">Las tres métricas</a></li><li><a href="#cómo-se-mide-bueno-el-percentil-75">Cómo se mide "bueno": el percentil 75</a></li><li><a href="#cómo-comprobar-los-tuyos">Cómo comprobar los tuyos</a></li><li><a href="#cómo-mejorarlos-en-wordpress">Cómo mejorarlos en WordPress</a></li><li><a href="#preguntas-frecuentes">Preguntas frecuentes</a></li><li><a href="#conclusión">Conclusión</a></li></ol>
+</nav>
+</aside>
+</div>
+<section class="blog-related" aria-labelledby="sigue-leyendo">
+<h2 id="sigue-leyendo" class="blog-related-heading">Sigue leyendo</h2>
+<div class="blog-related-list">
+<a class="blog-related-item grow-hover" href="/blog/seo-on-page/">
+<span class="blog-date">14/07/2026</span>
+<span class="blog-related-title">SEO On-Page: cómo optimizar tu web desde dentro</span>
+</a><a class="blog-related-item grow-hover" href="/blog/errores-seo-comunes-en-elementor/">
+<span class="blog-date">24/06/2026</span>
+<span class="blog-related-title">Errores de SEO más comunes en webs hechas con Elementor</span>
+</a><a class="blog-related-item grow-hover" href="/blog/que-es-el-seo/">
+<span class="blog-date">10/07/2026</span>
+<span class="blog-related-title">Qué es el SEO y por qué es importante para tu página web</span>
+</a>
+</div>
+</section>
 </div>
 </div></section>
 </main>

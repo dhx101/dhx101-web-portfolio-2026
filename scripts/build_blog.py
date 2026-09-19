@@ -4,12 +4,14 @@ files in content/blog/, and keeps page-sitemap.xml in sync. Shares head/
 header/footer logic with build_pages.py via _site.py."""
 import html
 import json
+import math
 import os
 import re
 import sys
 from datetime import date
 
 import markdown
+from markdown.extensions.toc import slugify_unicode
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from _site import ARROW_ICON, ROOT, page_shell  # noqa: E402
@@ -23,6 +25,8 @@ SITEMAP_PATH = os.path.join(ROOT, "page-sitemap.xml")
 from _site import SITE_URL as BASE_URL  # una sola definición del dominio
 
 PAGE_STYLESHEET = '<link rel="stylesheet" href="/assets/css/blog.css">'
+# Solo en las páginas de post: marca en el índice la sección que se está leyendo.
+POST_SCRIPT = '<script src="/assets/js/blog-toc.js" defer></script>'
 
 
 def parse_post(path):
@@ -65,7 +69,13 @@ def parse_post(path):
         raise SystemExit(f"{path}: 'image' e 'image_alt' deben ir juntos (falta uno de los dos).")
 
     slug = os.path.splitext(os.path.basename(path))[0]
-    body_html = markdown.markdown(body_raw.strip(), extensions=["fenced_code"])
+    # "toc" da un id a cada encabezado (para el índice del sidebar) y devuelve la lista de secciones.
+    md = markdown.Markdown(
+        extensions=["fenced_code", "tables", "toc"],
+        extension_configs={"toc": {"slugify": slugify_unicode, "toc_depth": "2-3"}},
+    )
+    body_html = md.convert(body_raw.strip())
+    sections = [(t["id"], t["name"]) for t in md.toc_tokens if t["level"] == 2]
 
     return {
         "slug": slug,
@@ -75,6 +85,8 @@ def parse_post(path):
         # Fecha de la última revisión de contenido; si no hay, cuenta la de publicación.
         "updated": updated or post_date,
         "body_html": body_html,
+        "sections": sections,
+        "words": len(body_raw.split()),
         "image": frontmatter.get("image"),
         "image_alt": frontmatter.get("image_alt"),
     }
@@ -111,6 +123,88 @@ def json_ld_article(post):
         data["image"] = f"{BASE_URL}{post['image']}"
     # json.dumps is HTML-safe enough for a script tag here (no user input, no "</script" risk
     # from our own frontmatter), but escape defensively anyway since titles are free text.
+    return f'<script type="application/ld+json">{json.dumps(data, ensure_ascii=False)}</script>'
+
+
+def reading_time(post):
+    return f"{max(1, math.ceil(post['words'] / 200))} min de lectura"
+
+
+def toc_list(post):
+    # Los nombres que devuelve "toc" ya vienen escapados.
+    items = "".join(f'<li><a href="#{sid}">{name}</a></li>' for sid, name in post["sections"])
+    return f"<ol>{items}</ol>"
+
+
+def _text(fragment):
+    return html.unescape(re.sub(r"<[^>]+>", "", fragment)).strip()
+
+
+FAQ_H2 = re.compile(r'<h2 id="([^"]*)">Preguntas frecuentes</h2>')
+
+
+def split_faq(body_html):
+    """Saca la sección "Preguntas frecuentes" del cuerpo y la convierte en un bloque
+    propio con cada pregunta desplegable. Devuelve (html, [(pregunta, respuesta)])."""
+    m = FAQ_H2.search(body_html)
+    if not m:
+        return body_html, []
+    end = body_html.find("<h2", m.end())
+    end = len(body_html) if end == -1 else end
+    chunk = body_html[m.end():end]
+    parts = re.split(r"(?=<h3)", chunk)
+    intro, items, faq = parts[0], [], []
+    for part in parts[1:]:
+        q = re.match(r'<h3 id="([^"]*)">(.*?)</h3>(.*)', part, flags=re.S)
+        if not q:
+            intro += part
+            continue
+        qid, question, answer = q.groups()
+        items.append(
+            f'<details class="blog-faq-item"><summary><h3 id="{qid}">{question}</h3></summary>'
+            f'<div class="blog-faq-answer">{answer.strip()}</div></details>'
+        )
+        faq.append((_text(question), _text(answer)))
+    if not items:
+        return body_html, []
+    section = (
+        f'<section class="blog-faq" aria-labelledby="{m.group(1)}">'
+        f'<p class="blog-faq-label">// FAQ</p><h2 id="{m.group(1)}">Preguntas frecuentes</h2>{intro.strip()}'
+        f'<div class="blog-faq-list">{"".join(items)}</div></section>'
+    )
+    return body_html[:m.start()] + section + body_html[end:], faq
+
+
+def wrap_cta(body_html):
+    """El cierre de cada post (### ¿…? + [Contáctame](/#contacto)) pasa a ser una caja con botón."""
+    m = re.search(r'<h3 id="[^"]*">¿[^<]*</h3>(?:(?!<h[23]).)*?<a href="/#contacto">[^<]*</a>(?:(?!<h[23]).)*$',
+                  body_html, flags=re.S)
+    if not m:
+        return body_html
+    cta = m.group(0).replace('<a href="/#contacto">',
+                             '<a class="brxe-button btn-primary bricks-button grow-hover" href="/#contacto">')
+    return body_html[:m.start()] + f'<div class="blog-cta">{cta}</div>' + body_html[m.end():]
+
+
+def related_posts(post, posts):
+    """Primero los posts que el artículo enlaza; después, los más recientes."""
+    by_slug = {p["slug"]: p for p in posts}
+    linked = re.findall(r'href="/blog/([a-z0-9-]+)/"', post["body_html"])
+    order = [s for s in dict.fromkeys(linked) if s in by_slug and s != post["slug"]]
+    order += [p["slug"] for p in posts if p["slug"] != post["slug"] and p["slug"] not in order]
+    return [by_slug[s] for s in order[:3]]
+
+
+def json_ld_faq(faq):
+    if not faq:
+        return ""
+    data = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq
+        ],
+    }
     return f'<script type="application/ld+json">{json.dumps(data, ensure_ascii=False)}</script>'
 
 
@@ -193,17 +287,45 @@ def main():
             f'<img src="{post["image"]}" alt="{html.escape(post["image_alt"])}" loading="lazy">'
             if post["image"] else ""
         )
+        body_html, faq = split_faq(post["body_html"])
+        body_html = wrap_cta(body_html)
+        toc = toc_list(post)
+        related = "".join(
+            f"""<a class="blog-related-item grow-hover" href="/blog/{r['slug']}/">
+<span class="blog-date">{r['date'].strftime('%d/%m/%Y')}</span>
+<span class="blog-related-title">{html.escape(r['title'])}</span>
+</a>""" for r in related_posts(post, posts)
+        )
         post_main = f"""<section class="brxe-section section"><div class="brxe-container" style="flex-direction:column">
 <div class="blog-post">
 <a class="brxe-button btn-secondary grow-hover bricks-button back-link" href="/blog/">&larr; Volver al blog</a>
-<div class="blog-post-header">
+<header class="blog-post-header">
 {hero_html}
-<p class="blog-date">{post_dates(post)}</p>
+<p class="blog-date">{post_dates(post)} · {reading_time(post)}</p>
 <h1 class="brxe-heading text-white">{html.escape(post['title'])}</h1>
-</div>
+<p class="blog-post-lead">{html.escape(post['description'])}</p>
+</header>
+<div class="blog-post-layout">
+<article class="blog-post-card">
+<div class="blog-post-bar"><div class="mac-controls"><span></span></div><span class="blog-post-file">~/blog/{post['slug']}.md</span></div>
+<details class="blog-toc-mobile"><summary>Índice del artículo</summary><nav aria-label="Índice del artículo">{toc}</nav></details>
 <div class="blog-post-body">
-{post['body_html']}
+{body_html}
 </div>
+</article>
+<aside class="blog-post-aside">
+<nav class="blog-toc" aria-label="Índice del artículo">
+<p class="blog-toc-label">// ÍNDICE</p>
+{toc}
+</nav>
+</aside>
+</div>
+<section class="blog-related" aria-labelledby="sigue-leyendo">
+<h2 id="sigue-leyendo" class="blog-related-heading">Sigue leyendo</h2>
+<div class="blog-related-list">
+{related}
+</div>
+</section>
 </div>
 </div></section>"""
 
@@ -212,7 +334,7 @@ def main():
                 f"{post['title']} | Blog de David Huang Xie",
                 post["description"],
                 f"/blog/{post['slug']}/", "blog", post_main,
-                extra_head=PAGE_STYLESHEET + json_ld_article(post) + image_meta_tags(post),
+                extra_head=PAGE_STYLESHEET + POST_SCRIPT + json_ld_article(post) + json_ld_faq(faq) + image_meta_tags(post),
             ))
 
     update_sitemap(posts)
