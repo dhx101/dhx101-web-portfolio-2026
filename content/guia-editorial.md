@@ -61,6 +61,13 @@ las reglas, cámbialo aquí: es la única fuente.
    ```
 
 - Longitud: **900–1.300 palabras**. Más solo si el tema lo exige de verdad.
+- **Que no sea solo texto**: al menos dos de estos elementos, donde encajen de verdad
+  y no por cumplir:
+  - una tabla en Markdown (comparativas, opciones con pros y contras, precios…);
+  - un aviso en una línea que empiece por `> **Importante:**`;
+  - una lista numerada cuando haya pasos que seguir en orden.
+- **Portada**: todo post lleva `image` (1200×675, WebP, en `/assets/blog/<slug>.webp`)
+  e `image_alt` con el formato "<lo que se ve> representando <la idea del post>".
 - Si ayuda, una sección `## Preguntas frecuentes` con 3–4 preguntas reales que la
   gente busca sobre el tema (`###` por pregunta, respuesta de 2–3 frases).
 

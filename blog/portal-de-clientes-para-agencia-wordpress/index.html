@@ -65,7 +65,7 @@
 <link rel="stylesheet" href="/assets/css/utilities.css">
 <link rel="stylesheet" href="/assets/css/elements.css">
 <script defer src="https://stats.davidhuangxie.com/stats.js" data-website-id="3b516eb5-dda7-4768-96a0-eb3864f11f58" data-domains="davidhuangxie.com"></script>
-<link rel="stylesheet" href="/assets/css/blog.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Por qué construí un portal para una agencia WordPress", "description": "Por qué desarrollé un portal donde los clientes de una agencia WordPress ven el estado de su web y pagan sus facturas online, y qué lo hizo fiable.", "datePublished": "2026-07-24", "dateModified": "2026-09-18", "author": {"@type": "Person", "name": "David Huang Xie"}, "image": "https://davidhuangxie.com/assets/blog/portal-de-clientes-para-agencia-wordpress.webp"}</script><meta property="og:image" content="https://davidhuangxie.com/assets/blog/portal-de-clientes-para-agencia-wordpress.webp"><meta name="twitter:image" content="https://davidhuangxie.com/assets/blog/portal-de-clientes-para-agencia-wordpress.webp">
+<link rel="stylesheet" href="/assets/css/blog.css"><script src="/assets/js/blog-toc.js" defer></script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Por qué construí un portal para una agencia WordPress", "description": "Por qué desarrollé un portal donde los clientes de una agencia WordPress ven el estado de su web y pagan sus facturas online, y qué lo hizo fiable.", "datePublished": "2026-07-24", "dateModified": "2026-09-18", "author": {"@type": "Person", "name": "David Huang Xie"}, "image": "https://davidhuangxie.com/assets/blog/portal-de-clientes-para-agencia-wordpress.webp"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Por qué no usar una herramienta existente de gestión de webs?", "acceptedAnswer": {"@type": "Answer", "text": "Es una opción válida para muchas agencias. El objetivo aquí era juntar en un mismo sitio el estado de cada web, el soporte, la facturación con pago online y un acceso propio para cada cliente. Es un proceso de negocio concreto, y ese es justo el caso en el que compensa hacer algo a medida, como explico en WordPress o código a medida."}}, {"@type": "Question", "name": "¿Sirve para cualquier agencia?", "acceptedAnswer": {"@type": "Answer", "text": "La idea sí. Los detalles, como qué datos sincronizar o cuándo avisar, dependen de cómo trabaje cada agencia."}}]}</script><meta property="og:image" content="https://davidhuangxie.com/assets/blog/portal-de-clientes-para-agencia-wordpress.webp"><meta name="twitter:image" content="https://davidhuangxie.com/assets/blog/portal-de-clientes-para-agencia-wordpress.webp">
 </head>
 <body class="page-template-default page wp-theme-bricks brx-body">
 <a class="skip-link" href="#brx-content">Skip to main content</a>
@@ -76,14 +76,19 @@
 <section class="brxe-section section"><div class="brxe-container" style="flex-direction:column">
 <div class="blog-post">
 <a class="brxe-button btn-secondary grow-hover bricks-button back-link" href="/blog/">&larr; Volver al blog</a>
-<div class="blog-post-header">
+<header class="blog-post-header">
 <img src="/assets/blog/portal-de-clientes-para-agencia-wordpress.webp" alt="Panel de control con métricas representando un portal de clientes" loading="lazy">
-<p class="blog-date">24/07/2026 · Actualizado 18/09/2026</p>
+<p class="blog-date">24/07/2026 · Actualizado 18/09/2026 · 5 min de lectura</p>
 <h1 class="brxe-heading text-white">Por qué construí un portal para una agencia WordPress</h1>
-</div>
+<p class="blog-post-lead">Por qué desarrollé un portal donde los clientes de una agencia WordPress ven el estado de su web y pagan sus facturas online, y qué lo hizo fiable.</p>
+</header>
+<div class="blog-post-layout">
+<article class="blog-post-card">
+<div class="blog-post-bar"><div class="mac-controls"><span></span></div><span class="blog-post-file">~/blog/portal-de-clientes-para-agencia-wordpress.md</span></div>
+<details class="blog-toc-mobile"><summary>Índice del artículo</summary><nav aria-label="Índice del artículo"><ol><li><a href="#el-problema-concreto">El problema concreto</a></li><li><a href="#qué-hace-el-portal">Qué hace el portal</a></li><li><a href="#cómo-sabe-el-estado-de-cada-web">Cómo sabe el estado de cada web</a></li><li><a href="#las-decisiones-técnicas-que-más-importaron">Las decisiones técnicas que más importaron</a></li><li><a href="#seguridad">Seguridad</a></li><li><a href="#cómo-está-hecho">Cómo está hecho</a></li><li><a href="#preguntas-frecuentes">Preguntas frecuentes</a></li><li><a href="#conclusión">Conclusión</a></li></ol></nav></details>
 <div class="blog-post-body">
 <p>Cualquiera que gestione varias webs WordPress para clientes conoce el problema: la información sobre cada una (si está caída, si tiene actualizaciones pendientes, si la factura del mes está pagada) acaba repartida entre el correo, una hoja de cálculo y la memoria de quien lleva la cuenta. Funciona con dos o tres clientes y deja de funcionar en cuanto hay diez. Lo viví como único perfil técnico de una agencia, y por eso construí el <a href="/proyectos/">Web Client Portal</a>. En este post te cuento qué problema resuelve, cómo está hecho y las decisiones que lo hicieron fiable.</p>
-<h2>El problema concreto</h2>
+<h2 id="el-problema-concreto">El problema concreto</h2>
 <p>Una agencia que mantiene WordPress para varios clientes necesita responder cada día a preguntas como:</p>
 <ul>
 <li>¿Qué webs tienen actualizaciones de WordPress, plugins o temas pendientes?</li>
@@ -92,23 +97,23 @@
 <li>¿Hay tickets de soporte abiertos que llevan días sin respuesta?</li>
 </ul>
 <p>Sin una herramienta que lo centralice, cada pregunta obliga a entrar web por web o a confiar en que alguien se acuerde de mirar. Ninguna de las dos opciones escala.</p>
-<h2>Qué hace el portal</h2>
+<h2 id="qué-hace-el-portal">Qué hace el portal</h2>
 <p>El portal tiene dos tipos de usuario, administrador y cliente, y cada uno ve cosas distintas.</p>
 <p><strong>La agencia</strong> ve un panel de webs que necesitan atención: no la lista completa, sino solo las que tienen un problema real. Desde ahí gestiona sitios, tickets de soporte, facturas y accesos de sus clientes, y puede consultar un registro de quién hizo cada cambio.</p>
 <p><strong>Cada cliente</strong> entra a su propio panel y ve el estado de su web, sus tickets y su historial de facturas, que puede <strong>pagar online con Stripe</strong> sin tener que pedir un número de cuenta por email. Si tiene tienda, recibe además un resumen semanal por email.</p>
-<h2>Cómo sabe el estado de cada web</h2>
+<h2 id="cómo-sabe-el-estado-de-cada-web">Cómo sabe el estado de cada web</h2>
 <p>El portal se conecta con cada WordPress a través de un plugin propio, WP Admin Desk, que ofrece un pequeño API con la versión de WordPress, los plugins y temas con actualizaciones pendientes y, si la web usa WooCommerce, los pedidos pendientes y los productos con poco stock.</p>
 <p>Un proceso programado sincroniza esos datos cada día, así que el panel refleja el estado real y no lo que alguien recuerde. Y aquí hay una decisión que marca la diferencia: <strong>el portal solo avisa por email cuando una web empeora</strong>, no en cada sincronización mientras el mismo problema sigue ahí. Guarda el último estado sobre el que avisó y compara. Eso evita la fatiga de alertas, que es lo que hace que la gente deje de leer los avisos.</p>
-<h2>Las decisiones técnicas que más importaron</h2>
-<h3>El navegador nunca confirma un pago</h3>
+<h2 id="las-decisiones-técnicas-que-más-importaron">Las decisiones técnicas que más importaron</h2>
+<h3 id="el-navegador-nunca-confirma-un-pago">El navegador nunca confirma un pago</h3>
 <p>Una factura se marca como pagada solo cuando Stripe lo confirma mediante un webhook firmado, nunca cuando el cliente vuelve del pago. El webhook es idempotente, porque Stripe avisa en su <a href="https://docs.stripe.com/webhooks">documentación de webhooks</a> de que un mismo evento puede llegar más de una vez. Lo cuento en detalle en <a href="/blog/cobrar-facturas-online-con-stripe-checkout/">cómo cobrar facturas con Stripe Checkout</a>.</p>
-<h3>Un email fallido no es un email perdido</h3>
+<h3 id="un-email-fallido-no-es-un-email-perdido">Un email fallido no es un email perdido</h3>
 <p>Si el proveedor de correo falla, el email se queda en una cola con reintentos espaciados en lugar de perderse. Te lo explico, con sus límites, en <a href="/blog/cola-de-emails-con-reintentos-en-nextjs/">la cola de emails con reintentos</a>.</p>
-<h3>Saber quién hizo qué</h3>
+<h3 id="saber-quién-hizo-qué">Saber quién hizo qué</h3>
 <p>Cada acción administrativa relevante queda en un <a href="/blog/que-es-un-registro-de-auditoria/">registro de auditoría</a>, escrito sin poner en riesgo la acción principal.</p>
-<h3>Una base de datos preparada para producción</h3>
+<h3 id="una-base-de-datos-preparada-para-producción">Una base de datos preparada para producción</h3>
 <p>El proyecto empezó con SQLite y pasó a PostgreSQL antes de desplegarse en Vercel. Te cuento por qué en <a href="/blog/de-sqlite-a-postgres-por-que-migre-mi-base-de-datos/">de SQLite a Postgres</a>.</p>
-<h2>Seguridad</h2>
+<h2 id="seguridad">Seguridad</h2>
 <p>Un portal con facturas y datos de clientes tiene que cuidar el acceso:</p>
 <ul>
 <li><strong>Bloqueo tras intentos fallidos:</strong> 15 minutos de bloqueo después de 5 intentos de acceso erróneos.</li>
@@ -116,18 +121,36 @@
 <li><strong>Contraseñas cifradas</strong> con bcrypt y sesiones en cookies protegidas.</li>
 <li><strong>Procesos programados protegidos</strong> con una clave secreta, para que nadie pueda lanzarlos desde fuera.</li>
 </ul>
-<h2>Cómo está hecho</h2>
+<h2 id="cómo-está-hecho">Cómo está hecho</h2>
 <p>Next.js 16, TypeScript, Prisma y PostgreSQL, con Stripe para los pagos y Resend para el correo, desplegado en Vercel. Tiene pruebas automáticas de tres tipos: unitarias, de integración (pagos, cola de emails y auditoría) y de extremo a extremo con Playwright, que recorren el acceso, el panel del cliente y la gestión de facturas como lo haría un usuario real.</p>
-<h2>Preguntas frecuentes</h2>
-<h3>¿Por qué no usar una herramienta existente de gestión de webs?</h3>
-<p>Es una opción válida para muchas agencias. El objetivo aquí era juntar en un mismo sitio el estado de cada web, el soporte, la facturación con pago online y un acceso propio para cada cliente. Es un proceso de negocio concreto, y ese es justo el caso en el que compensa hacer algo a medida, como explico en <a href="/blog/wordpress-elementor-vs-codigo-a-medida/">WordPress o código a medida</a>.</p>
-<h3>¿Sirve para cualquier agencia?</h3>
-<p>La idea sí. Los detalles, como qué datos sincronizar o cuándo avisar, dependen de cómo trabaje cada agencia.</p>
-<h2>Conclusión</h2>
+<section class="blog-faq" aria-labelledby="preguntas-frecuentes"><p class="blog-faq-label">// FAQ</p><h2 id="preguntas-frecuentes">Preguntas frecuentes</h2><div class="blog-faq-list"><details class="blog-faq-item"><summary><h3 id="por-qué-no-usar-una-herramienta-existente-de-gestión-de-webs">¿Por qué no usar una herramienta existente de gestión de webs?</h3></summary><div class="blog-faq-answer"><p>Es una opción válida para muchas agencias. El objetivo aquí era juntar en un mismo sitio el estado de cada web, el soporte, la facturación con pago online y un acceso propio para cada cliente. Es un proceso de negocio concreto, y ese es justo el caso en el que compensa hacer algo a medida, como explico en <a href="/blog/wordpress-elementor-vs-codigo-a-medida/">WordPress o código a medida</a>.</p></div></details><details class="blog-faq-item"><summary><h3 id="sirve-para-cualquier-agencia">¿Sirve para cualquier agencia?</h3></summary><div class="blog-faq-answer"><p>La idea sí. Los detalles, como qué datos sincronizar o cuándo avisar, dependen de cómo trabaje cada agencia.</p></div></details></div></section><h2 id="conclusión">Conclusión</h2>
 <p>El portal nació de un problema real: demasiadas webs, demasiada información dispersa y avisos que llegaban tarde o no llegaban. La solución fue centralizarlo todo, avisar solo cuando importa y cuidar los detalles que hacen fiable una herramienta: pagos confirmados por el servidor, emails que no se pierden y un registro de quién hizo qué.</p>
-<h3>¿Gestionas WordPress para varios clientes y te suena este problema?</h3>
-<p>Construyo herramientas a medida para agencias y negocios, pensadas para su forma de trabajar. <a href="/#contacto">Contáctame</a>.</p>
+<div class="blog-cta"><h3 id="gestionas-wordpress-para-varios-clientes-y-te-suena-este-problema">¿Gestionas WordPress para varios clientes y te suena este problema?</h3>
+<p>Construyo herramientas a medida para agencias y negocios, pensadas para su forma de trabajar. <a class="brxe-button btn-primary bricks-button grow-hover" href="/#contacto">Contáctame</a>.</p></div>
 </div>
+</article>
+<aside class="blog-post-aside">
+<nav class="blog-toc" aria-label="Índice del artículo">
+<p class="blog-toc-label">// ÍNDICE</p>
+<ol><li><a href="#el-problema-concreto">El problema concreto</a></li><li><a href="#qué-hace-el-portal">Qué hace el portal</a></li><li><a href="#cómo-sabe-el-estado-de-cada-web">Cómo sabe el estado de cada web</a></li><li><a href="#las-decisiones-técnicas-que-más-importaron">Las decisiones técnicas que más importaron</a></li><li><a href="#seguridad">Seguridad</a></li><li><a href="#cómo-está-hecho">Cómo está hecho</a></li><li><a href="#preguntas-frecuentes">Preguntas frecuentes</a></li><li><a href="#conclusión">Conclusión</a></li></ol>
+</nav>
+</aside>
+</div>
+<section class="blog-related" aria-labelledby="sigue-leyendo">
+<h2 id="sigue-leyendo" class="blog-related-heading">Sigue leyendo</h2>
+<div class="blog-related-list">
+<a class="blog-related-item grow-hover" href="/blog/cobrar-facturas-online-con-stripe-checkout/">
+<span class="blog-date">03/07/2026</span>
+<span class="blog-related-title">Cobrar facturas online con Stripe Checkout</span>
+</a><a class="blog-related-item grow-hover" href="/blog/cola-de-emails-con-reintentos-en-nextjs/">
+<span class="blog-date">29/06/2026</span>
+<span class="blog-related-title">Cola de emails con reintentos en Next.js: no pierdas avisos</span>
+</a><a class="blog-related-item grow-hover" href="/blog/que-es-un-registro-de-auditoria/">
+<span class="blog-date">06/07/2026</span>
+<span class="blog-related-title">Qué es un registro de auditoría y por qué lo necesitas</span>
+</a>
+</div>
+</section>
 </div>
 </div></section>
 </main>

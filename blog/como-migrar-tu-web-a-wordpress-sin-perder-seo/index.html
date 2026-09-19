@@ -65,7 +65,7 @@
 <link rel="stylesheet" href="/assets/css/utilities.css">
 <link rel="stylesheet" href="/assets/css/elements.css">
 <script defer src="https://stats.davidhuangxie.com/stats.js" data-website-id="3b516eb5-dda7-4768-96a0-eb3864f11f58" data-domains="davidhuangxie.com"></script>
-<link rel="stylesheet" href="/assets/css/blog.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Cómo migrar tu web a WordPress sin perder el SEO", "description": "Cómo migrar una web antigua a WordPress sin perder posicionamiento: mapa de URLs, redirecciones 301, qué revisar antes y después y cuánto mantenerlas.", "datePublished": "2026-06-01", "dateModified": "2026-09-18", "author": {"@type": "Person", "name": "David Huang Xie"}, "image": "https://davidhuangxie.com/assets/blog/como-migrar-tu-web-a-wordpress-sin-perder-seo.webp"}</script><meta property="og:image" content="https://davidhuangxie.com/assets/blog/como-migrar-tu-web-a-wordpress-sin-perder-seo.webp"><meta name="twitter:image" content="https://davidhuangxie.com/assets/blog/como-migrar-tu-web-a-wordpress-sin-perder-seo.webp">
+<link rel="stylesheet" href="/assets/css/blog.css"><script src="/assets/js/blog-toc.js" defer></script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Cómo migrar tu web a WordPress sin perder el SEO", "description": "Cómo migrar una web antigua a WordPress sin perder posicionamiento: mapa de URLs, redirecciones 301, qué revisar antes y después y cuánto mantenerlas.", "datePublished": "2026-06-01", "dateModified": "2026-09-18", "author": {"@type": "Person", "name": "David Huang Xie"}, "image": "https://davidhuangxie.com/assets/blog/como-migrar-tu-web-a-wordpress-sin-perder-seo.webp"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Perderé posiciones aunque lo haga bien?", "acceptedAnswer": {"@type": "Answer", "text": "Puede haber fluctuaciones temporales mientras Google procesa los cambios; la propia Google lo advierte. Con un buen mapa de redirecciones, lo normal es recuperar la situación anterior. Los plazos de Google los explico en cuánto tarda en verse el SEO."}}, {"@type": "Question", "name": "¿Puedo borrar las redirecciones al cabo de unos meses?", "acceptedAnswer": {"@type": "Answer", "text": "Mejor no. Google recomienda mantenerlas al menos un año, y en la práctica no hay motivo para quitarlas: los enlaces externos antiguos seguirán apuntando a esas URLs."}}, {"@type": "Question", "name": "¿Y si cambio también de dominio?", "acceptedAnswer": {"@type": "Answer", "text": "Entonces la planificación es aún más importante: todas las URLs cambian. Además de las redirecciones, Search Console tiene una herramienta de cambio de dirección para avisar a Google del traslado."}}]}</script><meta property="og:image" content="https://davidhuangxie.com/assets/blog/como-migrar-tu-web-a-wordpress-sin-perder-seo.webp"><meta name="twitter:image" content="https://davidhuangxie.com/assets/blog/como-migrar-tu-web-a-wordpress-sin-perder-seo.webp">
 </head>
 <body class="page-template-default page wp-theme-bricks brx-body">
 <a class="skip-link" href="#brx-content">Skip to main content</a>
@@ -76,26 +76,31 @@
 <section class="brxe-section section"><div class="brxe-container" style="flex-direction:column">
 <div class="blog-post">
 <a class="brxe-button btn-secondary grow-hover bricks-button back-link" href="/blog/">&larr; Volver al blog</a>
-<div class="blog-post-header">
+<header class="blog-post-header">
 <img src="/assets/blog/como-migrar-tu-web-a-wordpress-sin-perder-seo.webp" alt="Migración de datos representando el traspaso de una web a WordPress" loading="lazy">
-<p class="blog-date">01/06/2026 · Actualizado 18/09/2026</p>
+<p class="blog-date">01/06/2026 · Actualizado 18/09/2026 · 5 min de lectura</p>
 <h1 class="brxe-heading text-white">Cómo migrar tu web a WordPress sin perder el SEO</h1>
-</div>
+<p class="blog-post-lead">Cómo migrar una web antigua a WordPress sin perder posicionamiento: mapa de URLs, redirecciones 301, qué revisar antes y después y cuánto mantenerlas.</p>
+</header>
+<div class="blog-post-layout">
+<article class="blog-post-card">
+<div class="blog-post-bar"><div class="mac-controls"><span></span></div><span class="blog-post-file">~/blog/como-migrar-tu-web-a-wordpress-sin-perder-seo.md</span></div>
+<details class="blog-toc-mobile"><summary>Índice del artículo</summary><nav aria-label="Índice del artículo"><ol><li><a href="#por-qué-una-migración-puede-hundir-tus-visitas">Por qué una migración puede hundir tus visitas</a></li><li><a href="#antes-de-migrar-haz-inventario">Antes de migrar: haz inventario</a></li><li><a href="#el-mapa-de-redirecciones-la-pieza-clave">El mapa de redirecciones: la pieza clave</a></li><li><a href="#durante-la-migración">Durante la migración</a></li><li><a href="#después-de-migrar">Después de migrar</a></li><li><a href="#preguntas-frecuentes">Preguntas frecuentes</a></li><li><a href="#conclusión">Conclusión</a></li></ol></nav></details>
 <div class="blog-post-body">
 <p>Migrar una web antigua a WordPress es habitual cuando un negocio quiere modernizarse, pero también es uno de los momentos en los que más fácil es perder de golpe años de <a href="/blog/que-es-el-seo/">SEO</a> acumulado. La web nueva puede ser más bonita y más rápida, y aun así dejar de recibir visitas porque Google no encuentra las páginas que ya conocía. En este post te explico cómo planifico una migración para que eso no pase, apoyándome en lo que recomienda Google.</p>
-<h2>Por qué una migración puede hundir tus visitas</h2>
+<h2 id="por-qué-una-migración-puede-hundir-tus-visitas">Por qué una migración puede hundir tus visitas</h2>
 <p>Google tiene indexadas las URLs de tu web actual, y cada una acumula señales: enlaces de otras webs, historial y posiciones. Si en la web nueva esas URLs desaparecen o cambian sin avisar, quien llega desde Google o desde un enlace externo se encuentra un error 404, y Google tiene que empezar a descubrir tus páginas casi desde cero.</p>
 <p>La propia Google recomienda contar con ayuda de SEO <a href="https://developers.google.com/search/docs/fundamentals/do-i-need-seo">precisamente al rediseñar o lanzar una web</a>, y cuanto antes mejor. Es mucho más barato planificarlo que arreglarlo después.</p>
-<h2>Antes de migrar: haz inventario</h2>
-<h3>1. Lista todas las URLs de tu web actual</h3>
+<h2 id="antes-de-migrar-haz-inventario">Antes de migrar: haz inventario</h2>
+<h3 id="1-lista-todas-las-urls-de-tu-web-actual">1. Lista todas las URLs de tu web actual</h3>
 <p>Necesitas saber qué existe antes de moverlo: páginas, entradas del blog, fichas de productos, PDFs e imágenes importantes. Google insiste en que <a href="https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes">imágenes, vídeos y otros archivos también cambian de URL</a> en una migración y hay que tratarlos igual.</p>
-<h3>2. Identifica qué páginas traen tráfico</h3>
+<h3 id="2-identifica-qué-páginas-traen-tráfico">2. Identifica qué páginas traen tráfico</h3>
 <p>En el informe de rendimiento de Search Console verás qué páginas reciben clics desde Google. Esas son las que más cuidado necesitan: si solo pudieras revisar a mano diez URLs, serían esas.</p>
-<h3>3. Anota quién te enlaza</h3>
+<h3 id="3-anota-quién-te-enlaza">3. Anota quién te enlaza</h3>
 <p>Search Console también te muestra qué webs enlazan a las tuyas. Esos enlaces apuntan a tus URLs antiguas, y la redirección es lo que evita que se pierdan.</p>
-<h3>4. Guarda títulos y descripciones actuales</h3>
+<h3 id="4-guarda-títulos-y-descripciones-actuales">4. Guarda títulos y descripciones actuales</h3>
 <p>Aunque vayas a mejorarlos, tenerlos como referencia te permite comparar si algo empeora tras la migración.</p>
-<h2>El mapa de redirecciones: la pieza clave</h2>
+<h2 id="el-mapa-de-redirecciones-la-pieza-clave">El mapa de redirecciones: la pieza clave</h2>
 <p>Con el inventario hecho, el paso más importante es el que Google llama mapa de URLs: una tabla que dice, para cada URL antigua, a qué URL nueva debe ir. Su guía sobre <a href="https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes">cambios de sitio con cambios de URL</a> recomienda redirecciones permanentes desde el servidor, de cada URL antigua a su equivalente nueva.</p>
 <p>Lo que cuido en ese mapa:</p>
 <ul>
@@ -105,13 +110,13 @@
 <li><strong>Enlaces internos actualizados.</strong> Los enlaces de la web nueva deben apuntar ya a las URLs nuevas, no depender de las redirecciones.</li>
 </ul>
 <p>Si puedes mantener las mismas URLs en WordPress, mejor que mejor. Con la estructura de enlaces adecuada muchas veces se pueden conservar, y entonces no hay nada que redirigir.</p>
-<h2>Durante la migración</h2>
+<h2 id="durante-la-migración">Durante la migración</h2>
 <ul>
 <li><strong>Mantén lo que funcionaba.</strong> Si una página posicionaba bien con cierto contenido y estructura, la versión nueva debería conservarlo. Cambiar el diseño no obliga a reescribir el contenido que ya funciona.</li>
 <li><strong>Vigila la velocidad.</strong> Una migración es buen momento para optimizar imágenes y reducir plugins, y también el momento en el que más fácil es empeorarla. Tienes los detalles en <a href="/blog/core-web-vitals-que-son/">Core Web Vitals</a>.</li>
 <li><strong>Prueba antes de publicar.</strong> Recorre la web nueva y prueba las redirecciones de las páginas importantes antes de abrir al público.</li>
 </ul>
-<h2>Después de migrar</h2>
+<h2 id="después-de-migrar">Después de migrar</h2>
 <ol>
 <li><strong>Envía el nuevo sitemap XML</strong> en Search Console.</li>
 <li><strong>Comprueba a mano las páginas con más tráfico</strong> y sus redirecciones.</li>
@@ -120,18 +125,34 @@
 <li><strong>No quites las redirecciones.</strong> Google recomienda mantenerlas el mayor tiempo posible, en general al menos un año, para que pueda trasladar todas las señales a las URLs nuevas.</li>
 </ol>
 <p>Si durante la migración también limpias el <a href="/blog/seo-on-page/">SEO On-Page</a> (títulos, encabezados, imágenes), hazlo con la lista de URLs importantes delante para no romper lo que ya funcionaba.</p>
-<h2>Preguntas frecuentes</h2>
-<h3>¿Perderé posiciones aunque lo haga bien?</h3>
-<p>Puede haber fluctuaciones temporales mientras Google procesa los cambios; la propia Google lo advierte. Con un buen mapa de redirecciones, lo normal es recuperar la situación anterior. Los plazos de Google los explico en <a href="/blog/cuanto-tarda-en-verse-resultados-seo/">cuánto tarda en verse el SEO</a>.</p>
-<h3>¿Puedo borrar las redirecciones al cabo de unos meses?</h3>
-<p>Mejor no. Google recomienda mantenerlas al menos un año, y en la práctica no hay motivo para quitarlas: los enlaces externos antiguos seguirán apuntando a esas URLs.</p>
-<h3>¿Y si cambio también de dominio?</h3>
-<p>Entonces la planificación es aún más importante: todas las URLs cambian. Además de las redirecciones, Search Console tiene una herramienta de cambio de dirección para avisar a Google del traslado.</p>
-<h2>Conclusión</h2>
+<section class="blog-faq" aria-labelledby="preguntas-frecuentes"><p class="blog-faq-label">// FAQ</p><h2 id="preguntas-frecuentes">Preguntas frecuentes</h2><div class="blog-faq-list"><details class="blog-faq-item"><summary><h3 id="perderé-posiciones-aunque-lo-haga-bien">¿Perderé posiciones aunque lo haga bien?</h3></summary><div class="blog-faq-answer"><p>Puede haber fluctuaciones temporales mientras Google procesa los cambios; la propia Google lo advierte. Con un buen mapa de redirecciones, lo normal es recuperar la situación anterior. Los plazos de Google los explico en <a href="/blog/cuanto-tarda-en-verse-resultados-seo/">cuánto tarda en verse el SEO</a>.</p></div></details><details class="blog-faq-item"><summary><h3 id="puedo-borrar-las-redirecciones-al-cabo-de-unos-meses">¿Puedo borrar las redirecciones al cabo de unos meses?</h3></summary><div class="blog-faq-answer"><p>Mejor no. Google recomienda mantenerlas al menos un año, y en la práctica no hay motivo para quitarlas: los enlaces externos antiguos seguirán apuntando a esas URLs.</p></div></details><details class="blog-faq-item"><summary><h3 id="y-si-cambio-también-de-dominio">¿Y si cambio también de dominio?</h3></summary><div class="blog-faq-answer"><p>Entonces la planificación es aún más importante: todas las URLs cambian. Además de las redirecciones, Search Console tiene una herramienta de cambio de dirección para avisar a Google del traslado.</p></div></details></div></section><h2 id="conclusión">Conclusión</h2>
 <p>Migrar a WordPress no tiene por qué costar posicionamiento. El error caro no suele ser elegir mal la plataforma, sino no hacer inventario y no mapear bien las redirecciones. Con redirecciones 301 directas, enlaces internos actualizados y un seguimiento de las semanas siguientes, la web nueva hereda lo que había ganado la antigua.</p>
-<h3>¿Vas a migrar tu web y no quieres perder tu SEO?</h3>
-<p>Hago el inventario de tu web actual y preparo el mapa completo de redirecciones antes de tocar una sola URL. <a href="/#contacto">Contáctame</a>.</p>
+<div class="blog-cta"><h3 id="vas-a-migrar-tu-web-y-no-quieres-perder-tu-seo">¿Vas a migrar tu web y no quieres perder tu SEO?</h3>
+<p>Hago el inventario de tu web actual y preparo el mapa completo de redirecciones antes de tocar una sola URL. <a class="brxe-button btn-primary bricks-button grow-hover" href="/#contacto">Contáctame</a>.</p></div>
 </div>
+</article>
+<aside class="blog-post-aside">
+<nav class="blog-toc" aria-label="Índice del artículo">
+<p class="blog-toc-label">// ÍNDICE</p>
+<ol><li><a href="#por-qué-una-migración-puede-hundir-tus-visitas">Por qué una migración puede hundir tus visitas</a></li><li><a href="#antes-de-migrar-haz-inventario">Antes de migrar: haz inventario</a></li><li><a href="#el-mapa-de-redirecciones-la-pieza-clave">El mapa de redirecciones: la pieza clave</a></li><li><a href="#durante-la-migración">Durante la migración</a></li><li><a href="#después-de-migrar">Después de migrar</a></li><li><a href="#preguntas-frecuentes">Preguntas frecuentes</a></li><li><a href="#conclusión">Conclusión</a></li></ol>
+</nav>
+</aside>
+</div>
+<section class="blog-related" aria-labelledby="sigue-leyendo">
+<h2 id="sigue-leyendo" class="blog-related-heading">Sigue leyendo</h2>
+<div class="blog-related-list">
+<a class="blog-related-item grow-hover" href="/blog/que-es-el-seo/">
+<span class="blog-date">10/07/2026</span>
+<span class="blog-related-title">Qué es el SEO y por qué es importante para tu página web</span>
+</a><a class="blog-related-item grow-hover" href="/blog/core-web-vitals-que-son/">
+<span class="blog-date">10/06/2026</span>
+<span class="blog-related-title">Core Web Vitals: qué son y cómo afectan a tu SEO</span>
+</a><a class="blog-related-item grow-hover" href="/blog/seo-on-page/">
+<span class="blog-date">14/07/2026</span>
+<span class="blog-related-title">SEO On-Page: cómo optimizar tu web desde dentro</span>
+</a>
+</div>
+</section>
 </div>
 </div></section>
 </main>

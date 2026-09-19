@@ -65,7 +65,7 @@
 <link rel="stylesheet" href="/assets/css/utilities.css">
 <link rel="stylesheet" href="/assets/css/elements.css">
 <script defer src="https://stats.davidhuangxie.com/stats.js" data-website-id="3b516eb5-dda7-4768-96a0-eb3864f11f58" data-domains="davidhuangxie.com"></script>
-<link rel="stylesheet" href="/assets/css/blog.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "De SQLite a Postgres: por qué migré la base de datos", "description": "Por qué migré de SQLite a PostgreSQL antes de desplegar mi portal de clientes en Vercel, qué dice la documentación oficial y qué tuve que cambiar en Prisma.", "datePublished": "2026-07-09", "dateModified": "2026-09-18", "author": {"@type": "Person", "name": "David Huang Xie"}, "image": "https://davidhuangxie.com/assets/blog/de-sqlite-a-postgres-por-que-migre-mi-base-de-datos.webp"}</script><meta property="og:image" content="https://davidhuangxie.com/assets/blog/de-sqlite-a-postgres-por-que-migre-mi-base-de-datos.webp"><meta name="twitter:image" content="https://davidhuangxie.com/assets/blog/de-sqlite-a-postgres-por-que-migre-mi-base-de-datos.webp">
+<link rel="stylesheet" href="/assets/css/blog.css"><script src="/assets/js/blog-toc.js" defer></script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "De SQLite a Postgres: por qué migré la base de datos", "description": "Por qué migré de SQLite a PostgreSQL antes de desplegar mi portal de clientes en Vercel, qué dice la documentación oficial y qué tuve que cambiar en Prisma.", "datePublished": "2026-07-09", "dateModified": "2026-09-18", "author": {"@type": "Person", "name": "David Huang Xie"}, "image": "https://davidhuangxie.com/assets/blog/de-sqlite-a-postgres-por-que-migre-mi-base-de-datos.webp"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Entonces SQLite no sirve para una web?", "acceptedAnswer": {"@type": "Answer", "text": "Sí sirve, en el contexto adecuado. La propia documentación de SQLite dice que funciona bien como base de datos de muchas webs, pero recomienda una cliente/servidor si la web tiene mucha escritura o necesita varios servidores."}}, {"@type": "Question", "name": "¿Hay que borrar las migraciones antiguas?", "acceptedAnswer": {"@type": "Answer", "text": "Si cambias de motor, sí: Prisma no puede reutilizarlas porque son SQL específico de cada base de datos. Por eso es mucho más fácil hacerlo antes de tener datos en producción."}}, {"@type": "Question", "name": "¿Qué pasa si ya tienes datos en SQLite?", "acceptedAnswer": {"@type": "Answer", "text": "Entonces, además de la estructura, hay que exportar y transformar los datos, y comprobar que nada se pierde por el camino. Es más trabajo, y por eso conviene decidirlo pronto."}}]}</script><meta property="og:image" content="https://davidhuangxie.com/assets/blog/de-sqlite-a-postgres-por-que-migre-mi-base-de-datos.webp"><meta name="twitter:image" content="https://davidhuangxie.com/assets/blog/de-sqlite-a-postgres-por-que-migre-mi-base-de-datos.webp">
 </head>
 <body class="page-template-default page wp-theme-bricks brx-body">
 <a class="skip-link" href="#brx-content">Skip to main content</a>
@@ -76,14 +76,19 @@
 <section class="brxe-section section"><div class="brxe-container" style="flex-direction:column">
 <div class="blog-post">
 <a class="brxe-button btn-secondary grow-hover bricks-button back-link" href="/blog/">&larr; Volver al blog</a>
-<div class="blog-post-header">
+<header class="blog-post-header">
 <img src="/assets/blog/de-sqlite-a-postgres-por-que-migre-mi-base-de-datos.webp" alt="Servidores de base de datos representando una migración de base de datos" loading="lazy">
-<p class="blog-date">09/07/2026 · Actualizado 18/09/2026</p>
+<p class="blog-date">09/07/2026 · Actualizado 18/09/2026 · 5 min de lectura</p>
 <h1 class="brxe-heading text-white">De SQLite a Postgres: por qué migré la base de datos</h1>
-</div>
+<p class="blog-post-lead">Por qué migré de SQLite a PostgreSQL antes de desplegar mi portal de clientes en Vercel, qué dice la documentación oficial y qué tuve que cambiar en Prisma.</p>
+</header>
+<div class="blog-post-layout">
+<article class="blog-post-card">
+<div class="blog-post-bar"><div class="mac-controls"><span></span></div><span class="blog-post-file">~/blog/de-sqlite-a-postgres-por-que-migre-mi-base-de-datos.md</span></div>
+<details class="blog-toc-mobile"><summary>Índice del artículo</summary><nav aria-label="Índice del artículo"><ol><li><a href="#por-qué-sqlite-es-perfecto-para-empezar">Por qué SQLite es perfecto para empezar</a></li><li><a href="#por-qué-no-sirve-en-producción-en-vercel">Por qué no sirve en producción en Vercel</a></li><li><a href="#qué-cambié-con-prisma">Qué cambié con Prisma</a></li><li><a href="#qué-más-hizo-falta-para-desplegar">Qué más hizo falta para desplegar</a></li><li><a href="#la-lección-general">La lección general</a></li><li><a href="#preguntas-frecuentes">Preguntas frecuentes</a></li><li><a href="#conclusión">Conclusión</a></li></ol></nav></details>
 <div class="blog-post-body">
 <p>Empecé a construir el <a href="https://dhx101-web-client-portal.vercel.app">Web Client Portal</a> con SQLite porque, para desarrollar en local, es lo más simple que existe: un único archivo, sin servidor que levantar y sin configuración. Pero antes de desplegarlo en producción en Vercel tuve que migrarlo a PostgreSQL. En este post te cuento por qué, qué dicen la documentación de SQLite, de Vercel y de Prisma, y qué cambios concretos hice.</p>
-<h2>Por qué SQLite es perfecto para empezar</h2>
+<h2 id="por-qué-sqlite-es-perfecto-para-empezar">Por qué SQLite es perfecto para empezar</h2>
 <p>SQLite no es una base de datos "de juguete". Su propia documentación explica que <a href="https://www.sqlite.org/whentouse.html">no compite con las bases de datos cliente/servidor, sino con <code>fopen()</code></a>: está pensada como almacenamiento local para una aplicación, no como un repositorio compartido.</p>
 <p>Para la primera fase del portal eso encajaba perfectamente:</p>
 <ul>
@@ -91,11 +96,11 @@
 <li><strong>Arranque instantáneo,</strong> ideal para iterar rápido en local.</li>
 <li><strong>Perfecta para prototipar</strong> el modelo de datos antes de comprometerse con nada.</li>
 </ul>
-<h2>Por qué no sirve en producción en Vercel</h2>
+<h2 id="por-qué-no-sirve-en-producción-en-vercel">Por qué no sirve en producción en Vercel</h2>
 <p>El problema no es SQLite, sino dónde se ejecuta el código. En Vercel, cada petición la atiende una función serverless, y la documentación de Vercel es clara: esas funciones tienen <a href="https://vercel.com/docs/functions/runtimes">un sistema de archivos de solo lectura, con un espacio temporal escribible en <code>/tmp</code></a>. Un archivo de base de datos necesita escribirse de forma duradera, y ahí no puede.</p>
 <p>Además, Vercel escala creando varias instancias de la función a la vez. La lista de comprobación de SQLite para elegir motor lo deja claro: si los datos están separados de la aplicación por una red, o si hay muchos procesos escribiendo a la vez, conviene una base de datos cliente/servidor. Un entorno serverless cumple las dos condiciones.</p>
 <p>PostgreSQL, en cambio, es un servidor independiente al que cualquier instancia de la función se conecta por red, da igual dónde se ejecute.</p>
-<h2>Qué cambié con Prisma</h2>
+<h2 id="qué-cambié-con-prisma">Qué cambié con Prisma</h2>
 <p>El proyecto usa Prisma como ORM (la capa que traduce el código a consultas de base de datos), y eso hizo la migración mucho menos dolorosa que reescribir SQL a mano. Pero no fue cambiar una línea y listo:</p>
 <ul>
 <li><strong>Cambiar el proveedor</strong> del <code>datasource</code> de <code>sqlite</code> a <code>postgresql</code> en el esquema.</li>
@@ -104,7 +109,7 @@
 <li><strong>Conectar con el adaptador de Postgres</strong> (<code>@prisma/adapter-pg</code>) usando la cadena de conexión de la base de datos gestionada.</li>
 </ul>
 <p>Como el proyecto todavía no tenía datos reales de clientes, no hubo que migrar datos, solo la estructura. Ese es precisamente el momento barato para hacerlo.</p>
-<h2>Qué más hizo falta para desplegar</h2>
+<h2 id="qué-más-hizo-falta-para-desplegar">Qué más hizo falta para desplegar</h2>
 <p>Además del esquema, el cambio a Postgres tocó otras piezas del proyecto:</p>
 <ul>
 <li><strong>Una sola migración inicial.</strong> Las cuatro migraciones que había acumulado con SQLite se sustituyeron por una migración inicial nueva para Postgres.</li>
@@ -112,21 +117,37 @@
 <li><strong>Migraciones automáticas en cada despliegue.</strong> Añadí un script de build para Vercel que aplica las migraciones pendientes antes de cada compilación, para que la base de datos de producción nunca quede por detrás del código.</li>
 <li><strong>Variables de entorno.</strong> El ejemplo de configuración pasó de apuntar a un archivo (<code>file:./dev.db</code>) a una cadena de conexión de PostgreSQL.</li>
 </ul>
-<h2>La lección general</h2>
+<h2 id="la-lección-general">La lección general</h2>
 <p>Elegir la base de datos más cómoda para desarrollar rápido en local es una decisión razonable, siempre que sepas desde el principio que no es la misma decisión que la de producción. Lo importante es planificar el cambio antes de que el proyecto dependa de datos reales de clientes, no después, cuando ya hay que migrar información que no se puede perder.</p>
 <p>Si estás empezando un proyecto parecido, mi recomendación es sencilla: si vas a desplegar en serverless, empieza directamente con la base de datos de producción o, como mínimo, con el mismo motor en local.</p>
-<h2>Preguntas frecuentes</h2>
-<h3>¿Entonces SQLite no sirve para una web?</h3>
-<p>Sí sirve, en el contexto adecuado. La propia documentación de SQLite dice que funciona bien como base de datos de muchas webs, pero recomienda una cliente/servidor si la web tiene mucha escritura o necesita varios servidores.</p>
-<h3>¿Hay que borrar las migraciones antiguas?</h3>
-<p>Si cambias de motor, sí: Prisma no puede reutilizarlas porque son SQL específico de cada base de datos. Por eso es mucho más fácil hacerlo antes de tener datos en producción.</p>
-<h3>¿Qué pasa si ya tienes datos en SQLite?</h3>
-<p>Entonces, además de la estructura, hay que exportar y transformar los datos, y comprobar que nada se pierde por el camino. Es más trabajo, y por eso conviene decidirlo pronto.</p>
-<h2>Conclusión</h2>
+<section class="blog-faq" aria-labelledby="preguntas-frecuentes"><p class="blog-faq-label">// FAQ</p><h2 id="preguntas-frecuentes">Preguntas frecuentes</h2><div class="blog-faq-list"><details class="blog-faq-item"><summary><h3 id="entonces-sqlite-no-sirve-para-una-web">¿Entonces SQLite no sirve para una web?</h3></summary><div class="blog-faq-answer"><p>Sí sirve, en el contexto adecuado. La propia documentación de SQLite dice que funciona bien como base de datos de muchas webs, pero recomienda una cliente/servidor si la web tiene mucha escritura o necesita varios servidores.</p></div></details><details class="blog-faq-item"><summary><h3 id="hay-que-borrar-las-migraciones-antiguas">¿Hay que borrar las migraciones antiguas?</h3></summary><div class="blog-faq-answer"><p>Si cambias de motor, sí: Prisma no puede reutilizarlas porque son SQL específico de cada base de datos. Por eso es mucho más fácil hacerlo antes de tener datos en producción.</p></div></details><details class="blog-faq-item"><summary><h3 id="qué-pasa-si-ya-tienes-datos-en-sqlite">¿Qué pasa si ya tienes datos en SQLite?</h3></summary><div class="blog-faq-answer"><p>Entonces, además de la estructura, hay que exportar y transformar los datos, y comprobar que nada se pierde por el camino. Es más trabajo, y por eso conviene decidirlo pronto.</p></div></details></div></section><h2 id="conclusión">Conclusión</h2>
 <p>SQLite fue la herramienta adecuada para arrancar y Postgres la adecuada para producción en Vercel. El cambio fue sencillo porque lo hice antes de tener datos reales y porque Prisma abstrae buena parte del trabajo, aunque obliga a empezar un historial de migraciones nuevo. Lo que construí después sobre esa base lo cuento en <a href="/blog/cola-de-emails-con-reintentos-en-nextjs/">la cola de emails con reintentos</a>, <a href="/blog/cobrar-facturas-online-con-stripe-checkout/">el cobro de facturas con Stripe</a> y <a href="/blog/portal-de-clientes-para-agencia-wordpress/">el portal de clientes</a>.</p>
-<h3>¿Estás construyendo algo que vas a desplegar en serverless?</h3>
-<p>Te ayudo a elegir la base de datos y la arquitectura adecuadas desde el principio, antes de que cambiarlas sea caro. <a href="/#contacto">Contáctame</a>.</p>
+<div class="blog-cta"><h3 id="estás-construyendo-algo-que-vas-a-desplegar-en-serverless">¿Estás construyendo algo que vas a desplegar en serverless?</h3>
+<p>Te ayudo a elegir la base de datos y la arquitectura adecuadas desde el principio, antes de que cambiarlas sea caro. <a class="brxe-button btn-primary bricks-button grow-hover" href="/#contacto">Contáctame</a>.</p></div>
 </div>
+</article>
+<aside class="blog-post-aside">
+<nav class="blog-toc" aria-label="Índice del artículo">
+<p class="blog-toc-label">// ÍNDICE</p>
+<ol><li><a href="#por-qué-sqlite-es-perfecto-para-empezar">Por qué SQLite es perfecto para empezar</a></li><li><a href="#por-qué-no-sirve-en-producción-en-vercel">Por qué no sirve en producción en Vercel</a></li><li><a href="#qué-cambié-con-prisma">Qué cambié con Prisma</a></li><li><a href="#qué-más-hizo-falta-para-desplegar">Qué más hizo falta para desplegar</a></li><li><a href="#la-lección-general">La lección general</a></li><li><a href="#preguntas-frecuentes">Preguntas frecuentes</a></li><li><a href="#conclusión">Conclusión</a></li></ol>
+</nav>
+</aside>
+</div>
+<section class="blog-related" aria-labelledby="sigue-leyendo">
+<h2 id="sigue-leyendo" class="blog-related-heading">Sigue leyendo</h2>
+<div class="blog-related-list">
+<a class="blog-related-item grow-hover" href="/blog/cola-de-emails-con-reintentos-en-nextjs/">
+<span class="blog-date">29/06/2026</span>
+<span class="blog-related-title">Cola de emails con reintentos en Next.js: no pierdas avisos</span>
+</a><a class="blog-related-item grow-hover" href="/blog/cobrar-facturas-online-con-stripe-checkout/">
+<span class="blog-date">03/07/2026</span>
+<span class="blog-related-title">Cobrar facturas online con Stripe Checkout</span>
+</a><a class="blog-related-item grow-hover" href="/blog/portal-de-clientes-para-agencia-wordpress/">
+<span class="blog-date">24/07/2026</span>
+<span class="blog-related-title">Por qué construí un portal para una agencia WordPress</span>
+</a>
+</div>
+</section>
 </div>
 </div></section>
 </main>
