@@ -65,7 +65,7 @@
 <link rel="stylesheet" href="/assets/css/utilities.css">
 <link rel="stylesheet" href="/assets/css/elements.css">
 <script defer src="https://stats.davidhuangxie.com/stats.js" data-website-id="3b516eb5-dda7-4768-96a0-eb3864f11f58" data-domains="davidhuangxie.com"></script>
-<link rel="stylesheet" href="/assets/css/blog.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Mantenimiento web: por qué tu página lo necesita", "description": "Por qué una web no se termina el día que se publica y qué incluye un mantenimiento real en WordPress: actualizaciones, copias, vigilancia y velocidad.", "datePublished": "2026-06-05", "dateModified": "2026-09-18", "author": {"@type": "Person", "name": "David Huang Xie"}, "image": "https://davidhuangxie.com/assets/blog/mantenimiento-web-por-que-es-necesario.webp"}</script><meta property="og:image" content="https://davidhuangxie.com/assets/blog/mantenimiento-web-por-que-es-necesario.webp"><meta name="twitter:image" content="https://davidhuangxie.com/assets/blog/mantenimiento-web-por-que-es-necesario.webp">
+<link rel="stylesheet" href="/assets/css/blog.css"><script src="/assets/js/blog-toc.js" defer></script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Mantenimiento web: por qué tu página lo necesita", "description": "Por qué una web no se termina el día que se publica y qué incluye un mantenimiento real en WordPress: actualizaciones, copias, vigilancia y velocidad.", "datePublished": "2026-06-05", "dateModified": "2026-09-18", "author": {"@type": "Person", "name": "David Huang Xie"}, "image": "https://davidhuangxie.com/assets/blog/mantenimiento-web-por-que-es-necesario.webp"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Puedo dejar todo en actualizaciones automáticas?", "acceptedAnswer": {"@type": "Answer", "text": "Ayudan, pero no sustituyen a una revisión. Lo sensato es combinar copias automáticas, actualizaciones controladas y una comprobación de que todo sigue funcionando."}}, {"@type": "Question", "name": "¿Cada cuánto hay que hacer copias de seguridad?", "acceptedAnswer": {"@type": "Answer", "text": "Depende de cuánto cambie tu web. Una tienda con pedidos diarios necesita copias diarias; una web informativa que cambia poco, menos. Lo que no cambia es la regla de hacerla antes de cada actualización."}}, {"@type": "Question", "name": "¿El hosting no se encarga ya de esto?", "acceptedAnswer": {"@type": "Answer", "text": "Algunos hacen copias del servidor, pero no suelen actualizar tus plugins ni revisar que tu web funcione. Pregunta qué cubre exactamente tu plan, como explico en cómo elegir hosting y dominio."}}]}</script><meta property="og:image" content="https://davidhuangxie.com/assets/blog/mantenimiento-web-por-que-es-necesario.webp"><meta name="twitter:image" content="https://davidhuangxie.com/assets/blog/mantenimiento-web-por-que-es-necesario.webp">
 </head>
 <body class="page-template-default page wp-theme-bricks brx-body">
 <a class="skip-link" href="#brx-content">Skip to main content</a>
@@ -76,21 +76,26 @@
 <section class="brxe-section section"><div class="brxe-container" style="flex-direction:column">
 <div class="blog-post">
 <a class="brxe-button btn-secondary grow-hover bricks-button back-link" href="/blog/">&larr; Volver al blog</a>
-<div class="blog-post-header">
+<header class="blog-post-header">
 <img src="/assets/blog/mantenimiento-web-por-que-es-necesario.webp" alt="Mantenimiento técnico de un sitio web en un ordenador" loading="lazy">
-<p class="blog-date">05/06/2026 · Actualizado 18/09/2026</p>
+<p class="blog-date">05/06/2026 · Actualizado 18/09/2026 · 5 min de lectura</p>
 <h1 class="brxe-heading text-white">Mantenimiento web: por qué tu página lo necesita</h1>
-</div>
+<p class="blog-post-lead">Por qué una web no se termina el día que se publica y qué incluye un mantenimiento real en WordPress: actualizaciones, copias, vigilancia y velocidad.</p>
+</header>
+<div class="blog-post-layout">
+<article class="blog-post-card">
+<div class="blog-post-bar"><div class="mac-controls"><span></span></div><span class="blog-post-file">~/blog/mantenimiento-web-por-que-es-necesario.md</span></div>
+<details class="blog-toc-mobile"><summary>Índice del artículo</summary><nav aria-label="Índice del artículo"><ol><li><a href="#por-qué-una-web-necesita-mantenimiento">Por qué una web necesita mantenimiento</a></li><li><a href="#qué-incluye-un-mantenimiento-real">Qué incluye un mantenimiento real</a></li><li><a href="#qué-pasa-cuando-nadie-mantiene-la-web">Qué pasa cuando nadie mantiene la web</a></li><li><a href="#cuando-tienes-muchas-webs-que-mantener">Cuando tienes muchas webs que mantener</a></li><li><a href="#preguntas-frecuentes">Preguntas frecuentes</a></li><li><a href="#conclusión">Conclusión</a></li></ol></nav></details>
 <div class="blog-post-body">
 <p>Un error muy común es tratar la web de un negocio como un proyecto que se entrega y se olvida, igual que un logo o unas tarjetas de visita. Una web se parece más a un local: si nadie revisa la instalación, un día falla algo importante, y suele ser en el peor momento. En este post te explico qué implica mantener una web WordPress, qué dice la documentación oficial de WordPress y qué pasa cuando nadie lo hace.</p>
-<h2>Por qué una web necesita mantenimiento</h2>
+<h2 id="por-qué-una-web-necesita-mantenimiento">Por qué una web necesita mantenimiento</h2>
 <p>WordPress, los plugins y los temas se actualizan constantemente, y muchas de esas actualizaciones corrigen fallos de seguridad. La propia documentación de WordPress lo deja claro en su guía para <a href="https://developer.wordpress.org/advanced-administration/security/hardening/">proteger una instalación</a>: hay que mantenerse siempre en la última versión, porque las versiones antiguas no reciben actualizaciones de seguridad.</p>
 <p>No hace falta que tu negocio sea un objetivo concreto para sufrir un ataque. Los ataques automatizados recorren internet buscando webs con versiones vulnerables, sin importar de quién sean.</p>
-<h2>Qué incluye un mantenimiento real</h2>
-<h3>1. Actualizaciones de WordPress, plugins y tema</h3>
+<h2 id="qué-incluye-un-mantenimiento-real">Qué incluye un mantenimiento real</h2>
+<h3 id="1-actualizaciones-de-wordpress-plugins-y-tema">1. Actualizaciones de WordPress, plugins y tema</h3>
 <p>Es la base de todo. Desde WordPress 5.5 se pueden <a href="https://wordpress.org/documentation/article/plugins-themes-auto-updates/">activar las actualizaciones automáticas plugin por plugin y tema por tema</a>, lo que ayuda mucho. Aun así, no conviene actualizar a ciegas: una actualización puede chocar con otro plugin y romper una parte de la web. Por eso siempre recomiendo hacer una copia antes y revisar la web después.</p>
 <p>Lo mismo vale para el servidor. WordPress recomienda <a href="https://wordpress.org/about/requirements/">PHP 8.3 o superior</a> y avisa de que las versiones antiguas de PHP que aún admite ya han llegado al final de su vida útil. Una web en un PHP antiguo funciona, pero sin parches de seguridad.</p>
-<h3>2. Copias de seguridad que funcionen de verdad</h3>
+<h3 id="2-copias-de-seguridad-que-funcionen-de-verdad">2. Copias de seguridad que funcionen de verdad</h3>
 <p>La <a href="https://developer.wordpress.org/advanced-administration/security/backup/">documentación de WordPress sobre copias de seguridad</a> resume lo básico:</p>
 <ul>
 <li>Una copia completa tiene dos partes, <strong>la base de datos y los archivos</strong>, y necesitas las dos para restaurar la web.</li>
@@ -98,13 +103,13 @@
 <li>Conviene guardar <strong>al menos entre 3 y 5 copias recientes en lugares distintos</strong>: por ejemplo, una en el servidor, otra en la nube y otra descargada en tu ordenador.</li>
 </ul>
 <p>Y algo que casi nadie hace: comprobar que se pueden restaurar. Una copia que nunca se ha probado es una copia de la que no puedes estar seguro.</p>
-<h3>3. Vigilar que la web sigue funcionando</h3>
+<h3 id="3-vigilar-que-la-web-sigue-funcionando">3. Vigilar que la web sigue funcionando</h3>
 <p>Una web puede caerse por motivos que no tienen nada que ver con su contenido: un fallo del hosting, un certificado HTTPS caducado o un plugin que se rompe tras una actualización automática. Sin vigilancia, puedes tardar días en enterarte de que tu web lleva caída desde el fin de semana. Un aviso automático cuando la web deja de responder evita ese susto.</p>
-<h3>4. Revisar la velocidad</h3>
+<h3 id="4-revisar-la-velocidad">4. Revisar la velocidad</h3>
 <p>Con el tiempo, las webs engordan: se añaden plugins, imágenes sin optimizar y código que ya no se usa. Una revisión periódica de los <a href="/blog/core-web-vitals-que-son/">Core Web Vitals</a> evita que la web se vuelva lenta poco a poco sin que nadie lo note.</p>
-<h3>5. Revisar el contenido y los formularios</h3>
+<h3 id="5-revisar-el-contenido-y-los-formularios">5. Revisar el contenido y los formularios</h3>
 <p>Horarios, precios, teléfonos y formularios de contacto también caducan. Un formulario que deja de enviar emails es un cliente perdido que ni siquiera sabes que existió. Es una de las <a href="/blog/senales-de-que-tu-web-te-hace-perder-clientes/">señales de que tu web te hace perder clientes</a>.</p>
-<h2>Qué pasa cuando nadie mantiene la web</h2>
+<h2 id="qué-pasa-cuando-nadie-mantiene-la-web">Qué pasa cuando nadie mantiene la web</h2>
 <ul>
 <li><strong>Vulnerabilidades sin corregir</strong> en plugins o en el propio WordPress.</li>
 <li><strong>Roturas tras una actualización</strong> que nadie revisa.</li>
@@ -112,21 +117,37 @@
 <li><strong>Una web cada vez más lenta,</strong> que pierde visitas y posiciones poco a poco.</li>
 </ul>
 <p>Arreglar una web hackeada o recuperar una sin copia de seguridad casi siempre cuesta más que haberla mantenido.</p>
-<h2>Cuando tienes muchas webs que mantener</h2>
+<h2 id="cuando-tienes-muchas-webs-que-mantener">Cuando tienes muchas webs que mantener</h2>
 <p>Mantener una web a mano es factible. Mantener diez o veinte, cada una con su hosting y sus accesos, sin una herramienta que lo centralice, es donde se empiezan a escapar actualizaciones o a tardar días en detectar una caída.</p>
 <p>Lo viví de primera mano como único perfil técnico de una agencia, y es el problema que me llevó a construir el <a href="https://dhx101-web-client-portal.vercel.app">Web Client Portal</a>: un panel donde ver de un vistazo qué webs tienen actualizaciones pendientes o han dejado de responder, en lugar de entrar web por web.</p>
-<h2>Preguntas frecuentes</h2>
-<h3>¿Puedo dejar todo en actualizaciones automáticas?</h3>
-<p>Ayudan, pero no sustituyen a una revisión. Lo sensato es combinar copias automáticas, actualizaciones controladas y una comprobación de que todo sigue funcionando.</p>
-<h3>¿Cada cuánto hay que hacer copias de seguridad?</h3>
-<p>Depende de cuánto cambie tu web. Una tienda con pedidos diarios necesita copias diarias; una web informativa que cambia poco, menos. Lo que no cambia es la regla de hacerla antes de cada actualización.</p>
-<h3>¿El hosting no se encarga ya de esto?</h3>
-<p>Algunos hacen copias del servidor, pero no suelen actualizar tus plugins ni revisar que tu web funcione. Pregunta qué cubre exactamente tu plan, como explico en <a href="/blog/como-elegir-hosting-y-dominio/">cómo elegir hosting y dominio</a>.</p>
-<h2>Conclusión</h2>
+<section class="blog-faq" aria-labelledby="preguntas-frecuentes"><p class="blog-faq-label">// FAQ</p><h2 id="preguntas-frecuentes">Preguntas frecuentes</h2><div class="blog-faq-list"><details class="blog-faq-item"><summary><h3 id="puedo-dejar-todo-en-actualizaciones-automáticas">¿Puedo dejar todo en actualizaciones automáticas?</h3></summary><div class="blog-faq-answer"><p>Ayudan, pero no sustituyen a una revisión. Lo sensato es combinar copias automáticas, actualizaciones controladas y una comprobación de que todo sigue funcionando.</p></div></details><details class="blog-faq-item"><summary><h3 id="cada-cuánto-hay-que-hacer-copias-de-seguridad">¿Cada cuánto hay que hacer copias de seguridad?</h3></summary><div class="blog-faq-answer"><p>Depende de cuánto cambie tu web. Una tienda con pedidos diarios necesita copias diarias; una web informativa que cambia poco, menos. Lo que no cambia es la regla de hacerla antes de cada actualización.</p></div></details><details class="blog-faq-item"><summary><h3 id="el-hosting-no-se-encarga-ya-de-esto">¿El hosting no se encarga ya de esto?</h3></summary><div class="blog-faq-answer"><p>Algunos hacen copias del servidor, pero no suelen actualizar tus plugins ni revisar que tu web funcione. Pregunta qué cubre exactamente tu plan, como explico en <a href="/blog/como-elegir-hosting-y-dominio/">cómo elegir hosting y dominio</a>.</p></div></details></div></section><h2 id="conclusión">Conclusión</h2>
 <p>Una web no se termina el día que se publica. Necesita actualizaciones, copias de seguridad probadas, vigilancia y revisiones de velocidad y contenido. Es poco trabajo si se hace con regularidad y mucho trabajo, y dinero, cuando se deja hasta que algo se rompe.</p>
-<h3>¿Tu web lleva tiempo sin revisión?</h3>
-<p>Reviso tu web, la dejo actualizada y con copias de seguridad fuera del servidor, y te aviso si algo deja de funcionar. <a href="/#contacto">Contáctame</a>.</p>
+<div class="blog-cta"><h3 id="tu-web-lleva-tiempo-sin-revisión">¿Tu web lleva tiempo sin revisión?</h3>
+<p>Reviso tu web, la dejo actualizada y con copias de seguridad fuera del servidor, y te aviso si algo deja de funcionar. <a class="brxe-button btn-primary bricks-button grow-hover" href="/#contacto">Contáctame</a>.</p></div>
 </div>
+</article>
+<aside class="blog-post-aside">
+<nav class="blog-toc" aria-label="Índice del artículo">
+<p class="blog-toc-label">// ÍNDICE</p>
+<ol><li><a href="#por-qué-una-web-necesita-mantenimiento">Por qué una web necesita mantenimiento</a></li><li><a href="#qué-incluye-un-mantenimiento-real">Qué incluye un mantenimiento real</a></li><li><a href="#qué-pasa-cuando-nadie-mantiene-la-web">Qué pasa cuando nadie mantiene la web</a></li><li><a href="#cuando-tienes-muchas-webs-que-mantener">Cuando tienes muchas webs que mantener</a></li><li><a href="#preguntas-frecuentes">Preguntas frecuentes</a></li><li><a href="#conclusión">Conclusión</a></li></ol>
+</nav>
+</aside>
+</div>
+<section class="blog-related" aria-labelledby="sigue-leyendo">
+<h2 id="sigue-leyendo" class="blog-related-heading">Sigue leyendo</h2>
+<div class="blog-related-list">
+<a class="blog-related-item grow-hover" href="/blog/core-web-vitals-que-son/">
+<span class="blog-date">10/06/2026</span>
+<span class="blog-related-title">Core Web Vitals: qué son y cómo afectan a tu SEO</span>
+</a><a class="blog-related-item grow-hover" href="/blog/senales-de-que-tu-web-te-hace-perder-clientes/">
+<span class="blog-date">27/05/2026</span>
+<span class="blog-related-title">7 señales de que tu web te está haciendo perder clientes</span>
+</a><a class="blog-related-item grow-hover" href="/blog/como-elegir-hosting-y-dominio/">
+<span class="blog-date">13/05/2026</span>
+<span class="blog-related-title">Cómo elegir hosting y dominio para tu negocio</span>
+</a>
+</div>
+</section>
 </div>
 </div></section>
 </main>
