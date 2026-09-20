@@ -1,5 +1,5 @@
 /**
- * Envío del formulario de contacto a Formspree, con los mensajes de estado del terminal.
+ * Envío del formulario de contacto al webhook de n8n, con los mensajes de estado del terminal.
  */
 window.addEventListener('load', function() {
   var form    = document.querySelector('#dhx-form');
@@ -15,6 +15,8 @@ window.addEventListener('load', function() {
     var nombreVal  = document.querySelector('#dhx-nombre').value.trim();
     var emailVal   = document.querySelector('#dhx-email').value.trim();
     var mensajeVal = document.querySelector('#dhx-mensaje').value.trim();
+    var trampaEl   = document.querySelector('#dhx-empresa');
+    var trampaVal  = trampaEl ? trampaEl.value.trim() : '';
 
     var msg = (window.DHX_MESSAGES && window.DHX_MESSAGES[window.DHX_LANG]) || {
       required: '> Error: campos obligatorios vacios.',
@@ -32,10 +34,17 @@ window.addEventListener('load', function() {
     if (btnText) { btnText.textContent = '[ Sending... ]'; }
     if (btn)     { btn.disabled = true; }
 
-    fetch('https://formspree.io/f/xzdlkjdy', {
+    fetch('https://n8n.davidhuangxie.com/webhook/contacto-web', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ nombre: nombreVal, email: emailVal, mensaje: mensajeVal })
+      body: JSON.stringify({
+        nombre: nombreVal,
+        email: emailVal,
+        mensaje: mensajeVal,
+        empresa: trampaVal,
+        pagina: window.location.href,
+        idioma: window.DHX_LANG || 'es'
+      })
     })
     .then(function(res) {
       if (res.ok) {
