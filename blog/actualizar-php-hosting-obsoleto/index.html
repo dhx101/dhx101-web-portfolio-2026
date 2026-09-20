@@ -65,7 +65,7 @@
 <link rel="stylesheet" href="/assets/css/utilities.css">
 <link rel="stylesheet" href="/assets/css/elements.css">
 <script defer src="https://stats.davidhuangxie.com/stats.js" data-website-id="3b516eb5-dda7-4768-96a0-eb3864f11f58" data-domains="davidhuangxie.com"></script>
-<link rel="stylesheet" href="/assets/css/blog.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Tu hosting avisa de que PHP está obsoleto: qué hacer", "description": "Qué significa el aviso de PHP obsoleto, qué versión elegir para WordPress y el paso a paso para actualizarla de forma segura, sin romper tu web.", "datePublished": "2026-09-19", "dateModified": "2026-09-19", "author": {"@type": "Person", "name": "David Huang Xie"}}</script>
+<link rel="stylesheet" href="/assets/css/blog.css"><script src="/assets/js/blog-toc.js" defer></script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Tu hosting avisa de que PHP está obsoleto: qué hacer", "description": "Qué significa el aviso de PHP obsoleto, qué versión elegir para WordPress y el paso a paso para actualizarla de forma segura, sin romper tu web.", "datePublished": "2026-09-19", "dateModified": "2026-09-19", "author": {"@type": "Person", "name": "David Huang Xie"}}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Por qué me avisa el hosting si mi web funciona bien?", "acceptedAnswer": {"@type": "Answer", "text": "Porque que funcione hoy no significa que esté protegida. Las versiones antiguas de PHP no tienen las protecciones de seguridad de las actuales, y a partir de WordPress 7.0 las webs en PHP 7.2 o 7.3 ya no pueden actualizarse a la última versión de WordPress."}}, {"@type": "Question", "name": "¿Puedo romper la web al actualizar PHP?", "acceptedAnswer": {"@type": "Answer", "text": "Puede pasar si algún tema o plugin no es compatible, aunque con los populares y bien mantenidos es poco probable. Con una copia de seguridad, todo actualizado y la comprobación de compatibilidad hecha, el riesgo es bajo y siempre puedes volver atrás."}}, {"@type": "Question", "name": "¿Qué versión de PHP pongo?", "acceptedAnswer": {"@type": "Answer", "text": "La recomendada por WordPress es PHP 8.3 como mínimo. Si tu WordPress es 6.8 o posterior también puedes usar 8.4, y con 6.9 o 7.0, PHP 8.5."}}]}</script>
 </head>
 <body class="page-template-default page wp-theme-bricks brx-body">
 <a class="skip-link" href="#brx-content">Skip to main content</a>
@@ -76,17 +76,22 @@
 <section class="brxe-section section"><div class="brxe-container" style="flex-direction:column">
 <div class="blog-post">
 <a class="brxe-button btn-secondary grow-hover bricks-button back-link" href="/blog/">&larr; Volver al blog</a>
-<div class="blog-post-header">
+<header class="blog-post-header">
 
-<p class="blog-date">19/09/2026</p>
+<p class="blog-date">19/09/2026 · 6 min de lectura</p>
 <h1 class="brxe-heading text-white">Tu hosting avisa de que PHP está obsoleto: qué hacer</h1>
-</div>
+<p class="blog-post-lead">Qué significa el aviso de PHP obsoleto, qué versión elegir para WordPress y el paso a paso para actualizarla de forma segura, sin romper tu web.</p>
+</header>
+<div class="blog-post-layout">
+<article class="blog-post-card">
+<div class="blog-post-bar"><div class="mac-controls"><span></span></div><span class="blog-post-file">~/blog/actualizar-php-hosting-obsoleto.md</span></div>
+<details class="blog-toc-mobile"><summary>Índice del artículo</summary><nav aria-label="Índice del artículo"><ol><li><a href="#qué-significa-que-php-esté-obsoleto">Qué significa que PHP esté obsoleto</a></li><li><a href="#qué-versión-de-php-elegir">Qué versión de PHP elegir</a></li><li><a href="#por-qué-merece-la-pena-actualizar">Por qué merece la pena actualizar</a></li><li><a href="#antes-de-tocar-nada-copia-de-seguridad-y-actualizaciones">Antes de tocar nada: copia de seguridad y actualizaciones</a></li><li><a href="#comprueba-la-compatibilidad-de-tus-plugins">Comprueba la compatibilidad de tus plugins</a></li><li><a href="#cómo-cambiar-la-versión-de-php">Cómo cambiar la versión de PHP</a></li><li><a href="#si-algo-falla-después-de-actualizar">Si algo falla después de actualizar</a></li><li><a href="#preguntas-frecuentes">Preguntas frecuentes</a></li><li><a href="#conclusión">Conclusión</a></li></ol></nav></details>
 <div class="blog-post-body">
 <p>Te llega un correo del hosting, o un aviso en el escritorio de WordPress: tu versión de PHP está obsoleta. Suena a tecnicismo que se puede dejar para otro día, pero no conviene. PHP es el lenguaje en el que está hecho WordPress, y su versión la decide el servidor, no tu web. Si se queda atrás, tu web va más lenta, es menos segura y llega un momento en que ni siquiera puede actualizarse. La buena noticia es que el cambio suele ser sencillo si sigues un orden.</p>
-<h2>Qué significa que PHP esté obsoleto</h2>
+<h2 id="qué-significa-que-php-esté-obsoleto">Qué significa que PHP esté obsoleto</h2>
 <p>Cada versión de PHP tiene una vida limitada: las nuevas traen mejoras de rendimiento y de seguridad que las antiguas no tienen, y con el tiempo WordPress deja de soportar las más viejas. Es lo que acaba de pasar con PHP 7.2 y 7.3: el equipo de WordPress anunció que <a href="https://make.wordpress.org/core/2026/01/09/dropping-support-for-php-7-2-and-7-3/">WordPress 7.0 deja de ser compatible con PHP 7.2 y 7.3</a>, y la versión mínima pasa a ser PHP 7.4.</p>
 <p>Esto tiene una consecuencia que mucha gente no ve venir: las webs que siguen en PHP 7.2 o 7.3 se quedan en la rama 6.9 de WordPress y no pueden pasar a la 7.0. Según ese mismo anuncio, los arreglos de seguridad se llevan a ramas antiguas solo como cortesía y cuando es posible, así que es un camino limitado, no una solución.</p>
-<h2>Qué versión de PHP elegir</h2>
+<h2 id="qué-versión-de-php-elegir">Qué versión de PHP elegir</h2>
 <p>La versión mínima que recomienda WordPress es PHP 8.3. En <a href="https://make.wordpress.org/core/2026/05/22/php-support-clarification-2026/">la aclaración sobre el soporte de PHP</a> el equipo de WordPress detalla qué versiones funcionan con cada una:</p>
 <ul>
 <li>WordPress 6.4 y posteriores soportan por completo PHP 8.3.</li>
@@ -94,36 +99,52 @@
 <li>WordPress 6.9 y 7.0 soportan por completo PHP 8.5.</li>
 </ul>
 <p>En esa misma nota retiran la etiqueta "beta" que antes ponían a las versiones nuevas de PHP. Explican que asustaba a usuarios y hostings y les hacía retrasar la actualización sin motivo real. Si tu hosting te ofrece 8.3 o superior y tu WordPress está al día, esa es la opción que te recomiendo.</p>
-<h2>Por qué merece la pena actualizar</h2>
+<h2 id="por-qué-merece-la-pena-actualizar">Por qué merece la pena actualizar</h2>
 <p><a href="https://wordpress.org/documentation/update-php/">La guía oficial de WordPress para actualizar PHP</a> resume dos beneficios directos. El primero es la velocidad: pasar a una versión actual puede hacer tu web hasta 3 o 4 veces más rápida si vienes de una versión antigua. El segundo es la seguridad: las versiones antiguas no tienen las protecciones de las nuevas, y PHP es un objetivo habitual de ataques precisamente por lo popular que es.</p>
 <p>De ahí salen otros dos beneficios que sí se notan en el negocio: una web más rápida retiene mejor a las visitas y los buscadores la premian. Si te interesa medir esa velocidad, te lo explico en <a href="/blog/core-web-vitals-que-son/">qué son las Core Web Vitals y cómo afectan a tu SEO</a>. Y si tu web ya va lenta, es una de las <a href="/blog/senales-de-que-tu-web-te-hace-perder-clientes/">señales de que tu web te hace perder clientes</a>.</p>
-<h2>Antes de tocar nada: copia de seguridad y actualizaciones</h2>
+<h2 id="antes-de-tocar-nada-copia-de-seguridad-y-actualizaciones">Antes de tocar nada: copia de seguridad y actualizaciones</h2>
 <p>La guía oficial es clara en que el cambio no debería dar problemas, pero no lo garantiza: WordPress funciona con versiones nuevas de PHP, pero cada tema y cada plugin es un mundo. Por eso recomienda dos pasos antes de cambiar la versión:</p>
 <ol>
 <li><strong>Haz una copia de seguridad completa.</strong> Si algo falla, es lo que te permite volver al punto de partida. La propia guía recuerda que hay muchos plugins de copias gratuitos si no tienes ya un sistema.</li>
 <li><strong>Actualiza WordPress, el tema y los plugins.</strong> Desde el escritorio, en "Actualizaciones", actualízalo todo y comprueba que la web sigue funcionando. Así partes de versiones que ya están preparadas para PHP moderno.</li>
 </ol>
 <p>Este es el tipo de tarea que conviene tener resuelta de antemano. Si nadie se ocupa de las actualizaciones de tu web, te explico por qué es importante en <a href="/blog/mantenimiento-web-por-que-es-necesario/">mantenimiento web: por qué tu página lo necesita</a>.</p>
-<h2>Comprueba la compatibilidad de tus plugins</h2>
+<h2 id="comprueba-la-compatibilidad-de-tus-plugins">Comprueba la compatibilidad de tus plugins</h2>
 <p>El siguiente paso que propone la guía es instalar <a href="https://wordpress.org/plugins/php-compatibility-checker/">el plugin PHP Compatibility Checker</a>, que revisa tu tema y tus plugins en busca de problemas con la versión nueva. No es perfecto: puede dejarse cosas o marcar falsos positivos, pero funciona en la mayoría de los casos y te da una lista por la que empezar.</p>
 <p>Si encuentra algún problema, escribe al autor del tema o del plugin y pregúntale. Si no responde o no puede arreglarlo, la recomendación oficial es buscar una alternativa con funciones parecidas en el directorio de WordPress.org. Te recomiendo no quedarte atascado por un plugin que ya nadie mantiene: si hoy te bloquea la actualización de PHP, mañana será otra cosa.</p>
-<h2>Cómo cambiar la versión de PHP</h2>
+<h2 id="cómo-cambiar-la-versión-de-php">Cómo cambiar la versión de PHP</h2>
 <p>La versión de PHP se configura en el servidor, así que el cambio depende de tu hosting. Muchos paneles de control tienen una opción para elegirla. Si no la encuentras, <a href="https://wordpress.org/documentation/update-php/">la guía de WordPress</a> enlaza una lista de hostings con instrucciones propias y sugiere algo muy práctico: escribir al soporte y pedirles que te digan qué pasos seguir para usar la última versión de PHP.</p>
 <p>Es buen momento también para valorar si tu hosting está a la altura. Si no te deja elegir versiones actuales de PHP, es una señal a tener en cuenta cuando revises <a href="/blog/como-elegir-hosting-y-dominio/">cómo elegir hosting y dominio para tu negocio</a>.</p>
-<h2>Si algo falla después de actualizar</h2>
+<h2 id="si-algo-falla-después-de-actualizar">Si algo falla después de actualizar</h2>
 <p>Si después del cambio algo deja de funcionar, la guía oficial da un orden claro: vuelve tú mismo a la versión anterior de PHP desde el panel, o pide al hosting que lo haga. Si además necesitas restaurar la copia de seguridad, primero tienen que devolver el servidor a la versión de PHP que tenías y después puedes restaurarla. Por eso la copia de seguridad es el paso que nunca me saltaría.</p>
-<h2>Preguntas frecuentes</h2>
-<h3>¿Por qué me avisa el hosting si mi web funciona bien?</h3>
-<p>Porque que funcione hoy no significa que esté protegida. Las versiones antiguas de PHP no tienen las protecciones de seguridad de las actuales, y a partir de WordPress 7.0 las webs en PHP 7.2 o 7.3 ya no pueden actualizarse a la última versión de WordPress.</p>
-<h3>¿Puedo romper la web al actualizar PHP?</h3>
-<p>Puede pasar si algún tema o plugin no es compatible, aunque con los populares y bien mantenidos es poco probable. Con una copia de seguridad, todo actualizado y la comprobación de compatibilidad hecha, el riesgo es bajo y siempre puedes volver atrás.</p>
-<h3>¿Qué versión de PHP pongo?</h3>
-<p>La recomendada por WordPress es PHP 8.3 como mínimo. Si tu WordPress es 6.8 o posterior también puedes usar 8.4, y con 6.9 o 7.0, PHP 8.5.</p>
-<h2>Conclusión</h2>
+<section class="blog-faq" aria-labelledby="preguntas-frecuentes"><p class="blog-faq-label">// FAQ</p><h2 id="preguntas-frecuentes">Preguntas frecuentes</h2><div class="blog-faq-list"><details class="blog-faq-item"><summary><h3 id="por-qué-me-avisa-el-hosting-si-mi-web-funciona-bien">¿Por qué me avisa el hosting si mi web funciona bien?</h3></summary><div class="blog-faq-answer"><p>Porque que funcione hoy no significa que esté protegida. Las versiones antiguas de PHP no tienen las protecciones de seguridad de las actuales, y a partir de WordPress 7.0 las webs en PHP 7.2 o 7.3 ya no pueden actualizarse a la última versión de WordPress.</p></div></details><details class="blog-faq-item"><summary><h3 id="puedo-romper-la-web-al-actualizar-php">¿Puedo romper la web al actualizar PHP?</h3></summary><div class="blog-faq-answer"><p>Puede pasar si algún tema o plugin no es compatible, aunque con los populares y bien mantenidos es poco probable. Con una copia de seguridad, todo actualizado y la comprobación de compatibilidad hecha, el riesgo es bajo y siempre puedes volver atrás.</p></div></details><details class="blog-faq-item"><summary><h3 id="qué-versión-de-php-pongo">¿Qué versión de PHP pongo?</h3></summary><div class="blog-faq-answer"><p>La recomendada por WordPress es PHP 8.3 como mínimo. Si tu WordPress es 6.8 o posterior también puedes usar 8.4, y con 6.9 o 7.0, PHP 8.5.</p></div></details></div></section><h2 id="conclusión">Conclusión</h2>
 <p>El aviso de PHP obsoleto no es una alarma, pero tampoco algo para ignorar. Con una copia de seguridad, WordPress y plugins al día, una comprobación de compatibilidad y el cambio de versión desde el panel del hosting, la mayoría de las webs pasan a PHP 8.3 o superior sin incidencias, y ganan velocidad y seguridad por el camino.</p>
-<h3>¿Prefieres que lo haga yo?</h3>
-<p>Reviso tu web, hago la copia, compruebo la compatibilidad y actualizo PHP sin que tengas que tocar nada. <a href="/#contacto">Contáctame</a>.</p>
+<div class="blog-cta"><h3 id="prefieres-que-lo-haga-yo">¿Prefieres que lo haga yo?</h3>
+<p>Reviso tu web, hago la copia, compruebo la compatibilidad y actualizo PHP sin que tengas que tocar nada. <a class="brxe-button btn-primary bricks-button grow-hover" href="/#contacto">Contáctame</a>.</p></div>
 </div>
+</article>
+<aside class="blog-post-aside">
+<nav class="blog-toc" aria-label="Índice del artículo">
+<p class="blog-toc-label">// ÍNDICE</p>
+<ol><li><a href="#qué-significa-que-php-esté-obsoleto">Qué significa que PHP esté obsoleto</a></li><li><a href="#qué-versión-de-php-elegir">Qué versión de PHP elegir</a></li><li><a href="#por-qué-merece-la-pena-actualizar">Por qué merece la pena actualizar</a></li><li><a href="#antes-de-tocar-nada-copia-de-seguridad-y-actualizaciones">Antes de tocar nada: copia de seguridad y actualizaciones</a></li><li><a href="#comprueba-la-compatibilidad-de-tus-plugins">Comprueba la compatibilidad de tus plugins</a></li><li><a href="#cómo-cambiar-la-versión-de-php">Cómo cambiar la versión de PHP</a></li><li><a href="#si-algo-falla-después-de-actualizar">Si algo falla después de actualizar</a></li><li><a href="#preguntas-frecuentes">Preguntas frecuentes</a></li><li><a href="#conclusión">Conclusión</a></li></ol>
+</nav>
+</aside>
+</div>
+<section class="blog-related" aria-labelledby="sigue-leyendo">
+<h2 id="sigue-leyendo" class="blog-related-heading">Sigue leyendo</h2>
+<div class="blog-related-list">
+<a class="blog-related-item grow-hover" href="/blog/core-web-vitals-que-son/">
+<span class="blog-date">10/06/2026</span>
+<span class="blog-related-title">Core Web Vitals: qué son y cómo afectan a tu SEO</span>
+</a><a class="blog-related-item grow-hover" href="/blog/senales-de-que-tu-web-te-hace-perder-clientes/">
+<span class="blog-date">27/05/2026</span>
+<span class="blog-related-title">7 señales de que tu web te está haciendo perder clientes</span>
+</a><a class="blog-related-item grow-hover" href="/blog/mantenimiento-web-por-que-es-necesario/">
+<span class="blog-date">05/06/2026</span>
+<span class="blog-related-title">Mantenimiento web: por qué tu página lo necesita</span>
+</a>
+</div>
+</section>
 </div>
 </div></section>
 </main>
