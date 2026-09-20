@@ -25,3 +25,5 @@ Fotos de [Pexels](https://www.pexels.com), licencia libre de uso (no se exige at
 - `de-sqlite-a-postgres-por-que-migre-mi-base-de-datos.webp` — panumas nikhomkhai (https://www.pexels.com/@cookiecutter)
 - `portal-de-clientes-para-agencia-wordpress.webp` — Lukas Blazek (https://www.pexels.com/@goumbik)
 - `https-para-tu-web-por-que-es-necesario.webp` — Dan Nelson (https://www.pexels.com/@dan-nelson-1667453)
+- `actualizar-php-hosting-obsoleto.webp` — Pixabay (https://www.pexels.com/@pixabay)
+- `accesibilidad-web-para-negocios.webp` — Antoni Shkraba (https://www.pexels.com/@shkrabaanthony)

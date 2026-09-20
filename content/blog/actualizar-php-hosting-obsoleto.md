@@ -2,6 +2,8 @@
 title: Tu hosting avisa de que PHP está obsoleto: qué hacer
 description: Qué significa el aviso de PHP obsoleto, qué versión elegir para WordPress y el paso a paso para actualizarla de forma segura, sin romper tu web.
 date: 2026-09-19
+image: /assets/blog/actualizar-php-hosting-obsoleto.webp
+image_alt: Código PHP en la pantalla de un monitor representando la actualización de PHP en un hosting
 ---
 
 Te llega un correo del hosting, o un aviso en el escritorio de WordPress: tu versión de PHP está obsoleta. Suena a tecnicismo que se puede dejar para otro día, pero no conviene. PHP es el lenguaje en el que está hecho WordPress, y su versión la decide el servidor, no tu web. Si se queda atrás, tu web va más lenta, es menos segura y llega un momento en que ni siquiera puede actualizarse. La buena noticia es que el cambio suele ser sencillo si sigues un orden.

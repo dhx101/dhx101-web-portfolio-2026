@@ -2,6 +2,8 @@
 title: Accesibilidad web: qué es y por qué le importa a tu negocio
 description: Qué es la accesibilidad web, a cuántos clientes afecta, qué dice la normativa europea y los cambios más sencillos para que tu web la pueda usar todo el mundo.
 date: 2026-09-19
+image: /assets/blog/accesibilidad-web-para-negocios.webp
+image_alt: Hombre en silla de ruedas usando un portátil representando la accesibilidad web
 ---
 
 Una web accesible es una web que puede usar cualquier persona: quien ve mal, quien no puede usar el ratón, quien navega con un lector de pantalla o quien simplemente está al sol con el móvil. Suena a requisito técnico, pero afecta directamente a cuánta gente puede comprarte, reservar o pedirte presupuesto. En este post te explico qué es, a cuánta gente afecta y por dónde empezar sin rehacer la web.
