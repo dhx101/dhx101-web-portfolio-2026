@@ -7,7 +7,7 @@ image: /assets/blog/cobrar-facturas-online-con-stripe-checkout.webp
 image_alt: Pago online con tarjeta representando un cobro con Stripe Checkout
 ---
 
-Añadir un botón de "pagar online" a un panel de facturación parece sencillo hasta que piensas en los casos límite: ¿qué pasa si el cliente cierra el navegador justo después de pagar? ¿Y si la confirmación de Stripe llega dos veces? En este post te cuento cómo integré Stripe Checkout en el [Web Client Portal](https://dhx101-web-client-portal.vercel.app) resolviendo esos casos desde el diseño, qué dice la documentación de Stripe y cómo lo pruebo.
+Añadir un botón de "pagar online" a un panel de facturación parece sencillo hasta que piensas en los casos límite: ¿qué pasa si el cliente cierra el navegador justo después de pagar? ¿Y si la confirmación de Stripe llega dos veces? En este post te cuento cómo integré Stripe Checkout en el [Web Client Portal](/proyectos/) resolviendo esos casos desde el diseño, qué dice la documentación de Stripe y cómo lo pruebo.
 
 ## Cómo funciona el flujo
 

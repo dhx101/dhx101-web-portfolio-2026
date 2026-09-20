@@ -7,7 +7,7 @@ image: /assets/blog/wordpress-elementor-vs-codigo-a-medida.webp
 image_alt: Desarrollador programando, comparando WordPress y desarrollo a medida
 ---
 
-Cuando alguien me pregunta si debería hacer su web "en WordPress o en código", la pregunta útil no es cuál es mejor en general, sino cuál resuelve mejor su caso. He trabajado con las dos: más de una decena de webs de clientes con WordPress y Elementor, hoy también con Bricks Builder, y proyectos a medida como mi [Web Client Portal](https://dhx101-web-client-portal.vercel.app), hecho con Next.js. Cada opción tiene un terreno en el que gana con claridad. Te explico cuál es cada uno y cómo decidir.
+Cuando alguien me pregunta si debería hacer su web "en WordPress o en código", la pregunta útil no es cuál es mejor en general, sino cuál resuelve mejor su caso. He trabajado con las dos: más de una decena de webs de clientes con WordPress y Elementor, hoy también con Bricks Builder, y proyectos a medida como mi [Web Client Portal](/proyectos/), hecho con Next.js. Cada opción tiene un terreno en el que gana con claridad. Te explico cuál es cada uno y cómo decidir.
 
 ## Qué significa cada opción
 

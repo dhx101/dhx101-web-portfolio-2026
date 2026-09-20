@@ -7,7 +7,7 @@ image: /assets/blog/cola-de-emails-con-reintentos-en-nextjs.webp
 image_alt: Bandeja de entrada de correo representando el envío de notificaciones
 ---
 
-Cuando un email de notificación falla en producción (el proveedor está caído, hay un límite de envíos temporal o la red tarda demasiado), lo más habitual es que ese email simplemente se pierda. En un panel donde el email es la forma en la que un cliente se entera de que tiene una factura nueva o de que su web tiene un problema, eso no es aceptable. En este post te cuento cómo lo resolví en el [Web Client Portal](https://dhx101-web-client-portal.vercel.app), con sus decisiones, sus límites y lo que haría distinto.
+Cuando un email de notificación falla en producción (el proveedor está caído, hay un límite de envíos temporal o la red tarda demasiado), lo más habitual es que ese email simplemente se pierda. En un panel donde el email es la forma en la que un cliente se entera de que tiene una factura nueva o de que su web tiene un problema, eso no es aceptable. En este post te cuento cómo lo resolví en el [Web Client Portal](/proyectos/), con sus decisiones, sus límites y lo que haría distinto.
 
 ## El problema concreto
 

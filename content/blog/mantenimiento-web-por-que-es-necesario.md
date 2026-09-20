@@ -58,7 +58,7 @@ Arreglar una web hackeada o recuperar una sin copia de seguridad casi siempre cu
 
 Mantener una web a mano es factible. Mantener diez o veinte, cada una con su hosting y sus accesos, sin una herramienta que lo centralice, es donde se empiezan a escapar actualizaciones o a tardar días en detectar una caída.
 
-Lo viví de primera mano como único perfil técnico de una agencia, y es el problema que me llevó a construir el [Web Client Portal](https://dhx101-web-client-portal.vercel.app): un panel donde ver de un vistazo qué webs tienen actualizaciones pendientes o han dejado de responder, en lugar de entrar web por web.
+Lo viví de primera mano como único perfil técnico de una agencia, y es el problema que me llevó a construir el [Web Client Portal](/proyectos/): un panel donde ver de un vistazo qué webs tienen actualizaciones pendientes o han dejado de responder, en lugar de entrar web por web.
 
 ## Preguntas frecuentes
 

@@ -7,7 +7,7 @@ image: /assets/blog/de-sqlite-a-postgres-por-que-migre-mi-base-de-datos.webp
 image_alt: Servidores de base de datos representando una migración de base de datos
 ---
 
-Empecé a construir el [Web Client Portal](https://dhx101-web-client-portal.vercel.app) con SQLite porque, para desarrollar en local, es lo más simple que existe: un único archivo, sin servidor que levantar y sin configuración. Pero antes de desplegarlo en producción en Vercel tuve que migrarlo a PostgreSQL. En este post te cuento por qué, qué dicen la documentación de SQLite, de Vercel y de Prisma, y qué cambios concretos hice.
+Empecé a construir el [Web Client Portal](/proyectos/) con SQLite porque, para desarrollar en local, es lo más simple que existe: un único archivo, sin servidor que levantar y sin configuración. Pero antes de desplegarlo en producción en Vercel tuve que migrarlo a PostgreSQL. En este post te cuento por qué, qué dicen la documentación de SQLite, de Vercel y de Prisma, y qué cambios concretos hice.
 
 ## Por qué SQLite es perfecto para empezar
 
