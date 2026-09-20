@@ -63,7 +63,8 @@ las reglas, cámbialo aquí: es la única fuente.
    <Una frase sobre cómo lo resuelve David>. [Contáctame](/#contacto).
    ```
 
-- Longitud: **900–1.300 palabras**. Más solo si el tema lo exige de verdad.
+- Longitud: **mínimo 900 palabras**, sin máximo. Lo normal son 1.000–1.300; más
+  solo si el tema lo exige de verdad, y nunca a base de relleno.
 - **Que no sea solo texto**: al menos dos de estos elementos, donde encajen de verdad
   y no por cumplir:
   - una tabla en Markdown (comparativas, opciones con pros y contras, precios…);
