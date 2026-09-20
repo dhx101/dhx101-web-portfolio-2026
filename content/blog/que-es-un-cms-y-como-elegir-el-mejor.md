@@ -1,12 +1,12 @@
 ---
 title: Qué es un CMS y cómo elegir el mejor
-description: Descubre el funcionamiento interno de los gestores de contenido y aprende a seleccionar la plataforma ideal para escalar tu negocio digital con eficiencia.
+description: Qué es un CMS, cómo funciona por dentro y qué criterios usar para decidir en cuál construir la web de tu negocio sin equivocarte de plataforma.
 date: 2026-09-20
 image: /assets/blog/que-es-un-cms-y-como-elegir-el-mejor.webp
 image_alt: Adulto trabajando en un portátil en una oficina moderna representando la elección de un CMS eficiente
 ---
 
-Cuando decides crear o renovar la página web de tu empresa, la primera gran decisión técnica que debes tomar es dónde vas a construirla. La elección del gestor de contenidos adecuado define la velocidad de tu sitio, la facilidad para subir nuevos productos o artículos y los costes de mantenimiento a largo plazo. En este artículo te explico qué es un CMS y cuál elegir para mi negocio según tus necesidades reales y objetivos comerciales.
+Cuando decides crear o renovar la página web de tu empresa, la primera gran decisión técnica que debes tomar es dónde vas a construirla. La elección del gestor de contenidos adecuado define la velocidad de tu sitio, la facilidad para subir nuevos productos o artículos y los costes de mantenimiento a largo plazo. En este artículo te explico qué es un CMS, cómo funciona por dentro y con qué criterios decidir cuál encaja con tu negocio.
 
 ## Qué es un CMS y cómo funciona por dentro
 
@@ -20,15 +20,17 @@ Para que todo funcione de manera estructurada, el sistema organiza la informaci�
 
 No todos los negocios locales ni todas las pymes necesitan la misma plataforma. Un restaurante que solo quiere mostrar su menú y su ubicación requiere una infraestructura distinta a la de una tienda online con miles de productos.
 
-WordPress es el líder indiscutible del mercado. Su flexibilidad radica en que separa el diseño del contenido mediante temas y permite añadir funciones adicionales a través de plugins, como indica la [documentación de WordPress](https://wordpress.org/documentation/article/wordpress-semantics/). Además, su editor moderno, conocido como editor de bloques o Gutenberg, funciona como un sistema modular donde cada elemento como un párrafo o una imagen es un bloque independiente con sus propios controles, según el [manual del editor de bloques de WordPress](https://developer.wordpress.org/block-editor/).
+WordPress es el más extendido entre los negocios pequeños, y su flexibilidad viene de que separa el diseño del contenido mediante temas y permite añadir funciones adicionales a través de plugins, como indica la [documentación de WordPress](https://wordpress.org/documentation/article/wordpress-semantics/). Además, su editor moderno, conocido como editor de bloques o Gutenberg, funciona como un sistema modular donde cada elemento como un párrafo o una imagen es un bloque independiente con sus propios controles, según el [manual del editor de bloques de WordPress](https://developer.wordpress.org/block-editor/).
 
-Para que puedas comparar las opciones principales de un vistazo, he preparado esta tabla comparativa con las plataformas más habituales para pymes:
+Antes de comparar plataformas conviene tener claras las piezas con las que vas a trabajar a diario, porque son las que determinan si la web te resulta cómoda o no:
 
-| CMS | Tipo de negocio recomendado | Ventajas principales | Inconvenientes |
-| :--- | :--- | :--- | :--- |
-| WordPress | Webs corporativas, blogs y negocios locales | Control total de los datos, gran flexibilidad y miles de plugins | Requiere mantenimiento técnico activo |
-| Shopify | Tiendas online medianas y grandes | Alojamiento incluido, facilidad de uso inicial | Comisiones por venta y cuotas mensuales fijas |
-| CMS a medida | Proyectos con necesidades muy específicas | Rendimiento óptimo, seguridad máxima | Coste de desarrollo inicial muy elevado |
+| Pieza | Para qué sirve | Dónde se decide |
+| :--- | :--- | :--- |
+| Páginas | Contenido fijo: servicios, quiénes somos, contacto | Se crean una vez y se tocan poco |
+| Entradas | Contenido que crece: blog, noticias, novedades | Se agrupan con categorías y etiquetas |
+| Temas | La parte visual, separada del contenido | Se cambia sin reescribir lo publicado |
+| Plugins | Funciones añadidas: reservas, tienda, formularios | Cada uno hay que mantenerlo al día |
+| Editor de bloques | Montar la página por partes independientes | Es el modo por defecto desde el propio gestor |
 
 Si tu objetivo principal es vender por internet, la decisión suele reducirse a dos gigantes del comercio electrónico. Te recomiendo leer mi análisis detallado sobre [WooCommerce o Shopify: qué elegir para tu tienda online](/blog/woocommerce-vs-shopify/) para entender cuál se adapta mejor a tu presupuesto y volumen de ventas.
 
@@ -38,7 +40,7 @@ Para no equivocarte al elegir la plataforma de tu empresa, te sugiero seguir un 
 
 1. Define el objetivo principal de la web: determina si necesitas captar clientes locales, vender productos físicos, ofrecer reservas de citas o simplemente mostrar un portafolio de trabajos.
 2. Evalúa tu presupuesto técnico: un CMS de código abierto como WordPress no tiene costes de licencia, pero requiere contratar un servidor. Es fundamental saber [cómo elegir hosting y dominio para tu negocio](/blog/como-elegir-hosting-y-dominio/) para asegurar un buen rendimiento desde el primer día.
-3. Analiza la capacidad de gestión diaria: si no tienes personal técnico, necesitas una interfaz intuitiva. El sistema de bloques de WordPress facilita esto, pero debes decidir si prefieres trabajar con constructores visuales o desarrollo limpio. Puedes ver los pros y contras en mi artículo sobre [WordPress con Elementor o código a medida](/blog/wordpress-elementor-vs-codigo-a-medida/).
+3. Analiza la capacidad de gestión diaria: si no tienes personal técnico, necesitas una interfaz intuitiva. El sistema de bloques de WordPress facilita esto, pero debes decidir si prefieres trabajar con constructores visuales o desarrollo limpio. Tienes los pros y los contras en el artículo sobre [WordPress con Elementor o código a medida](/blog/wordpress-elementor-vs-codigo-a-medida/).
 4. Planifica el crecimiento futuro: tu CMS debe ser capaz de escalar. Si la plataforma es demasiado cerrada, podrías encontrarte con limitaciones que te obliguen a rediseñar todo el sitio en pocos años.
 
 > **Importante:** Un error muy común es elegir un CMS cerrado que te impida exportar tus datos fácilmente. Asegúrate siempre de mantener la propiedad absoluta de tu base de datos y de los archivos de tu web.
