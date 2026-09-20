@@ -28,3 +28,4 @@ Fotos de [Pexels](https://www.pexels.com), licencia libre de uso (no se exige at
 - `actualizar-php-hosting-obsoleto.webp` — Pixabay (https://www.pexels.com/@pixabay)
 - `accesibilidad-web-para-negocios.webp` — Antoni Shkraba (https://www.pexels.com/@shkrabaanthony)
 - `que-es-un-dominio-web-y-como-funciona.webp` — Brett Sayles (https://www.pexels.com/@brett-sayles)
+- `que-es-un-cms-y-como-elegir-el-mejor.webp` — Burst (https://www.pexels.com/@burst)
