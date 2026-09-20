@@ -28,8 +28,11 @@ las reglas, cámbialo aquí: es la única fuente.
 
 - Todo dato, cifra, umbral o afirmación verificable (p. ej. "LCP por debajo de
   2,5 s", "Google sustituyó FID por INP en 2024") lleva **enlace a la fuente
-  original**: documentación oficial (Google Search Central, web.dev, WordPress,
-  MDN), estudios o fabricantes. Nada de blogs de terceros como fuente principal.
+  original**. Se prefiere la documentación oficial cuando existe (Google Search
+  Central, web.dev, WordPress, MDN), y después estudios, fabricantes o medios
+  solventes. Hay temas de negocio (precios, decisiones, procesos) que ningún
+  manual cubre: ahí vale otra fuente, pero siempre la primaria, nunca quien la
+  cita de segunda mano, y comprobando el dato en la propia página enlazada.
 - Si no hay fuente fiable, no se incluye el dato.
 - No inventar casos, clientes, resultados ni porcentajes de David.
 - Experiencia real de David que se puede citar:
