@@ -24,3 +24,4 @@ Fotos de [Pexels](https://www.pexels.com), licencia libre de uso (no se exige at
 - `que-es-un-registro-de-auditoria.webp` — Joachim Schnürle (https://www.pexels.com/@joa70)
 - `de-sqlite-a-postgres-por-que-migre-mi-base-de-datos.webp` — panumas nikhomkhai (https://www.pexels.com/@cookiecutter)
 - `portal-de-clientes-para-agencia-wordpress.webp` — Lukas Blazek (https://www.pexels.com/@goumbik)
+- `https-para-tu-web-por-que-es-necesario.webp` — Dan Nelson (https://www.pexels.com/@dan-nelson-1667453)
