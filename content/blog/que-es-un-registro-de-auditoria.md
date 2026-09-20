@@ -7,7 +7,7 @@ image: /assets/blog/que-es-un-registro-de-auditoria.webp
 image_alt: Documentos y registros representando un log de auditoría
 ---
 
-"¿Quién marcó esta factura como pagada?" Es la típica pregunta que, en un panel con varios administradores, no tiene respuesta si nadie la ha previsto. Un registro de auditoría la responde en segundos. En este post te explico qué es, qué debería guardar según la guía de OWASP, la decisión de diseño que más importa y cómo lo implementé en el [Web Client Portal](https://dhx101-web-client-portal.vercel.app).
+"¿Quién marcó esta factura como pagada?" Es la típica pregunta que, en un panel con varios administradores, no tiene respuesta si nadie la ha previsto. Un registro de auditoría la responde en segundos. En este post te explico qué es, qué debería guardar según la guía de OWASP, la decisión de diseño que más importa y cómo lo implementé en el [Web Client Portal](/proyectos/).
 
 ## Qué es un registro de auditoría
 
