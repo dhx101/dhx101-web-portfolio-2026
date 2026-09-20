@@ -10,7 +10,7 @@ Cuando queremos visitar una página web, no escribimos una secuencia compleja de
 
 ## Qué es un dominio web
 
-Para entender qué es un dominio, primero debemos comprender cómo se comunican las computadoras en la red. Cada dispositivo conectado a internet tiene asignada una dirección IP, que es una secuencia numérica única que sirve para identificarlo y localizarlo. Según [la documentación técnica de MDN sobre la web](https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Web_mechanics/How_does_the_Internet_work), estas direcciones IP son secuencias de números que identifican a las computadoras en una red, pero son difíciles de recordar para los seres humanos.
+Para entender qué es un dominio, primero debemos comprender cómo se comunican los ordenadores en la red. Cada dispositivo conectado a internet tiene asignada una dirección IP, que es una secuencia numérica única que sirve para identificarlo y localizarlo. Según [la documentación técnica de MDN sobre la web](https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Web_mechanics/How_does_the_Internet_work), estas direcciones IP son secuencias de números que identifican a los ordenadores de una red, pero son difíciles de recordar para los seres humanos.
 
 Por esta razón, utilizamos los dominios web como alias legibles. Como indica [la documentación oficial de MDN sobre dominios](https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_domain_name), un dominio es una dirección que sustituye a la dirección IP. Esta estructura se lee de derecha a izquierda, comenzando por el dominio de nivel superior o TLD (como .com o .es). La etiqueta situada inmediatamente antes del TLD se denomina Dominio de Segundo Nivel (SLD). Es importante recordar que no compras un dominio de forma definitiva, sino que pagas por el derecho a usarlo durante un periodo determinado, con opción a renovación. Si tu web actual no transmite profesionalidad o está mal configurada, es posible que estés perdiendo oportunidades de venta, tal como detallo en [7 señales de que tu web te está haciendo perder clientes](/blog/senales-de-que-tu-web-te-hace-perder-clientes/).
 
@@ -20,10 +20,10 @@ Cuando escribes una dirección en tu navegador, este no sabe inmediatamente dón
 
 El proceso sigue estos pasos:
 
-1. El navegador consulta primero una caché local para ver si ya conoce la dirección IP.
-2. Si no la encuentra, solicita la información a un servidor DNS.
-3. El servidor DNS localiza la dirección IP donde reside el sitio web.
-4. El navegador envía los mensajes HTTP necesarios para recuperar el sitio.
+1. El navegador consulta al servidor DNS para saber la dirección real del servidor donde vive la web.
+2. El servidor DNS le devuelve la dirección IP.
+3. El navegador envía una petición HTTP a esa dirección pidiendo una copia del sitio.
+4. Si el servidor acepta, responde con un «200 OK» y empieza a mandar los archivos en paquetes que el navegador ensambla.
 
 > **Importante:** Al completar el formulario de registro de tu dominio, asegúrate de no escribir mal el nombre, ya que una vez realizado el pago, no hay vuelta atrás.
 
@@ -55,7 +55,7 @@ Recuerda que el mantenimiento de estos elementos es constante. Un dominio mal ge
 No, no es posible comprar un dominio de forma definitiva. Pagas por el derecho a usarlo durante un periodo determinado, con la opción de renovarlo periódicamente para mantener su propiedad.
 
 ### ¿Qué pasa si escribo mal mi dominio al registrarlo?
-Debes tener mucho cuidado, ya que una vez realizado el pago, no hay vuelta atrás. El registro es definitivo y no permite correcciones posteriores.
+Debes tener mucho cuidado: una vez pagado, ya es tarde. Tendrías que registrar el nombre correcto otra vez, y volver a pagarlo.
 
 ### ¿Por qué mi dominio no funciona inmediatamente después de comprarlo?
 Una vez registrado, el sistema necesita propagar la información. Puede tomar algunas horas para que todos los servidores DNS del mundo reciban y actualicen los datos correspondientes.
