@@ -19,6 +19,9 @@ from _site import ARROW_ICON, ROOT, page_shell  # noqa: E402
 CONTENT_DIR = os.path.join(ROOT, "content", "blog")
 BLOG_DIR = os.path.join(ROOT, "blog")
 SITEMAP_PATH = os.path.join(ROOT, "page-sitemap.xml")
+# Índices que apuntan a page-sitemap.xml (robots.txt anuncia sitemap_index.xml;
+# sitemap.xml es la ruta que prueban los rastreadores por defecto).
+SITEMAP_INDEX_PATHS = [os.path.join(ROOT, name) for name in ("sitemap_index.xml", "sitemap.xml")]
 # og:image/twitter:image need an absolute URL to resolve for external crawlers
 # (Facebook/LinkedIn/Twitter preview bots), unlike canonical links elsewhere
 # in this site which stay relative.
@@ -234,6 +237,24 @@ def update_sitemap(posts):
         raise SystemExit(f"{SITEMAP_PATH}: URLs no absolutas en el sitemap: {relative}")
     with open(SITEMAP_PATH, "w", encoding="utf-8") as f:
         f.write(sitemap)
+    update_sitemap_indexes(sitemap)
+
+
+def update_sitemap_indexes(sitemap):
+    """El <lastmod> del índice es la señal de que page-sitemap.xml ha cambiado:
+    sin esto se quedaba con la fecha del export de Rank Math (2026-07-08)."""
+    last_change = max(re.findall(r"<lastmod>([^<]*)</lastmod>", sitemap), key=lambda v: v[:10])
+    for path in SITEMAP_INDEX_PATHS:
+        if not os.path.exists(path):
+            continue
+        with open(path, encoding="utf-8") as f:
+            index = f.read()
+        entry = re.escape(f"<loc>{BASE_URL}/page-sitemap.xml</loc>")
+        index, n = re.subn(r"(" + entry + r"\s*<lastmod>)[^<]*(</lastmod>)", r"\g<1>" + last_change + r"\g<2>", index)
+        if n != 1:
+            raise SystemExit(f"{path}: no encuentro la entrada de page-sitemap.xml con su <lastmod>.")
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(index)
 
 
 def main():
