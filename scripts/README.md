@@ -28,7 +28,7 @@ pip install -r scripts/requirements.txt
 
 ```bash
 python3 scripts/build_pages.py   # /proyectos/, /estudios/, /experiencia/
-python3 scripts/build_blog.py    # /blog/ + un directorio por post, y actualiza page-sitemap.xml
+python3 scripts/build_blog.py    # /blog/ + un directorio por post; actualiza page-sitemap.xml y el lastmod de sitemap_index.xml y sitemap.xml
 ```
 
 Corre los dos después de cualquier cambio en los JSON, en `content/blog/`, o en el `<head>`/header/footer de `index.html` — si tocas `index.html`, las páginas generadas quedan desactualizadas hasta que se vuelva a correr esto.
